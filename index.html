@@ -65,6 +65,27 @@ h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(30px,7.6vw,4
 .card-link.disabled .go{content:""}
 
 footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+.search-wrap{margin:24px 0 4px}
+.search-input{
+  width:100%;padding:12px 14px;border:1px solid var(--rule);border-radius:4px;
+  background:var(--paper2);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-size:14.5px;
+}
+.search-input::placeholder{color:#8B8676}
+.search-input:focus{outline:none;border-color:var(--ink)}
+.search-status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);margin-top:7px;min-height:14px}
+.search-results{margin-top:6px}
+.search-result{
+  display:block;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;
+  padding:12px 14px;margin-bottom:8px;text-decoration:none;color:inherit;transition:border-color .15s;
+}
+.search-result:hover{border-color:var(--ink)}
+.search-result h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-weight:700;font-size:15px;color:var(--ink)}
+.search-result p{margin:0;font-size:12.8px;color:var(--ink-soft);line-height:1.65}
+.search-result mark{background:var(--hl);color:var(--ink);padding:0 1px;border-radius:2px}
+.search-empty{font-size:13px;color:var(--ink-soft);padding:10px 2px}
+.hidden{display:none !important}
 </style>
 </head>
 <body>
@@ -89,6 +110,13 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
   </div>
 </header>
 
+<div class="search-wrap">
+  <input type="search" id="siteSearch" class="search-input" placeholder="키워드로 40편 전체 검색 — 예: 균역법, 홍범도, 신간회" autocomplete="off">
+  <div class="search-status" id="searchStatus"></div>
+</div>
+<div class="search-results hidden" id="searchResults"></div>
+
+<div id="allSections">
 <section class="section">
   <div class="section-head"><div class="duality">선사 · 고대</div><div class="section-line"></div></div>
 
@@ -393,11 +421,125 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <span class="go">열기 →</span>
   </a>
 </section>
+</div>
 
 <footer>
   각 노트는 독립된 페이지로, 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다. 선사 시대부터 현대까지 시대 순서로 배열했으니, 위에서부터 차례로 읽으시면 흐름이 자연스럽게 이어집니다.
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var input = document.getElementById('siteSearch');
+  var status = document.getElementById('searchStatus');
+  var resultsEl = document.getElementById('searchResults');
+  var sectionsEl = document.getElementById('allSections');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.card-link'));
+  var pages = links.map(function(a){
+    return { url: a.getAttribute('href'), title: a.querySelector('h3').textContent.trim() };
+  });
+  var cache = {};
+  var loaded = false, loading = false;
+
+  function escapeHtml(s){
+    return s.replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; });
+  }
+  function escapeRegExp(s){
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function ensureLoaded(cb){
+    if(loaded){ cb(); return; }
+    if(loading){ setTimeout(function(){ ensureLoaded(cb); }, 80); return; }
+    loading = true;
+    status.textContent = '검색 준비 중…';
+    var remaining = pages.length;
+    pages.forEach(function(p){
+      fetch(p.url).then(function(res){ return res.text(); }).then(function(html){
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var kill = doc.querySelectorAll('script, style, .pagenav, .back');
+        kill.forEach(function(el){ el.remove(); });
+        var text = doc.body ? doc.body.textContent.replace(/\s+/g, ' ').trim() : '';
+        cache[p.url] = text;
+      }).catch(function(){
+        cache[p.url] = '';
+      }).finally(function(){
+        remaining--;
+        if(remaining <= 0){
+          loaded = true; loading = false; status.textContent = '';
+          cb();
+        }
+      });
+    });
+  }
+
+  function highlight(text, q){
+    var idx = text.toLowerCase().indexOf(q.toLowerCase());
+    if(idx === -1){ return escapeHtml(text.slice(0, 80)) + '…'; }
+    var start = Math.max(0, idx - 30);
+    var end = Math.min(text.length, idx + q.length + 50);
+    var snippet = text.slice(start, end);
+    if(start > 0) snippet = '…' + snippet;
+    if(end < text.length) snippet = snippet + '…';
+    var re = new RegExp('(' + escapeRegExp(q) + ')', 'ig');
+    return escapeHtml(snippet).replace(re, function(m){ return '<mark>' + m + '</mark>'; });
+  }
+
+  function runSearch(q){
+    q = q.trim();
+    if(!q){
+      resultsEl.classList.add('hidden');
+      resultsEl.innerHTML = '';
+      sectionsEl.classList.remove('hidden');
+      status.textContent = '';
+      return;
+    }
+    sectionsEl.classList.add('hidden');
+    resultsEl.classList.remove('hidden');
+
+    var ql = q.toLowerCase();
+    var matches = [];
+    pages.forEach(function(p){
+      var titleHit = p.title.toLowerCase().indexOf(ql) !== -1;
+      var text = cache[p.url] || '';
+      var bodyHit = text.toLowerCase().indexOf(ql) !== -1;
+      if(titleHit || bodyHit){
+        matches.push({
+          url: p.url, title: p.title, titleHit: titleHit,
+          snippet: bodyHit ? highlight(text, q) : ''
+        });
+      }
+    });
+    matches.sort(function(a, b){ return (b.titleHit ? 1 : 0) - (a.titleHit ? 1 : 0); });
+
+    if(matches.length === 0){
+      resultsEl.innerHTML = '<p class="search-empty">일치하는 노트가 없습니다. 다른 키워드로 찾아보세요.</p>';
+      status.textContent = '';
+      return;
+    }
+    status.textContent = matches.length + '개 노트에서 찾았습니다';
+    resultsEl.innerHTML = matches.map(function(m){
+      return '<a class="search-result" href="' + m.url + '">' +
+        '<h4>' + escapeHtml(m.title) + '</h4>' +
+        '<p>' + (m.snippet || '제목이 일치합니다') + '</p>' +
+        '</a>';
+    }).join('');
+  }
+
+  var debounceTimer;
+  input.addEventListener('input', function(e){
+    var q = e.target.value;
+    clearTimeout(debounceTimer);
+    if(q.trim() && !loaded){
+      ensureLoaded(function(){ runSearch(input.value); });
+      status.textContent = '검색 준비 중…';
+      return;
+    }
+    debounceTimer = setTimeout(function(){ runSearch(q); }, 120);
+  });
+})();
+</script>
+
 </body>
 </html>
