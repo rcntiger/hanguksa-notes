@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조선 건국 · 통치 체제 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 전기</div>
+  <h1>조선의 건국과 통치 체제</h1>
+  <p class="sub">태종·세종·세조·성종, 네 왕이 서로 다른 방식으로 왕권과 신권의 균형을 찾아가는 과정입니다</p>
+  <p class="period">1392 조선건국 &nbsp;→&nbsp; 태종 &nbsp;→&nbsp; 세종 &nbsp;→&nbsp; 세조 &nbsp;→&nbsp; 성종(경국대전 완성)</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>태조</b>정도전</div>
+      <div class="tl-node"><b>태종</b>6조직계제</div>
+      <div class="tl-node p2"><b>세종</b>훈민정음</div>
+      <div class="tl-node"><b>세조</b>계유정난</div>
+      <div class="tl-node"><b>성종</b>경국대전</div>
+    </div>
+  </div>
+</header>
+
+<!-- 국가기틀 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">국가 기틀의 확립</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">6조 직계제(태종·세조)와 의정부 서사제(세종)의 <b>주체를 바꾸는 오답</b>이 가장 흔합니다</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>태조·정도전</b> — <b>재상 중심 정치</b> 주장(『조선경국전』), 요동 정벌 추진</li>
+      <li><b>태종</b> — <b>6조 직계제</b>(6조가 왕에게 직접 보고), <b>호패법</b> 실시, 사병 혁파, 신문고 설치</li>
+      <li><b>세종</b> — <b>집현전</b> 설치, <b>훈민정음</b> 창제, <b>의정부 서사제</b>(왕권·신권 조화), <b>4군 6진</b>(최윤덕·김종서) 개척, 『농사직설』·『칠정산』 편찬</li>
+      <li><b>세조</b> — <b>계유정난</b>으로 집권, <b>6조 직계제 부활</b>(왕권 강화), <b>직전법</b> 실시, <b>『경국대전』 편찬 착수</b></li>
+      <li><b>성종</b> — <b>홍문관</b> 설치(학술·언론), <b>『경국대전』 완성·반포</b>, 『국조오례의』 편찬</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 6조 직계제는 <span class="redmark">태종·세조</span>(왕권 강화), 의정부 서사제는 <span class="redmark">세종</span>(왕권·신권 조화) — 두 제도의 <b>주체가 다르다</b>는 것이 이 단원 최고 빈출 함정입니다.</div>
+  </div>
+</section>
+
+<!-- 통치조직 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">중앙 통치 조직</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <h3 class="card-title">3사</h3>
+    <ul class="chk">
+      <li><b>사헌부</b> — 관리의 비리를 감찰</li>
+      <li><b>사간원</b> — 왕에게 간쟁(잘못을 지적)</li>
+      <li><b>홍문관</b> — 경연(왕의 학문 지도)과 학술 자문</li>
+      <li>3사는 <b>권력 독점을 막는 견제 장치</b> — 고위 관리라도 3사의 탄핵을 피하기 어려움</li>
+    </ul>
+    <ul class="chk">
+      <li><b>승정원</b> — 왕명 출납을 담당하는 왕의 비서 기관</li>
+      <li><b>의금부</b> — 국왕 직속 사법 기구, 중대 범죄(반역 등) 처리</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">지방 행정</h3>
+    <ul class="chk">
+      <li><b>8도</b> 아래 부·목·군·현 — <b>모든 군현에 수령을 파견</b>(고려와의 결정적 차이)</li>
+      <li>향리는 <b>세습 아전</b>으로 지위가 고려 때보다 낮아짐(수령을 보좌하는 실무 담당)</li>
+      <li><b>유향소</b> — 향촌 자치 기구, 지방 사족이 수령을 견제·보좌</li>
+      <li><b>경재소</b> — 중앙과 유향소를 연결하는 기구</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "모든 군현에 지방관을 파견했다"는 <span class="redmark">조선</span>의 특징입니다. 고려는 <b>속현이 주현보다 많아</b> 지방관이 파견되지 않은 곳이 더 많았다는 점과 대비해서 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 6조 직계제 vs 의정부 서사제</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>제도</th><th>시행 왕</th><th>방식</th><th>성격</th></tr>
+    <tr><td><b>6조 직계제</b></td><td>태종, 세조</td><td>6조 → 왕에게 직접 보고</td><td>왕권 강화</td></tr>
+    <tr><td><b>의정부 서사제</b></td><td>세종</td><td>6조 → 의정부 → 왕</td><td>왕권·신권 조화</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

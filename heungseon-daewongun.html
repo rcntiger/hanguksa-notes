@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>흥선대원군 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;
+  line-height:1.7;
+  font-size:15px;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+/* ---------- header ---------- */
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{
+  position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+  padding:5px 10px;transform:translateY(-50%);border-radius:2px;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px;
+}
+h1{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(32px,8vw,44px);
+  margin:0 0 8px;letter-spacing:-.01em;
+}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);
+  margin-top:10px;font-weight:600;
+}
+
+/* ---------- timeline strip ---------- */
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{
+  flex:1;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);
+  background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-soft)
+}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:12.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.mnemonic-strip{
+  margin-top:8px;text-align:center;font-family:'Gowun Batang',serif;font-size:15px;
+  letter-spacing:.06em;color:var(--red);font-weight:700;
+}
+
+/* ---------- section (대립구도) ---------- */
+.section{margin-top:40px}
+.section-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.duality{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.vs{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);
+  border:1px solid var(--rule);border-radius:50%;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+
+/* ---------- checklist card ---------- */
+.card{
+  background:var(--paper2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px 12px;margin-bottom:10px;position:relative;
+}
+.card-title{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;
+  display:flex;align-items:baseline;gap:8px;
+}
+.card-title .box{
+  font-size:15px;color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;flex:0 0 auto;
+}
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{
+  position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink);
+}
+ul.chk li::before{
+  content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px;
+}
+ul.chk b{
+  font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);
+  padding:0 1px;
+}
+ul.chk .redmark{
+  color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;
+  text-decoration-color:var(--red-soft);text-underline-offset:3px;
+}
+.subnote{
+  margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);
+  font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0;
+}
+.subnote b{color:var(--red);font-weight:700}
+
+/* 계보표 */
+.lineage{
+  display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:10px 0 6px;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+}
+.lineage span{
+  background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:4px 8px;
+  color:var(--ink);white-space:nowrap;
+}
+.lineage span.now{border-color:var(--red);color:var(--red);font-weight:700}
+.lineage .arrow{color:var(--ink-soft)}
+
+/* 사건 타임라인 카드형 */
+.evt-list{margin-top:6px}
+.evt{
+  display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;
+  border-top:1px solid var(--rule);
+}
+.evt:first-child{border-top:none}
+.evt-year{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);font-weight:700;
+  padding-top:2px;
+}
+.evt-body h4{
+  margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;
+}
+.evt-body p{margin:0;font-size:13.3px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+/* stamp 도장 느낌 */
+.stamp{
+  display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:11px;padding:2px 7px;border-radius:3px;
+  margin-left:6px;opacity:.85;
+}
+
+.bridge{
+  margin-top:40px;padding:16px 18px;background:var(--paper2);border:1px dashed var(--ink-soft);
+  border-radius:4px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;
+}
+.bridge b{color:var(--ink);font-family:'Gowun Batang',serif;font-weight:700;font-size:14.5px}
+
+footer{
+  margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:11.5px;color:var(--ink-soft);line-height:1.75;
+}
+
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .wrap{max-width:100%}
+  .card{break-inside:avoid}
+  .section{break-inside:avoid-page}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대 태동기</div>
+  <h1>흥선대원군</h1>
+  <p class="sub">이하응 · 고종의 아버지로 섭정 — 안으로는 왕권 강화, 밖으로는 통상 거부</p>
+  <p class="period">섭정 1863 ~ 1873 &nbsp;|&nbsp; 1873년 최익현의 계유상소 → 고종 친정 시작</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>왕권 강화</b>경복궁·법전</div>
+      <div class="tl-node"><b>민생 개혁</b>삼정 손질</div>
+      <div class="tl-node"><b>천주교 박해</b>병인박해</div>
+      <div class="tl-node"><b>양요 2회</b>병인·신미</div>
+      <div class="tl-node"><b>척화비</b>1871</div>
+      <div class="tl-node"><b>하야</b>계유상소</div>
+    </div>
+  </div>
+</header>
+
+<!-- 대립구도 1 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">왕권 회복</span><span class="vs">↔</span><span class="neg">세도정치</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 왕실 권위 세우기</h3>
+    <ul class="chk">
+      <li><b>경복궁 중건</b> — 재원 마련을 위해 <span class="redmark">원납전</span> 강제 징수, 고액 화폐 <span class="redmark">당백전</span> 발행(물가 폭등), 묘지림까지 벌목</li>
+      <li><b>비변사 혁파</b> → 의정부(행정)·삼군부(군사) 기능 부활 — 세도 가문이 장악했던 비변사 힘 빼기</li>
+      <li>법전 정비: <b>『대전회통』</b>, <b>『육전조례』</b>(6조의 세부 사무 규정)</li>
+    </ul>
+    <div class="subnote">
+      <b>비변사 참고</b> 중종 삼포왜란 때 <b>임시 기구</b>로 출발 → 명종 을묘왜변 이후 <b>상설 기구</b>로 굳어졌고, 세도정치기에 최고 권력 기구가 됐다가 흥선대원군이 혁파합니다.
+    </div>
+    <div class="lineage">
+      <span>경국대전 (성종)</span><span class="arrow">→</span>
+      <span>속대전 (영조)</span><span class="arrow">→</span>
+      <span>대전통편 (정조)</span><span class="arrow">→</span>
+      <span class="now">대전회통 (흥선대원군)</span>
+    </div>
+    <div class="subnote"><b>암기</b> "완성종 · 영속속 · 통정통 · 회통 흥선대원군" — 책 이름 앞글자와 왕을 붙여 순서대로.</div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 서원·사당 정리</h3>
+    <ul class="chk">
+      <li>전국 서원 중 <b>47개소만 남기고 철폐</b> — 지방 양반의 근거지를 축소</li>
+      <li><b>만동묘 철폐</b>(숙종 때 건립) — 임진왜란 지원 명나라 <span class="redmark">만력제</span>와 마지막 황제 <span class="redmark">숭정제</span>를 기리던 사당</li>
+    </ul>
+    <div class="subnote">양반 유생들의 반발이 가장 컸던 정책 — 서원 철폐는 세도 가문·지방 사족 세력을 동시에 겨눈 조치입니다.</div>
+  </div>
+</section>
+
+<!-- 대립구도 2 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">민생 안정</span><span class="vs">↔</span><span class="neg">삼정 문란</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 삼정 개혁 3종</h3>
+    <ul class="chk">
+      <li><b>전정</b> — 양전 사업 실시, 숨겨져 있던 <span class="redmark">은결</span> 색출</li>
+      <li><b>군정</b> — <b>호포제</b> 시행: 개인이 아닌 <span class="redmark">호(戶) 단위</span>로 포를 부과 → 그동안 면제였던 <b>양반도 부담</b>, 거센 반발</li>
+      <li><b>환곡</b> — <b>사창제</b> 시행: 마을 단위 <span class="redmark">자치 운영</span>으로 전환해 관리의 중간 착복 차단</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 호포제의 핵심은 '양반도 낸다'는 것. 사창제의 핵심은 '마을이 직접 관리한다'는 것 — 이 두 단어만 정확히 기억해도 대부분의 선지를 가릅니다.</div>
+  </div>
+</section>
+
+<!-- 대립구도 3 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">통상 수교 거부</span><span class="vs">↔</span><span class="neg">서세동점</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--ink-soft);margin:0 0 10px">서양 세력이 통상을 요구하며 잇따라 충돌한 사건들 — 배경이 되는 신유박해(1801)부터 척화비(1871)까지, 순서가 곧 출제 포인트입니다.</p>
+
+  <div class="mnemonic-strip">유 · 병 · 제 · 병 · 오 · 신 · 척</div>
+  <p style="text-align:center;font-size:11.5px;color:var(--ink-soft);margin:2px 0 18px">신유박해 → 병인박해 → 제너럴셔먼호 → 병인양요 → 오페르트 도굴 → 신미양요 → 척화비</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-year">1801<br><span style="font-size:9.5px;color:var(--ink-soft)">순조</span></div>
+        <div class="evt-body">
+          <h4>신유박해 <span class="stamp">배경</span></h4>
+          <p><b>이승훈·정약종</b> 처형, <b>정약용·정약전</b> 유배 → <b>황사영 백서 사건</b>(중국에 도움 요청하는 편지)으로 파장 확대. 정약용의 저서 <b>『경세유표』·『흠흠신서』·『목민심서』</b>도 함께 출제.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1866</div>
+        <div class="evt-body">
+          <h4>병인박해</h4>
+          <p>러시아 남하를 막으려 프랑스와 교섭을 시도했으나 실패 → 국내 천주교도·프랑스 선교사 대거 처형.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1866</div>
+        <div class="evt-body">
+          <h4>제너럴셔먼호 사건</h4>
+          <p>미국 상선이 <b>대동강</b>을 거슬러 침범 → 평안 감사 <b>박규수</b>와 평양 관민이 저항, 배를 불태움.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1866</div>
+        <div class="evt-body">
+          <h4>병인양요</h4>
+          <p>프랑스 <b>로즈 함대</b> 침입 — <b>양헌수</b>(정족산성), <b>한성근</b>(문수산성)이 항전. 프랑스군이 물러가며 <b>외규장각 도서</b>와 『의궤』를 약탈.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1868</div>
+        <div class="evt-body">
+          <h4>오페르트 도굴 사건</h4>
+          <p><b>독일 상인 오페르트</b>가 흥선대원군의 아버지 <b>남연군의 묘</b>(덕산·예산)를 도굴하려다 미수에 그침 — 통상 수교 거부 의지를 더 굳히는 계기.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1871</div>
+        <div class="evt-body">
+          <h4>신미양요</h4>
+          <p>미국이 제너럴셔먼호 사건 <b>배상과 통상</b>을 요구하다 거부당하자 침공. <b>로저스 제독</b> 지휘, <b>어재연</b>이 <b>광성보</b>에서 항전하다 전사, <b>수(帥)자기</b>를 빼앗김.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1871</div>
+        <div class="evt-body">
+          <h4>척화비 건립</h4>
+          <p>"양이가 침범하는데 싸우지 않으면 화친하는 것이요, <b>화친을 주장함은 나라를 파는 것</b>(주화매국)" — 통상 거부 의지를 전국에 새겨 세움.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>1873년, 대원군 하야</b><br>
+  최익현의 <b>계유상소</b>로 대원군이 물러나고 고종이 친정(민비 세력 등장)을 시작합니다. 이어 1875년 <b>운요호 사건</b>, 1876년 <b>강화도 조약(조일수호조규)</b>으로 개항 — 여기부터는 별도 주제인 '개항기'로 이어집니다.
+</div>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄·형광펜으로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

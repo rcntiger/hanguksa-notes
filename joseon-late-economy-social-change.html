@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>경제 변화 · 신분제 동요 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>경제 변화와 신분제 동요</h1>
+  <p class="sub">농업 생산력이 높아지자 상업이 발달하고, 그 돈의 힘이 결국 엄격했던 신분제까지 흔듭니다</p>
+</header>
+
+<!-- 농업변화 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">농업의 변화</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>모내기법(이앙법)</b> 전국 확산 — 잡초 제거(제초) 노동력 절감, <b>벼와 보리의 이모작</b> 가능</li>
+      <li>노동력이 절감되며 한 농민이 넓은 땅을 경작하는 <b>광작</b> 성행 → 일부 농민은 부농으로 성장하지만, 다수는 <b>토지를 잃고 임노동자·소작농으로 전락</b>(농민층 분화)</li>
+      <li>상품 작물 재배 확대: <b>담배·인삼·목화</b> 등을 시장에 팔기 위해 재배</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 모내기법의 확산은 <b>광작 → 농민층 분화(부농과 빈농으로 양극화)</b>로 이어진다는 인과 관계가 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 상업발달 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">상업의 발달</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>장시</b>(정기 시장)가 전국 각지로 확대, <b>보부상</b>이 장시를 오가며 유통 담당</li>
+      <li>사상(私商)의 성장: <b>개성 송상</b>(전국에 <b>송방</b>이라는 지점 설치, 인삼 재배·판매), <b>의주 만상</b>(대청 무역), <b>동래 내상</b>(대일 무역), <b>경강상인</b>(한강 중심 운송업)</li>
+      <li><b>객주·여각</b> — 상품 중개·보관·숙박을 담당하는 중간 상인</li>
+      <li>화폐: <b>상평통보</b>가 전국적으로 유통 — 다만 화폐가 시중에 잠기는 <b>전황</b> 현상도 발생</li>
+      <li>광업: 조선 후기 <b>민간인의 광산 채굴을 허용</b>(설점수세제) → <b>덕대</b>가 물주에게 자본을 받아 광산을 전문적으로 경영</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "개성 상인이 송방을 두고 인삼을 재배·판매했다"는 <span class="redmark">송상</span>의 대표 서술입니다. 지역별 사상 이름과 활동 지역을 정확히 짝지어야 합니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>상업으로 쌓은 부는, 결국 신분까지 흔듭니다</b><br>
+  부농과 상인이 재산을 이용해 양반 신분을 사거나 위조하기 시작하면서, 엄격했던 신분 질서 자체가 흔들리기 시작합니다.
+</div>
+
+<!-- 신분제동요 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">신분제의 동요</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">양반 신분의 확대</h3>
+    <ul class="chk">
+      <li>부농층이 <b>납속</b>(재물을 나라에 바침)이나 <b>공명첩</b>(이름을 비워둔 관직 임명장을 구매)을 통해 양반 신분 획득</li>
+      <li><b>족보 위조</b>도 성행 — 양반 수는 늘고 상민·노비 수는 줄어드는 신분 구조 변화</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">중인·서얼의 신분 상승 요구</h3>
+    <ul class="chk">
+      <li>기술직 중인들이 전문성을 바탕으로 <b>통청 운동</b>(청요직 진출 허용 요구) 전개</li>
+      <li>서얼도 청요직 진출을 요구 — <b>정조</b> 때 <b>규장각 검서관</b>으로 일부 서얼 등용(박제가·유득공·이덕무 등)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">노비 제도의 변화</h3>
+    <ul class="chk">
+      <li><b>노비종모법</b>(영조) — 어머니의 신분을 따르도록 해 노비 수를 줄이려는 목적</li>
+      <li><b>공노비 해방</b>(1801, <b>순조</b>) — 국가 소유 공노비를 양인으로 해방(사노비는 유지)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 공노비 해방은 <b>1801년 순조</b> 때입니다. 신분제의 <b>법적 완전 폐지는 1894년 갑오개혁</b> 때라는 점과 혼동하지 마세요 — 90여 년의 시차가 있습니다.</div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">향촌 질서의 변화</h3>
+    <ul class="chk">
+      <li>기존 향촌 지배층인 <b>구향(사족)</b>과, 경제력을 바탕으로 성장한 <b>신향(부농)</b> 사이의 <b>향전</b> 발생</li>
+      <li>사족의 권위가 약해지며 <b>수령과 향리의 권한이 상대적으로 강화</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 사상(私商) 4개</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>사상</th><th>근거지</th><th>활동</th></tr>
+    <tr><td><b>송상</b></td><td>개성</td><td>송방 설치, 인삼 재배·판매</td></tr>
+    <tr><td><b>만상</b></td><td>의주</td><td>대청 무역</td></tr>
+    <tr><td><b>내상</b></td><td>동래</td><td>대일 무역</td></tr>
+    <tr><td><b>경강상인</b></td><td>한강</td><td>선박을 이용한 운송업</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

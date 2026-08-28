@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>문벌 동요 · 무신 정권 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.quote{margin-top:8px;padding:10px 12px;background:var(--paper);border-radius:3px;font-family:'Gowun Batang',serif;font-size:13.5px;color:var(--ink);line-height:1.6;border:1px dashed var(--rule)}
+.quote span{display:block;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-soft);margin-top:4px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고려</div>
+  <h1>문벌 사회의 동요와 무신 정권</h1>
+  <p class="sub">문벌 귀족 사회가 두 차례 크게 흔들린 뒤(이자겸의 난, 묘청의 난), 결국 무신들이 정변으로 정권을 잡습니다</p>
+  <p class="period">1126 이자겸의난 &nbsp;→&nbsp; 1135 묘청의난 &nbsp;→&nbsp; 1170 무신정변 &nbsp;→&nbsp; 최충헌·최우 &nbsp;→&nbsp; 하층민봉기</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>이자겸의난</b>1126</div>
+      <div class="tl-node"><b>묘청의난</b>1135</div>
+      <div class="tl-node p2"><b>무신정변</b>1170</div>
+      <div class="tl-node p2"><b>최충헌</b>교정도감</div>
+      <div class="tl-node p2"><b>최우</b>정방·삼별초</div>
+      <div class="tl-node p3"><b>만적의난</b>신분해방</div>
+    </div>
+  </div>
+</header>
+
+<!-- 문벌귀족 동요 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">문벌 귀족 사회의 동요</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1126</div>
+        <div class="evt-body">
+          <h4>이자겸의 난</h4>
+          <p>대표적 문벌 귀족 가문인 경원 이씨의 <b>이자겸</b>이 왕(인종)을 압박할 정도로 권력을 독점 → 척준경과 결탁해 반란을 일으켰으나 진압됨.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1135</div>
+        <div class="evt-body">
+          <h4>묘청의 서경 천도 운동</h4>
+          <p><b>묘청·정지상</b> 등 서경(평양) 세력이 <b>풍수지리설</b>을 내세워 <b>서경 천도</b>와 <b>칭제건원·금국 정벌</b>을 주장 → 개경 귀족(<b>김부식</b> 등)의 반대로 좌절되자 <b>서경에서 반란</b> 일으킴 → <b>김부식</b>이 이끄는 관군에게 진압됨.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 묘청의 난은 <b>서경파(자주·풍수지리) vs 개경파(사대·유교)</b>의 대립입니다. <span class="redmark">신채호</span>가 이 사건을 "조선 역사상 일천년래 제일 대사건"이라 평가했다는 것도 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 무신정변 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">무신 정변과 최씨 정권</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>1170년 무신정변</b> — 문신 우대·무신 차별에 대한 불만 폭발, 정중부 등이 정변을 일으켜 정권 장악 → <b>중방</b>을 중심으로 통치</li>
+      <li>이후 경대승(도방)·이의민을 거쳐 <b>최충헌</b>이 정권 장악(1196) — <b>교정도감</b> 설치(최고 권력 기구), 봉사 10조로 개혁 시도</li>
+      <li><b>최우</b> — <b>정방</b>(인사 행정 담당) 설치, <b>서방</b>(문신 등용), <b>삼별초</b>(좌별초·우별초·신의군) 조직해 군사력 강화</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 교정도감은 <span class="redmark">최충헌</span>, 정방·서방·삼별초는 <span class="redmark">최우</span> — 부자(父子)의 기구를 뒤섞지 않도록 주의하세요.</div>
+  </div>
+</section>
+
+<!-- 하층민봉기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">하층민의 봉기</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">무신 정권기 신분 질서가 흔들리며 하층민의 봉기가 잇따릅니다</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>망이·망소이의 난</b> — <b>공주 명학소</b>에서 봉기, 소(所) 지역민에 대한 차별에 저항</li>
+      <li><b>김사미·효심의 난</b> — 경상도 지역 농민 봉기</li>
+      <li><b>만적의 난</b> — 최충헌의 사노비 <b>만적</b>이 개경에서 <b>신분 해방</b>을 목표로 노비들을 모아 봉기 계획(사전 발각으로 실패)</li>
+    </ul>
+    <div class="quote">
+      "왕후장상의 씨가 어찌 따로 있으랴"
+      <span>만적이 노비들을 모아 봉기를 독려하며 한 말</span>
+    </div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>핵심 기구/인물</th></tr>
+    <tr><td><b>최충헌</b></td><td>교정도감(최고 권력 기구)</td></tr>
+    <tr><td><b>최우</b></td><td>정방(인사)·서방(문신)·삼별초(군사)</td></tr>
+    <tr><td><b>만적</b></td><td>"왕후장상의 씨가 어찌 따로 있으랴" — 신분 해방 봉기 시도</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

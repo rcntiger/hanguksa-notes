@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수취 제도 · 토지 제도 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.lineage{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:10px 0 6px;font-family:'IBM Plex Mono',monospace;font-size:11px}
+.lineage span{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:4px 7px;color:var(--ink);white-space:nowrap}
+.lineage span.now{border-color:var(--red);color:var(--red);font-weight:700}
+.lineage .arrow{color:var(--ink-soft)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 전기</div>
+  <h1>수취 제도와 토지 제도</h1>
+  <p class="sub">토지 제도는 4단계로 변화하고, 세금은 두 가지 기준(비옥도·풍흉)으로 매겨집니다 — 흐름과 기준을 함께 기억하세요</p>
+</header>
+
+<!-- 토지제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">토지 제도의 변천</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <div class="lineage">
+      <span>과전법 (공양왕/태조)</span><span class="arrow">→</span>
+      <span>직전법 (세조)</span><span class="arrow">→</span>
+      <span>관수관급제 (성종)</span><span class="arrow">→</span>
+      <span class="now">직전법 폐지 (명종)</span>
+    </div>
+    <ul class="chk">
+      <li><b>과전법</b>(1391) — <b>전·현직 관리 모두</b>에게 <b>경기 지역</b> 토지의 수조권 지급, 세습 가능한 <b>수신전·휼양전</b> 존재</li>
+      <li><b>직전법</b>(세조) — 토지 부족 문제로 <b>현직 관리에게만</b> 수조권 지급, 수신전·휼양전 폐지</li>
+      <li><b>관수관급제</b>(성종) — 국가가 <b>직접 조세를 거둬 관리에게 지급</b> — 관리가 백성에게 직접 수취하며 생기는 폐단 방지, <b>국가의 토지 지배력 강화</b></li>
+      <li><b>직전법 폐지</b>(명종) — 수조권 지급 제도 자체가 사라지고 관리는 <b>녹봉(현물)만</b> 받게 됨</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "현직 관리에게만 지급"은 <span class="redmark">직전법</span>, "국가가 직접 거둬 지급"은 <span class="redmark">관수관급제</span> — 이 둘을 뒤바꾸는 오답이 가장 흔합니다.</div>
+  </div>
+</section>
+
+<!-- 수취제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">공법 — 조세 수취 기준</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>세종 때 <b>공법</b> 제정 — 두 가지 기준을 함께 적용</li>
+      <li><b>전분 6등법</b> — 토지의 <b>비옥도</b>에 따라 6등급으로 나눠 면적 산정 기준을 달리함</li>
+      <li><b>연분 9등법</b> — 그해의 <b>풍흉</b>에 따라 9등급으로 나눠 세금을 차등 부과</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 전분 6등법=<span class="redmark">토지 비옥도</span>, 연분 9등법=<span class="redmark">풍흉(그 해 농사 작황)</span> — 두 기준이 서로 다르다는 것이 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 군역 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">군역 제도</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>보법</b> — 직접 군 복무를 하는 정군과, 그 비용을 부담하는 보인으로 구성</li>
+      <li><b>방군수포</b>·<b>대립</b>의 폐단 — 시간이 지나며 군 복무 대신 <b>포를 내고 군역을 면제</b>받거나, <b>다른 사람을 대신 세우는</b> 관행이 만연 → 군사력 약화의 원인</li>
+      <li>이후 <b>군적수포제</b>로 제도화 — 아예 <b>포를 걷고 군인을 고용</b>하는 방식으로 전환</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 방군수포·대립의 폐단은 훗날 <b>임진왜란 때 조선군이 제대로 대응하지 못한 배경</b>으로 연결해서 기억하면 좋습니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 토지 제도 4단계</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>제도</th><th>왕</th><th>핵심</th></tr>
+    <tr><td><b>과전법</b></td><td>공양왕/태조</td><td>전·현직 모두, 경기 지역, 세습 가능(수신전·휼양전)</td></tr>
+    <tr><td><b>직전법</b></td><td>세조</td><td>현직 관리만 지급</td></tr>
+    <tr><td><b>관수관급제</b></td><td>성종</td><td>국가가 직접 거둬 지급</td></tr>
+    <tr><td>직전법 폐지</td><td>명종</td><td>수조권 지급 제도 소멸, 녹봉만 지급</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

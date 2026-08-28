@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실학 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(30px,7.6vw,42px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.card-title .who{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);font-weight:400}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.3px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>실학</h1>
+  <p class="sub">토지 문제를 고민한 중농학파, 상공업 진흥을 고민한 중상학파 — 그리고 우리 역사·지리를 연구한 국학까지</p>
+</header>
+
+<!-- 중농학파 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">중농학파 — 토지 제도 개혁</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">농업 중심 개혁론 — <b>토지를 어떻게 재분배할 것인가</b>에 집중</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>유형원</b> — <b>균전론</b>: 신분에 따라 토지를 차등 지급하자는 주장, 『반계수록』</li>
+      <li><b>이익</b> — <b>한전론</b>: 한 가정의 생계에 필요한 최소한의 토지(영업전)를 설정해 매매를 금지, 나라를 좀먹는 6가지 폐단(<b>노비제·과거제·양반 문벌·사치·미신·게으름</b>) 비판, 『성호사설』</li>
+      <li><b>정약용</b> — <b>여전론</b>(마을 단위 공동 농장 경영, 노동량에 따라 분배) → 이후 현실성을 고려해 <b>정전론</b> 제시, <b>『목민심서』</b>(지방관의 도리)·<b>『경세유표』</b>(국가 제도 개혁), <b>거중기</b> 설계(수원 화성)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 이익의 '나라를 좀먹는 6가지'는 <span class="redmark">이익</span>만의 키워드, 여전론·정전론은 <span class="redmark">정약용</span>만의 키워드입니다.</div>
+  </div>
+</section>
+
+<!-- 중상학파 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">중상학파 — 상공업 진흥</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">청의 발달한 문물을 배우자는 <b>북학파</b>이기도 함</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>유수원</b> — 『우서』, 사농공상의 직업적 평등 주장</li>
+      <li><b>홍대용</b> — <b>『의산문답』</b>, <b>지전설</b>(지구가 자전한다는 주장)과 <b>무한 우주론</b> 제시 — 중국 중심 세계관 비판</li>
+      <li><b>박지원</b> — <b>『열하일기』</b>(청 여행기), <b>수레와 선박</b> 이용 확대 주장, 화폐 유통 강조, 「양반전」 등으로 양반의 위선 풍자</li>
+      <li><b>박제가</b> — <b>『북학의』</b>, <b>소비를 우물에 비유</b>("우물물은 퍼내야 마르지 않는다")하며 <b>생산 자극을 위한 소비 촉진</b> 주장</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "소비를 우물에 비유"는 <span class="redmark">박제가</span>, "수레와 선박 이용 강조"는 <span class="redmark">박지원</span>의 대표 논지 — 이 두 표현은 시험에 그대로 나올 만큼 자주 인용됩니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>같은 시기, 우리 것을 연구하는 흐름도 이어집니다</b><br>
+  중농·중상 학파와 별개로, 우리나라의 역사·지리·언어를 독자적으로 연구하는 국학 흐름도 함께 발전합니다.
+</div>
+
+<!-- 국학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">국학의 발달</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>유득공</b> — <b>『발해고』</b>, 통일 신라와 발해를 아울러 <b>'남북국'</b>이라는 용어를 처음 사용</li>
+      <li><b>안정복</b> — 『동사강목』, 고조선부터 고려까지의 역사를 체계적으로 정리</li>
+      <li><b>이긍익</b> — 『연려실기술』, 조선의 정치사를 실증적으로 서술</li>
+      <li><b>정상기</b> — <b>동국지도</b>, 최초로 <b>백리척</b>(축척 개념)을 사용</li>
+      <li><b>김정호</b> — <b>대동여지도</b>, 산맥·하천·도로망을 정밀하게 표시, 목판으로 제작해 대량 인쇄 가능</li>
+      <li><b>김정희</b> — <b>『금석과안록』</b>에서 <b>북한산비가 진흥왕 순수비</b>임을 고증</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> '남북국'이라는 용어를 처음 쓴 사람은 <span class="redmark">유득공</span>입니다 — 발해를 우리 역사로 포함시키는 인식의 출발점으로 자주 출제됩니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>학파</th><th>인물</th><th>핵심 키워드</th></tr>
+    <tr><td rowspan="3"><b>중농</b></td><td>유형원</td><td>균전론</td></tr>
+    <tr><td>이익</td><td>한전론, 6가지 폐단</td></tr>
+    <tr><td>정약용</td><td>여전론→정전론, 목민심서</td></tr>
+    <tr><td rowspan="3"><b>중상</b></td><td>홍대용</td><td>지전설, 의산문답</td></tr>
+    <tr><td>박지원</td><td>열하일기, 수레·선박</td></tr>
+    <tr><td>박제가</td><td>북학의, 우물론(소비 촉진)</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

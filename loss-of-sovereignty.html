@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>국권 피탈 과정 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 14%;min-width:70px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:11px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대</div>
+  <h1>국권 피탈 과정</h1>
+  <p class="sub">러일전쟁 승리 이후 일본이 5년에 걸쳐 조선의 주권을 단계적으로 빼앗아 가는 과정 — 조약마다 빼앗긴 권한이 다릅니다</p>
+  <p class="period">1904 한일의정서 &nbsp;→&nbsp; 1905 을사늑약 &nbsp;→&nbsp; 1907 정미7조약 &nbsp;→&nbsp; 1909 기유각서 &nbsp;→&nbsp; 1910 한일병합</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>한일의정서</b>1904.2</div>
+      <div class="tl-node"><b>1차한일협약</b>고문정치</div>
+      <div class="tl-node p2"><b>을사늑약</b>외교권</div>
+      <div class="tl-node p2"><b>헤이그특사</b>고종퇴위</div>
+      <div class="tl-node p3"><b>정미7조약</b>군대해산</div>
+      <div class="tl-node p3"><b>기유각서</b>사법권</div>
+      <div class="tl-node"><b>한일병합</b>1910.8</div>
+    </div>
+  </div>
+</header>
+
+<!-- 1단계 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">1단계 — 러일전쟁과 내정 간섭의 시작</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1904.2</div>
+        <div class="evt-body">
+          <h4>한일의정서</h4>
+          <p>러일전쟁 발발 직후 강요 — 일본이 조선의 <b>군사 요충지를 임의로 사용</b>할 수 있는 권리 확보. 대한제국의 <b>중립 선언 무력화</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1904.8</div>
+        <div class="evt-body">
+          <h4>제1차 한일 협약 <span class="stamp">고문 정치</span></h4>
+          <p>일본이 추천한 <b>외교 고문(스티븐스)·재정 고문(메가타)</b>을 두게 함 — 형식은 대한제국 정부가 유지되지만 실권은 고문이 장악.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 1차 한일 협약은 조약이 아니라 <b>고문을 두는 협약</b>입니다. 아직 외교권을 완전히 빼앗은 단계는 아니라는 점이 중요합니다.</div>
+  </div>
+</section>
+
+<!-- 2단계 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">2단계 — 을사늑약과 통감 정치</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p2">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1905.11</div>
+        <div class="evt-body">
+          <h4>을사늑약 <span class="stamp blue">외교권 박탈</span></h4>
+          <p><b>대한제국의 외교권을 박탈</b>하고 <b>통감부</b> 설치(초대 통감 <b>이토 히로부미</b>). 고종의 정식 비준 없이 강제로 체결되어 '늑약(勒約)'이라 부름. <b>장지연이 「시일야방성대곡」</b>을 황성신문에 발표, <b>민영환이 자결</b>로 항거. <b>을사의병</b>(민종식·최익현·평민 의병장 신돌석) 봉기.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1907.6</div>
+        <div class="evt-body">
+          <h4>헤이그 특사 파견</h4>
+          <p>고종이 <b>이상설·이준·이위종</b>을 만국 평화 회의(네덜란드 헤이그)에 특사로 파견해 을사늑약의 부당함을 알리려 했으나 열강의 외면으로 실패.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">5</div>
+        <div class="evt-year">1907.7</div>
+        <div class="evt-body">
+          <h4>고종 강제 퇴위</h4>
+          <p>헤이그 특사 파견을 구실로 일본이 <b>고종을 강제 퇴위</b>시키고 <b>순종을 즉위</b>시킴.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 을사늑약으로 <b>외교권</b>만 빼앗겼을 뿐, 이 시점까지 대한제국 정부와 군대는 아직 존재합니다. "을사늑약으로 군대가 해산됐다"는 오답에 주의하세요.</div>
+  </div>
+</section>
+
+<!-- 3단계 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">3단계 — 정미7조약과 군대 해산</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p3">
+        <div class="evt-num">6</div>
+        <div class="evt-year">1907.7</div>
+        <div class="evt-body">
+          <h4>한일 신협약(정미7조약) <span class="stamp purple">차관 정치</span></h4>
+          <p>일본인을 각 부의 <b>차관으로 임명</b>(차관 정치), 통감이 법령 제정·관리 임면에 동의권 행사. 부속 각서로 <b>대한제국 군대 해산</b> 규정.</p>
+        </div>
+      </div>
+      <div class="evt p3">
+        <div class="evt-num">7</div>
+        <div class="evt-year">1907.8</div>
+        <div class="evt-body">
+          <h4>군대 해산</h4>
+          <p>시위대 대대장 <b>박승환이 자결</b>로 항거, 해산된 군인들이 <b>정미의병</b>에 합류 → 의병 부대가 <b>13도 창의군</b>을 결성해 <b>서울 진공 작전</b>(1908) 시도.</p>
+        </div>
+      </div>
+      <div class="evt p3">
+        <div class="evt-num">8</div>
+        <div class="evt-year">1909.7</div>
+        <div class="evt-body">
+          <h4>기유각서 <span class="stamp purple">사법권 박탈</span></h4>
+          <p><b>사법권과 감옥 사무 처리권</b>을 일본에 넘김.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> <b>군대 해산은 정미7조약</b>의 결과입니다. 을사늑약과 헷갈리지 않도록 '정미(丁未)=1907=군대'로 묶어 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 4단계 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">4단계 — 병합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>1909.10</b> <b>안중근</b>이 하얼빈에서 <b>이토 히로부미 저격</b></li>
+      <li><b>1910.6</b> 경찰권 박탈</li>
+      <li><b>1910.8.29</b> <b>한일 병합 조약</b> — 대한제국의 국권 완전 상실, 조선 총독부 설치</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 조약별로 빼앗긴 것</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>연도</th><th>조약</th><th>빼앗긴 것</th></tr>
+    <tr><td>1904.2</td><td>한일의정서</td><td>군사 요충지 사용권</td></tr>
+    <tr><td>1904.8</td><td>1차 한일 협약</td><td><b>고문 정치</b>(외교·재정 고문)</td></tr>
+    <tr><td>1905.11</td><td><b>을사늑약</b></td><td><b>외교권</b>(통감부 설치)</td></tr>
+    <tr><td>1907.7</td><td><b>정미7조약</b></td><td><b>차관 정치, 군대 해산</b></td></tr>
+    <tr><td>1909.7</td><td>기유각서</td><td>사법권</td></tr>
+    <tr><td>1910.6</td><td>-</td><td>경찰권</td></tr>
+    <tr><td>1910.8</td><td>한일 병합 조약</td><td>국권 전체</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

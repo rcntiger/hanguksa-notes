@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선사 시대 · 초기 국가 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+  --heuk:#7C848F;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.heukph{color:var(--heuk)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.3px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 선사 · 고대</div>
+  <h1>선사 시대와 초기 국가</h1>
+  <p class="sub">유물 하나로 시대를 맞히는 문제, 나라별 풍습을 짝짓는 문제 — 이 두 유형이 거의 전부입니다</p>
+  <p class="period">구석기 &nbsp;→&nbsp; 신석기 &nbsp;→&nbsp; 청동기 &nbsp;→&nbsp; 철기 &nbsp;→&nbsp; 고조선 &nbsp;→&nbsp; 부여·고구려·옥저·동예·삼한</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>구석기</b>뗀석기</div>
+      <div class="tl-node"><b>신석기</b>간석기</div>
+      <div class="tl-node p2"><b>청동기</b>고인돌</div>
+      <div class="tl-node p2"><b>철기</b>세형동검</div>
+      <div class="tl-node p3"><b>고조선</b>8조법</div>
+      <div class="tl-node"><b>여러나라</b>풍습짝짓기</div>
+    </div>
+  </div>
+</header>
+
+<!-- 구석기 신석기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="heukph">구석기 · 신석기</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">구석기 시대</h3>
+    <ul class="chk">
+      <li>도구: <b>뗀석기</b> — 주먹도끼, 찍개, 슴베찌르개</li>
+      <li>대표 유적: <b>연천 전곡리</b>(아슐리안형 주먹도끼), <b>공주 석장리</b></li>
+      <li>생활: 사냥·채집, 먹이를 찾아 <b>이동 생활</b>, <b>동굴·막집</b>에 거주</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">신석기 시대</h3>
+    <ul class="chk">
+      <li>도구: <b>간석기</b>(마제석기), <b>빗살무늬 토기</b></li>
+      <li><b>농경·목축 시작</b> — 조·피 재배, 정착 생활로 <b>움집</b> 거주</li>
+      <li>도구: <b>가락바퀴</b>(실 뽑기)와 <b>뼈바늘</b>(옷 제작) — 원시 수공업의 증거</li>
+      <li>신앙: <b>애니미즘</b>(자연물 숭배)·<b>토테미즘</b>(동식물 숭배)·<b>샤머니즘</b>(무당·주술)</li>
+      <li>대표 유적: <b>서울 암사동</b>, 부산 동삼동</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "농경이 시작됐다"는 <span class="redmark">신석기</span>, "벼농사를 지었다"는 <span class="redmark">청동기</span> — 농경 시작과 벼농사 도입을 같은 시대로 착각하지 마세요.</div>
+  </div>
+</section>
+
+<!-- 청동기 철기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">청동기 · 철기</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">청동기 시대</h3>
+    <ul class="chk">
+      <li>도구: <b>비파형 동검</b>, <b>미송리식 토기</b>, 민무늬 토기, <b>거친무늬 거울</b></li>
+      <li>농경: <b>벼농사 시작</b>, <b>반달 돌칼</b>로 이삭을 잘라 수확</li>
+      <li>사회: 생산력 증가로 <b>사유 재산과 계급 발생</b> — 지배자의 무덤인 <b>고인돌</b>이 대표 증거</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">철기 시대</h3>
+    <ul class="chk">
+      <li>도구: <b>세형 동검</b>, <b>잔무늬 거울</b>, <b>거푸집</b>(청동기를 <b>독자적으로 제작</b>했다는 증거)</li>
+      <li>무덤: 널무덤, 독무덤</li>
+      <li>중국과의 교류 흔적: <b>명도전·반량전·오수전</b>(중국 화폐), <b>창원 다호리 붓</b> → <b>한자 사용</b>의 근거</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 비파형 동검=<span class="redmark">청동기</span>, 세형 동검=<span class="redmark">철기</span>. 거푸집이 사료에 나오면 국내 자체 생산이 가능해진 <b>철기 시대</b>로 확정할 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- 고조선 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">고조선</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li>기원전 2333년 <b>단군왕검</b>이 건국(제정일치 사회) — <b>『삼국유사』·『제왕운기』</b>에 건국 이야기 수록(『삼국사기』에는 없음)</li>
+      <li>세력 범위 판단 유물: <b>비파형 동검·미송리식 토기·탁자식 고인돌·거친무늬 거울</b></li>
+      <li><b>위만 집권</b>(기원전 194) — <b>철기 문화 수용</b>, <b>중계 무역</b> 독점</li>
+      <li><b>범금 8조</b> — 생명·노동력·사유 재산 중시를 보여줌(3개 조항만 전함)</li>
+      <li>한 무제 침입 → <b>왕검성 함락(기원전 108)</b>, 한 군현 설치</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> '중계 무역', '진번·임둔 복속'은 <span class="redmark">위만 조선</span> 시기 서술입니다 — 단군 조선의 건국 초기와 혼동하지 마세요.</div>
+  </div>
+</section>
+
+<!-- 여러나라 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">여러 나라의 성장</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">나라별 <b>통치 조직·제천행사·풍습</b>을 하나씩 정확히 짝지어야 하는 단원입니다</p>
+
+  <div class="card">
+    <h3 class="card-title">부여</h3>
+    <ul class="chk">
+      <li>통치: <b>사출도</b>(마가·우가·저가·구가) — 왕이 있으나 권력이 강하지 않음</li>
+      <li>제천행사: <b>영고(12월)</b> — 수렵 사회의 흔적으로 <b>유일하게 12월</b></li>
+      <li>풍습: <b>순장</b>, <b>형사취수제</b>, <b>1책 12법</b>(도둑질하면 12배 배상)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">고구려</h3>
+    <ul class="chk">
+      <li>통치: <b>제가 회의</b>(귀족 합의체), 대가들이 사자·조의·선인을 거느림</li>
+      <li>제천행사: <b>동맹(10월)</b></li>
+      <li>풍습: <b>서옥제</b>(사위가 처가에 살다가 아내를 데려옴)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">옥저 · 동예</h3>
+    <ul class="chk">
+      <li><b>옥저</b>: <b>민며느리제</b>, <b>가족 공동 무덤</b>(골장제), 소금·해산물 풍부</li>
+      <li><b>동예</b>: 제천행사 <b>무천(10월)</b>, <b>책화</b>(다른 부족 영역 침범 시 배상), 족외혼, 특산물 <b>단궁·과하마·반어피</b></li>
+      <li>공통점: 왕이 없고 <b>읍군·삼로</b>가 다스림</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">삼한</h3>
+    <ul class="chk">
+      <li>정치·군장: <b>신지·읍차</b></li>
+      <li><b>천군</b>과 <b>소도</b> — 군장의 권력이 미치지 못하는 신성 지역, <b>제정 분리</b>의 근거</li>
+      <li>제천행사: <b>수릿날(5월)</b>·계절제(10월)</li>
+      <li><b>변한</b>의 <b>철 생산·수출</b>(낙랑·왜에 수출, 화폐처럼 사용)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 소도가 사료에 나오면 <span class="redmark">삼한</span>, "철이 많이 나 낙랑·왜에 수출"이 나오면 <span class="redmark">변한</span>으로 바로 특정할 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 나라별 풍습</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>나라</th><th>통치자/조직</th><th>제천행사</th><th>대표 풍습</th></tr>
+    <tr><td><b>부여</b></td><td>사출도(4가)</td><td>영고(12월)</td><td>순장, 형사취수제, 1책 12법</td></tr>
+    <tr><td><b>고구려</b></td><td>제가 회의</td><td>동맹(10월)</td><td>서옥제</td></tr>
+    <tr><td><b>옥저</b></td><td>읍군·삼로</td><td>-</td><td>민며느리제, 가족 공동묘</td></tr>
+    <tr><td><b>동예</b></td><td>읍군·삼로</td><td>무천(10월)</td><td>책화, 족외혼</td></tr>
+    <tr><td><b>삼한</b></td><td>신지·읍차 / 천군</td><td>수릿날(5)·계절제(10)</td><td>소도(제정 분리), 변한 철 생산</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>삼국의 성장 · 가야 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+  --heuk:#7C848F;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.heukph{color:var(--heuk)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.3px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고대</div>
+  <h1>삼국의 성장과 가야</h1>
+  <p class="sub">왕의 업적을 시대 순으로 배열하는 문제가 핵심 — 371년(백제↔고구려), 475년(고구려↔백제), 554년(신라↔백제)이라는 세 연도가 삼국을 하나로 묶습니다</p>
+</header>
+
+<!-- 고구려 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">고구려</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>고국천왕</b> — <b>을파소</b> 등용, <b>진대법</b> 실시(빈민 구제 대여 제도)</li>
+      <li><b>미천왕</b> — 낙랑군 축출(313)</li>
+      <li><b>고국원왕</b> — 백제 근초고왕에게 <b>평양성에서 전사</b>(371)</li>
+      <li><b>소수림왕</b> — <b>불교 수용·태학 설립·율령 반포</b> — 체제 정비 3종 세트</li>
+      <li><b>광개토 대왕</b> — 연호 '영락', <b>신라에 침입한 왜 격퇴</b>(400), 만주·요동 확보</li>
+      <li><b>장수왕</b> — <b>평양 천도</b>(427), 남진 정책 → 백제 <b>한성 함락</b>(475), <b>충주(중원) 고구려비</b> 건립</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> '평양 천도'는 <span class="redmark">장수왕</span>, '불교·태학·율령'은 <span class="redmark">소수림왕</span> — 두 왕의 업적을 뒤섞는 오답이 가장 흔합니다.</div>
+  </div>
+</section>
+
+<!-- 백제 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">백제</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>고이왕</b> — 관등제·관복제 정비(3세기)</li>
+      <li><b>근초고왕</b> — <b>마한 병합</b>, 고구려 <b>고국원왕 전사</b>시킴(371), <b>칠지도</b>를 왜에 전달</li>
+      <li><b>침류왕</b> — 동진에서 <b>불교 수용</b>(384)</li>
+      <li><b>비유왕</b> — 신라 눌지왕과 <b>나제 동맹</b></li>
+      <li><b>개로왕</b> — 장수왕에게 한성 함락, 전사(475)</li>
+      <li><b>문주왕</b> — <b>웅진(공주) 천도</b>(475)</li>
+      <li><b>무령왕</b> — <b>22담로</b>에 왕족 파견, 중국 남조와 교류(무령왕릉 = 벽돌무덤)</li>
+      <li><b>성왕</b> — <b>사비(부여) 천도</b>, 국호 '남부여', 한강 일시 회복 후 <b>관산성에서 전사</b>(554)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 웅진 천도(<span class="redmark">문주왕</span>)와 사비 천도(<span class="redmark">성왕</span>)를 뒤바꾼 오답이 흔합니다. '22담로'는 무령왕만의 키워드입니다.</div>
+  </div>
+</section>
+
+<!-- 신라 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">신라</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>내물왕(마립간)</b> — 김씨 왕위 세습 확립, <b>고구려 광개토 대왕</b>의 도움으로 왜 격퇴</li>
+      <li><b>지증왕</b> — 국호 '신라', 왕호 '왕', <b>우산국(울릉도) 복속</b>(512), 우경 장려, 순장 금지</li>
+      <li><b>법흥왕</b> — 율령 반포, 병부 설치, <b>이차돈 순교 → 불교 공인</b>(527), <b>금관가야 병합</b>(532), 연호 '건원'</li>
+      <li><b>진흥왕</b> — 화랑도 국가 조직화, 한강 유역 차지, <b>대가야 정복</b>(562), <b>4개 순수비</b>(북한산·창녕·황초령·마운령) + 단양 신라 적성비</li>
+      <li><b>선덕여왕</b> — <b>첨성대</b>, 황룡사 9층 목탑, 분황사 모전 석탑</li>
+      <li><b>무열왕(김춘추)</b> — 최초 진골 출신 왕, 백제 멸망(660)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 4개 순수비와 <b>단양 적성비</b>는 별개 — 적성비는 정복 직후 세운 비석으로 순수비와 구분해서 물어봅니다.</div>
+  </div>
+</section>
+
+<!-- 삼국 연결 연도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">삼국을 잇는 연도 3개</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>연도</th><th>사건</th></tr>
+    <tr><td><b>371</b></td><td>백제 근초고왕이 고구려 <b>고국원왕을 전사</b>시킴</td></tr>
+    <tr><td><b>475</b></td><td>고구려 장수왕이 백제 <b>한성 함락</b>, 개로왕 전사 → 백제 웅진 천도</td></tr>
+    <tr><td><b>554</b></td><td>백제 성왕이 신라와 싸우다 <b>관산성에서 전사</b> → 나제 동맹 결렬</td></tr>
+  </table>
+  <p class="section-note" style="margin-top:10px">삼국의 <b>한강 유역 차지 순서</b>도 함께 기억: 백제(근초고왕) → 고구려(장수왕) → 신라(진흥왕)</p>
+</section>
+
+<div class="bridge">
+  <b>한편, 낙동강 하류에서는 가야가 성장합니다</b><br>
+  삼국이 중앙 집권 국가로 발돋움하는 동안, 가야는 연맹 왕국 단계에 머물다가 결국 신라에 흡수됩니다.
+</div>
+
+<!-- 가야 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="heukph">가야 연맹</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>금관가야</b>(김해) — <b>김수로</b> 건국(구지가 설화), 전기 가야 연맹 주도, <b>덩이쇠</b> 수출 → <b>532년 신라 법흥왕에 병합</b></li>
+      <li><b>대가야</b>(고령) — 후기 가야 연맹 주도, 이진아시왕 → <b>562년 신라 진흥왕에 정복</b></li>
+      <li>유물: 판갑옷·철제 무기, <b>대성동 고분군</b>(금관가야)·<b>지산동 고분군</b>(대가야)</li>
+      <li>중앙 집권 국가로 성장하지 못하고 <b>연맹 왕국 단계</b>에 머묾 — 백제·신라·왜 사이에서 압박받음</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 금관가야 병합은 <span class="redmark">법흥왕(532)</span>, 대가야 정복은 <span class="redmark">진흥왕(562)</span> — 30년의 시차를 순서 문제에서 놓치지 마세요.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

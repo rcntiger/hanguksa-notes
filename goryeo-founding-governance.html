@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고려 건국 · 통치 체제 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고려</div>
+  <h1>고려의 건국과 통치 체제</h1>
+  <p class="sub">태조·광종·성종 세 왕이 각각 다른 방식으로 왕권을 다졌고, 그 결과로 만들어진 독자적 통치 기구들이 이 단원의 핵심입니다</p>
+  <p class="period">918 고려 건국 &nbsp;→&nbsp; 936 후삼국 통일 &nbsp;→&nbsp; 광종(노비안검법·과거제) &nbsp;→&nbsp; 성종(12목·시무28조)</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>태조</b>흑창·훈요10조</div>
+      <div class="tl-node"><b>광종</b>노비안검법</div>
+      <div class="tl-node"><b>성종</b>시무28조</div>
+      <div class="tl-node p2"><b>2성6부</b>중앙관제</div>
+      <div class="tl-node p2"><b>도병마사</b>독자기구</div>
+      <div class="tl-node p2"><b>5도양계</b>지방제도</div>
+    </div>
+  </div>
+</header>
+
+<!-- 태조광종성종 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">태조 · 광종 · 성종</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">세 왕이 각각 다른 방식으로 <b>왕권 강화</b>를 추진했다는 흐름을 잡아야 합니다</p>
+
+  <div class="card">
+    <h3 class="card-title">태조 (왕건)</h3>
+    <ul class="chk">
+      <li>빈민 구제 기구 <b>흑창</b> 설치</li>
+      <li>지방 호족 통제책: <b>사심관 제도</b>(중앙 고위 관리를 출신 지방의 사심관으로 임명)·<b>기인 제도</b>(호족 자제를 인질로 개경에 머물게 함)</li>
+      <li>호족과의 혼인 정책으로 세력 결합</li>
+      <li><b>훈요 10조</b> — 후대 왕에게 남긴 유훈, 불교 숭상·<b>서경(평양) 중시</b> 등 포함</li>
+      <li><b>북진 정책</b> — 고구려 계승 의식, 서경을 북진의 전진 기지로 삼음</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">광종</h3>
+    <ul class="chk">
+      <li><b>노비안검법</b> — 불법으로 노비가 된 사람을 <b>양인으로 해방</b> → 호족의 경제·군사 기반 약화, 국가 재정 확충</li>
+      <li><b>과거제</b> 실시(<span class="redmark">쌍기</span>의 건의) — 유교적 지식으로 관리 선발, 호족 견제·왕권 강화</li>
+      <li>공복 제정(관료의 지위에 따라 옷 색 구분), 독자 연호 '광덕·준풍' 사용</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 노비안검법은 <b>훗날 조선 세조가 다시 노비를 늘린 정책과 정반대 방향</b>이라는 점, 그리고 <b>공민왕의 전민변정도감</b>(원 간섭기 이후 다시 노비가 된 이들을 해방)과 목적이 비슷하다는 점을 헷갈리지 마세요 — 시행 왕이 다릅니다.</div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">성종</h3>
+    <ul class="chk">
+      <li><b>최승로의 시무 28조</b> 수용 — 유교 정치 이념 확립, 불교 행사 억제</li>
+      <li><b>12목에 지방관 파견</b> — 고려 최초로 지방에 중앙관을 보낸 조치(전국 모든 군현은 아직 아님)</li>
+      <li><b>국자감</b> 설치(유학 교육), <b>의창</b>(빈민 구제, 태조의 흑창을 계승·확대)</li>
+      <li>2성 6부 등 중앙 통치 체제의 기틀 마련</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "12목에 지방관을 파견했다"가 성종의 대표 업적입니다. 조선처럼 <b>모든 군현에 지방관을 파견한 것은 아니라는 점</b>이 함정으로 자주 나옵니다.</div>
+  </div>
+</section>
+
+<!-- 통치체제 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">중앙 통치 체제</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>2성 6부</b> — <b>중서문하성</b>(최고 관서, 장관은 문하시중)과 <b>상서성</b>(6부 총괄)</li>
+      <li><b>중추원</b> — 군사 기밀(추밀)과 왕명 출납(승선) 담당</li>
+      <li><b>도병마사·식목도감</b> — <b>재신(중서문하성)과 추밀(중추원)이 함께 모여</b> 국방·법제를 논의하는 고려만의 독자적 회의 기구</li>
+      <li><b>대간</b>(어사대의 관원 + 중서문하성의 낭사) — <b>서경권·간쟁권·봉박권</b>으로 왕권 견제</li>
+      <li><b>삼사</b> — 화폐·곡식 출납 회계 담당(조선의 감찰 기구인 삼사와 이름은 같지만 역할이 다름)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 도병마사·식목도감은 <b>고려의 독자적 기구</b>라는 점이 핵심입니다. 고려 후기에는 도병마사가 <b>도평의사사</b>로 개편되어 권한이 더욱 커집니다.</div>
+  </div>
+</section>
+
+<!-- 지방제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">지방 행정 조직</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>5도</b>(일반 행정 구역, <b>안찰사</b> 파견) — <b>양계</b>(군사 국경 지역, <b>병마사</b> 파견)로 이원화</li>
+      <li>지방관이 파견된 <b>주현</b>보다 파견되지 않은 <b>속현이 더 많음</b> — 속현은 주현을 통해 간접 통제</li>
+      <li><b>향·부곡·소</b> — 특수 행정 구역, 일반 군현민보다 <b>더 많은 세금·역 부담</b>(소는 특히 수공업·광업품 생산 담당)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "속현이 주현보다 많았다", "향·부곡·소민은 일반 양인보다 차별받았다"는 서술이 고려 지방 제도의 핵심 특징으로 반복 출제됩니다.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

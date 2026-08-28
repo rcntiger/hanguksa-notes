@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>경제 성장 · 통일 정책 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 현대</div>
+  <h1>경제 성장과 통일 정책</h1>
+  <p class="sub">1987년 민주화 이후 — 경제는 성장과 위기를 오갔고, 통일 정책은 정부마다 이름이 다른 합의문으로 이어졌습니다</p>
+  <p class="period">1991 남북기본합의서 &nbsp;→&nbsp; 1997 외환위기 &nbsp;→&nbsp; 2000 6·15선언 &nbsp;→&nbsp; 2007 10·4선언 &nbsp;→&nbsp; 2018 판문점선언</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>3저호황</b>1980s</div>
+      <div class="tl-node"><b>남북기본합의서</b>1991</div>
+      <div class="tl-node"><b>OECD가입</b>1996</div>
+      <div class="tl-node p2"><b>외환위기</b>1997</div>
+      <div class="tl-node p2"><b>금모으기</b>1998</div>
+      <div class="tl-node p2"><b>6·15선언</b>2000</div>
+      <div class="tl-node p2"><b>10·4선언</b>2007</div>
+    </div>
+  </div>
+</header>
+
+<!-- 경제성장 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">경제 성장의 흐름</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>1960s</b> 경공업 중심 수출 → <b>1970s</b> 중화학 공업 육성 → <b>1980s</b> <span class="redmark">3저 호황</span>(저유가·저달러·저금리)으로 고도 성장</li>
+      <li><b>1993년</b> <b>금융 실명제</b> 시행(김영삼 정부) — 가명·차명 금융 거래 금지</li>
+      <li><b>1996년</b> <b>OECD(경제협력개발기구) 가입</b> — 선진국 진입을 상징</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">외환 위기 (1997)</h3>
+    <ul class="chk">
+      <li>대기업의 과도한 차입 경영과 외화 부족으로 <b>외환 위기</b> 발생 → <b>IMF(국제통화기금)에 구제 금융 요청</b></li>
+      <li><b>금 모으기 운동</b>(1998) — 국민들이 자발적으로 금붙이를 내놓아 외채 상환에 동참</li>
+      <li>기업 구조 조정, 대규모 실직 사태 — 이후 비정규직 확산 등 사회 구조 변화</li>
+      <li><b>2001년</b> IMF 차입금 조기 상환으로 위기 공식 종료</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 금 모으기 운동을 <b>1907년 국채 보상 운동</b>과 성격을 비교하는 문제가 자주 나옵니다 — 둘 다 <b>국민의 자발적 참여로 국가 채무를 갚으려 한 운동</b>이라는 공통점을 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 통일정책 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">통일 정책의 진전</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">정부가 바뀔 때마다 새로운 남북 합의가 이어집니다 — <b>정부·연도·문서명</b>을 세트로 기억하세요</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1991.9</div>
+        <div class="evt-body">
+          <h4>남북 유엔 동시 가입</h4>
+          <p>노태우 정부 — 남북이 각각 별개 회원국으로 유엔에 동시 가입.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1991.12</div>
+        <div class="evt-body">
+          <h4>남북 기본 합의서</h4>
+          <p>노태우 정부 — <b>상호 체제 인정·불가침</b>에 합의(정식 국가 승인은 아님). 같은 시기 <b>한반도 비핵화 공동 선언</b>도 채택.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">3</div>
+        <div class="evt-year">2000.6</div>
+        <div class="evt-body">
+          <h4>6·15 남북 공동 선언</h4>
+          <p><b>김대중 정부</b> — 분단 이후 <b>최초의 남북 정상 회담</b>(평양) 결과물. <b>개성 공단</b>·<b>금강산 관광</b> 등 경제 협력 사업으로 이어짐.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">4</div>
+        <div class="evt-year">2007.10</div>
+        <div class="evt-body">
+          <h4>10·4 남북 공동 선언</h4>
+          <p><b>노무현 정부</b> — 2차 남북 정상 회담 결과물, 6·15 선언의 이행 방안 구체화.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">5</div>
+        <div class="evt-year">2018.4</div>
+        <div class="evt-body">
+          <h4>판문점 선언</h4>
+          <p><b>문재인 정부</b> — 판문점에서 열린 3차 남북 정상 회담 결과물.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> <b>남북 유엔 동시 가입과 남북 기본 합의서는 같은 해(1991), 같은 정부(노태우)</b>입니다. <b>6·15(김대중)</b>와 <b>10·4(노무현)</b>는 연이은 정부의 후속 선언이라는 관계로 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 통일 정책 5종</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>연도</th><th>정부</th><th>문서</th></tr>
+    <tr><td>1991</td><td>노태우</td><td>유엔 동시 가입, <b>남북 기본 합의서</b></td></tr>
+    <tr><td>2000</td><td>김대중</td><td><b>6·15 남북 공동 선언</b> (1차 정상 회담)</td></tr>
+    <tr><td>2007</td><td>노무현</td><td><b>10·4 남북 공동 선언</b> (2차 정상 회담)</td></tr>
+    <tr><td>2018</td><td>문재인</td><td><b>판문점 선언</b> (3차 정상 회담)</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

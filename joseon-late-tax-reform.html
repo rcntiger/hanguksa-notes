@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수취 체제 개편 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>수취 체제의 개편</h1>
+  <p class="sub">전세·공납·군역 세 가지 세금이 각각 다른 방식으로 개편됩니다 — 이름과 핵심 변화를 하나씩 짝지으면 끝입니다</p>
+  <p class="period">인조 영정법 &nbsp;→&nbsp; 1608~1708 대동법 &nbsp;→&nbsp; 1750 균역법</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>영정법</b>전세</div>
+      <div class="tl-node p2"><b>대동법</b>공납→쌀</div>
+      <div class="tl-node p2"><b>공인등장</b>상품경제</div>
+      <div class="tl-node p3"><b>균역법</b>군포1필</div>
+      <div class="tl-node p3"><b>결작</b>부족분보충</div>
+    </div>
+  </div>
+</header>
+
+<!-- 영정법 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">영정법 — 전세(토지세)</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>인조</b> 때 시행</li>
+      <li>풍흉에 관계없이 <b>토지 1결당 4~6두</b>로 <b>세율을 고정</b></li>
+      <li>세율은 낮아졌지만 여러 <b>부가세</b>가 붙어 농민 부담이 실제로는 크게 줄지 않음</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 세종의 <b>연분 9등법(풍흉에 따라 차등)</b>과 달리, 영정법은 <b>풍흉과 관계없이 세율을 고정</b>했다는 것이 핵심 차이입니다.</div>
+  </div>
+</section>
+
+<!-- 대동법 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">대동법 — 공납</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>기존 공납은 <b>가호(집)</b> 단위로 토산물을 바치는 방식 — <b>방납의 폐단</b>(중간 상인이 대신 납부하고 폭리를 취함)이 심각했음</li>
+      <li>대동법은 공납을 <b>토지 결수 기준</b>으로 <b>쌀·베·동전</b>으로 통일해서 걷는 방식으로 전환</li>
+      <li><b>광해군</b> 때 <b>경기도에서 시범 시행</b>(1608) → 이후 <b>전국으로 확대, 숙종 때(1708) 전국 시행 완료</b></li>
+      <li>국가가 필요한 물품을 조달하는 어용 상인 <b>공인</b>이 등장 → <b>상품 화폐 경제 발달</b>을 자극하는 결정적 계기</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 대동법의 가장 중요한 파급 효과는 <b>공인의 등장 → 수공업·상업 발달</b>로 이어지는 연결입니다. 토지를 가진 양반 지주는 부담이 늘어 반대하는 경우도 있었습니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>공납이 바뀐 지 100년 넘게 지나, 군포도 개편됩니다</b><br>
+  대동법이 전국에 자리 잡은 지 한참 뒤인 영조 때, 이번에는 군역의 폐단을 손보는 균역법이 시행됩니다.
+</div>
+
+<!-- 균역법 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">균역법 — 군역</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>영조</b> 때(1750) 시행</li>
+      <li>기존 <b>군포 2필</b>을 <b>1필로 절반 감축</b> — 농민의 군역 부담 완화가 목적</li>
+      <li>부족해진 재정을 보충하기 위한 대책: <b>결작</b>(토지 소유자에게 토지 1결당 쌀 2두씩 부과), <b>선무군관포</b>(일부 상류층에게 군포 부과), <b>어염선세</b>(어업·소금·선박에 대한 세금을 국가 재정으로 편입)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "군포를 2필에서 1필로 줄였다"가 균역법의 핵심입니다 — 줄어든 재정을 메우기 위한 <b>결작</b>이 함께 자주 출제됩니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>제도</th><th>대상</th><th>왕</th><th>핵심 변화</th></tr>
+    <tr><td><b>영정법</b></td><td>전세</td><td>인조</td><td>풍흉 관계없이 1결당 4~6두 고정</td></tr>
+    <tr><td><b>대동법</b></td><td>공납</td><td>광해군~숙종</td><td>토지 기준 쌀·베·동전 납부, 공인 등장</td></tr>
+    <tr><td><b>균역법</b></td><td>군역</td><td>영조</td><td>군포 2필→1필, 결작으로 보충</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

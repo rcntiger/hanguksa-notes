@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>서민 문화 · 새 종교 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>서민 문화와 새 종교</h1>
+  <p class="sub">경제적으로 성장한 서민이 문화의 주체로 등장하고, 천주교와 동학이라는 두 개의 새로운 신앙이 퍼져나갑니다</p>
+</header>
+
+<!-- 회화 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">회화</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>진경산수화</b> — <b>정선</b>이 개척, 중국 화풍을 모방하지 않고 <b>우리 산천을 직접 보고 그림</b> — 대표작 <b>인왕제색도·금강전도</b></li>
+      <li><b>풍속화</b> — <b>김홍도</b>(서민의 일상, 씨름·서당 등 역동적 구도), <b>신윤복</b>(양반과 여성의 풍류, 남녀 간의 정서를 섬세하게 표현)</li>
+      <li><b>민화</b> — 서민들이 복을 빌며 그린 그림(까치호랑이 등), 이름이 알려지지 않은 화가들이 다수 제작</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 김홍도와 신윤복은 둘 다 풍속화가지만, 김홍도는 <b>서민의 노동·놀이</b>, 신윤복은 <b>양반·여성의 풍류</b>를 주로 그렸다는 차이로 구분합니다.</div>
+  </div>
+</section>
+
+<!-- 문학공연 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">문학과 공연</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>한글 소설</b> 유행 — 『홍길동전』(신분 제도 비판), 『춘향전』 등 → 서민의 의식 성장을 반영</li>
+      <li><b>판소리</b> — 서민들이 쉽게 접할 수 있는 공연 예술, 흥부가·춘향가 등</li>
+      <li><b>탈춤</b> — 양반의 위선을 풍자하는 내용이 많아 서민의 비판 의식을 드러냄</li>
+      <li><b>사설시조</b> — 형식에 얽매이지 않고 서민의 감정을 진솔하게 표현</li>
+    </ul>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>같은 시기, 새로운 신앙도 퍼져나갑니다</b><br>
+  서민 문화가 융성하는 한편, 기존 유교 질서로는 채워지지 않던 정신적 갈증을 두 개의 새로운 종교가 채우기 시작합니다.
+</div>
+
+<!-- 천주교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">천주교</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>처음에는 청에서 들여온 <b>서학(학문)</b>으로 소개됨 — 이후 신앙으로 받아들이는 사람들 증가</li>
+      <li><b>제사를 거부</b>하고 <b>평등사상</b>을 담고 있어 유교 질서(신분제·조상 숭배)와 정면으로 충돌</li>
+      <li><b>신유박해</b>(1801, 순조) — <b>이승훈·정약종</b> 등 처형, <b>정약용·정약전</b> 유배 — <b>황사영 백서 사건</b>(중국 베이징의 주교에게 도움을 요청하는 편지를 쓰다 발각)으로 탄압이 더욱 강화됨</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 천주교 박해의 핵심 이유는 <b>제사 거부(유교 윤리와 충돌)</b>입니다 — 신유박해와 정약용 형제의 유배를 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 동학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">동학</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>1860년</b> <b>최제우</b>가 창시 — 유·불·선 사상에 민간 신앙을 결합</li>
+      <li>핵심 사상: <b>인내천</b>(사람이 곧 하늘이다 — 신분 평등 지향), <b>후천개벽</b>(낡은 세상이 가고 새로운 세상이 온다는 변혁 사상)</li>
+      <li>경전: <b>『동경대전』</b>(한문)·<b>『용담유사』</b>(한글 가사) — 최제우가 직접 저술</li>
+      <li>정부는 <b>혹세무민</b>(세상을 어지럽히고 백성을 속인다)을 이유로 최제우를 처형 — 이후 <b>최시형</b>이 2대 교주로 교세 확장</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> '인내천'과 '후천개벽'이 사료에 나오면 <span class="redmark">동학</span>으로 바로 확정할 수 있습니다. '평등'이라는 키워드만으로는 천주교·동학 둘 다 가능하니, 다른 단서(제사 거부=천주교, 후천개벽=동학)를 함께 확인하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 천주교 vs 동학</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>천주교</th><th>동학</th></tr>
+    <tr><td>유입/창시</td><td>서학으로 전래</td><td>1860년 최제우 창시</td></tr>
+    <tr><td>핵심 사상</td><td>평등, 제사 거부</td><td>인내천, 후천개벽</td></tr>
+    <tr><td>탄압</td><td>신유박해(1801)</td><td>최제우 처형(혹세무민)</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

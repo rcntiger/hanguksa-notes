@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고려의 경제 · 사회 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.lineage{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:10px 0 6px;font-family:'IBM Plex Mono',monospace;font-size:11.5px}
+.lineage span{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:4px 8px;color:var(--ink);white-space:nowrap}
+.lineage span.now{border-color:var(--red);color:var(--red);font-weight:700}
+.lineage .arrow{color:var(--ink-soft)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고려</div>
+  <h1>고려의 경제와 사회</h1>
+  <p class="sub">토지 제도의 변천 순서와, 조선과 다른 고려만의 사회 특징(여성 지위·개방적 대외 무역)이 핵심입니다</p>
+</header>
+
+<!-- 토지제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">전시과 — 토지 제도</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>전시과는 관리에게 <b>전지(농경지)와 시지(땔감을 얻는 임야)</b>의 수조권을 지급하는 제도</li>
+    </ul>
+    <div class="lineage">
+      <span>시정 전시과 (경종)</span><span class="arrow">→</span>
+      <span>개정 전시과 (목종)</span><span class="arrow">→</span>
+      <span class="now">경정 전시과 (문종)</span>
+    </div>
+    <ul class="chk">
+      <li><b>시정 전시과</b>(경종) — <b>인품과 관품</b>을 함께 반영해 지급(초기 형태)</li>
+      <li><b>개정 전시과</b>(목종) — <b>관직(관품)만</b>을 기준으로 지급, 인품 배제</li>
+      <li><b>경정 전시과</b>(문종) — <b>현직 관리에게만</b> 지급하도록 정비, 무신에 대한 차별 완화</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 전시과는 <b>토지 자체가 아니라 수조권(세금을 걷을 권리)</b>을 지급한 제도입니다 — 조선의 과전법·직전법과 원리가 비슷하다는 점도 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 화폐 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">화폐와 대외 무역</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>화폐: <b>건원중보</b>(최초 화폐, 성종) → <b>삼한통보·해동통보</b>(숙종) → <b>활구(은병)</b>(숙종, 은 1근으로 만든 고액 화폐)</li>
+      <li>화폐 유통은 <b>널리 확산되지 못함</b> — 여전히 곡식·베가 일반적인 교환 수단으로 쓰임</li>
+      <li><b>벽란도</b>(예성강 하구) — 국제 무역항으로 번성, <b>아라비아 상인</b>까지 왕래 → 이때 '코리아(Corea)'라는 이름이 서방에 알려짐</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "화폐를 만들었지만 널리 유통되지 못했다"는 서술이 고려 경제의 특징으로 자주 나옵니다 — 화폐 정책은 시행됐으나 실효성은 낮았다는 점이 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 사회 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">고려의 사회 — 여성의 지위</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>자녀 균분 상속</b> — 아들딸 구분 없이 재산을 균등하게 상속</li>
+      <li><b>윤회 봉사</b> — 제사를 아들딸이 돌아가며 지냄</li>
+      <li><b>사위·외손자도 음서 혜택</b>을 받을 수 있었음</li>
+      <li>태어난 순서대로 호적에 기재(남녀 구분 없이), <b>여성의 재가(재혼)</b>에 대한 제약이 크지 않았음</li>
+      <li>결혼 후 남편이 처가에서 사는 경우도 흔함(<b>남귀여가혼</b>)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 고려~조선 전기까지는 <b>여성 지위가 비교적 높았고</b>, <b>조선 후기로 갈수록 부계 중심 사회로 강화</b>됩니다 — "고려 시대에는 아들이 없으면 양자를 들이는 것이 일반적이었다"는 조선 후기 서술이 오답으로 섞여 나옵니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 전시과 3단계</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>단계</th><th>왕</th><th>지급 기준</th></tr>
+    <tr><td><b>시정 전시과</b></td><td>경종</td><td>인품 + 관품</td></tr>
+    <tr><td><b>개정 전시과</b></td><td>목종</td><td>관품만</td></tr>
+    <tr><td><b>경정 전시과</b></td><td>문종</td><td>현직 관리만</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

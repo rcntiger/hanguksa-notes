@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>거란 · 여진과의 항쟁 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고려</div>
+  <h1>거란 · 여진과의 항쟁</h1>
+  <p class="sub">거란의 3차 침입을 순서대로, 그리고 별무반의 여진 정벌까지 — 인물과 전투를 정확히 짝지어야 합니다</p>
+  <p class="period">993 1차침입 &nbsp;→&nbsp; 1010 2차침입 &nbsp;→&nbsp; 1019 귀주대첩 &nbsp;→&nbsp; 1104 별무반 &nbsp;→&nbsp; 1107 동북9성</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>1차침입</b>서희담판</div>
+      <div class="tl-node"><b>강동6주</b>확보</div>
+      <div class="tl-node"><b>2차침입</b>개경함락</div>
+      <div class="tl-node"><b>3차침입</b>강감찬</div>
+      <div class="tl-node p2"><b>귀주대첩</b>1019</div>
+      <div class="tl-node p2"><b>별무반</b>1104</div>
+      <div class="tl-node p2"><b>동북9성</b>1107</div>
+    </div>
+  </div>
+</header>
+
+<!-- 거란 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">거란(요)의 침입</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">고려의 <b>친송·북진 정책</b>이 거란을 자극한 배경 — 3차례 침입이 각각 다른 방식으로 극복됩니다</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">993</div>
+        <div class="evt-body">
+          <h4>1차 침입 <span class="stamp">외교로 해결</span></h4>
+          <p><b>서희</b>가 거란 장수 <b>소손녕</b>과 담판 — 고려가 <b>고구려를 계승</b>했음을 내세우고 여진족 문제 등을 설득해 <b>강동 6주</b>를 오히려 확보(993).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1010</div>
+        <div class="evt-body">
+          <h4>2차 침입</h4>
+          <p>강조의 정변을 구실로 침입, <b>개경이 함락</b>되고 현종이 나주까지 피난. <b>양규</b>가 후퇴하는 거란군을 상대로 선전.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1018~19</div>
+        <div class="evt-body">
+          <h4>3차 침입 <span class="stamp">귀주 대첩</span></h4>
+          <p><b>강감찬</b>이 이끄는 고려군이 <b>귀주에서 대승</b>(1019) — 거란의 대규모 침입 종결. 이후 개경에 <b>나성</b>을 쌓고 국경에 <b>천리장성</b>을 축조.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 서희는 <b>땅을 얻어낸(강동 6주)</b> 외교, 강감찬은 <b>귀주에서 무력으로 격퇴</b> — 두 인물의 방식이 다르다는 점이 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 여진 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">여진 정벌</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li>여진족이 세력을 키워 고려 국경을 자주 침범 — 기존 기병 중심 여진에 고려 보병 부대가 고전</li>
+      <li><b>윤관</b>의 건의로 기병을 포함한 특수 부대 <b>별무반</b> 편성(1104) — <b>신기군(기병)·신보군(보병)·항마군(승병)</b>으로 구성</li>
+      <li>별무반으로 여진 정벌에 성공, <b>동북 9성</b> 축조(1107)</li>
+      <li>방어의 어려움과 여진의 반환 요청으로 <b>1년여 만에 반환</b></li>
+      <li>이후 여진이 <b>금</b>을 건국해 강성해지자 고려에 <b>사대 관계</b> 요구 → 이자겸 등이 정치적 이유로 수용</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 별무반은 <span class="redmark">신기군·신보군·항마군</span> 3부대로 구성 — 이 세 이름을 정확히 기억하는 것이 핵심입니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>대외 항쟁 이후, 국내에서는 갈등이 시작됩니다</b><br>
+  거란·여진과의 항쟁이 마무리된 뒤, 고려 사회는 <b>문벌 귀족 사회의 동요</b>(이자겸의 난, 묘청의 서경 천도 운동)로 이어지는 새로운 국면을 맞이합니다.
+</div>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한국사능력검정 심화 · 근대사 학습 노트 모음</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+  --heuk:#7C848F;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 22px;border-bottom:3px double var(--ink)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(30px,7.6vw,42px);margin:0 0 10px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft);max-width:52ch}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:76px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+
+.section{margin-top:38px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:18px;color:var(--ink)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+
+.card-link{
+  display:block;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px;margin-bottom:10px;text-decoration:none;color:inherit;position:relative;
+  transition:border-color .15s;
+}
+.card-link::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:currentColor;border-radius:4px 0 0 4px}
+.card-link:hover{border-color:var(--ink)}
+.card-link .idx{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);letter-spacing:.1em}
+.card-link h3{font-family:'Gowun Batang',serif;font-weight:700;font-size:17px;margin:3px 0 5px;color:var(--ink)}
+.card-link p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6}
+.card-link .go{
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:currentColor;opacity:.7
+}
+.card-link.disabled{opacity:.5;cursor:default;pointer-events:none}
+.card-link.disabled .go{content:""}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">한국사능력검정시험 심화 · 학습 노트 모음</div>
+  <h1>근대사 노트 6편</h1>
+  <p class="sub">흥선대원군의 통상 거부부터 국권 피탈까지 — 근대사 흐름을 한 세트로 정리했습니다. 순서대로 읽으면 사건들이 이어집니다.</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름</div>
+    <div class="tl">
+      <div class="tl-node"><b>흥선대원군</b>1863~73</div>
+      <div class="tl-node"><b>동학농민운동</b>1894</div>
+      <div class="tl-node"><b>갑오·을미개혁</b>1894~96</div>
+      <div class="tl-node"><b>독립협회·대한제국</b>1896~99</div>
+      <div class="tl-node"><b>국권 피탈</b>1904~10</div>
+      <div class="tl-node"><b>국권 수호 운동</b>1895~1911</div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-head"><div class="duality">선사 · 고대</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--heuk)" href="prehistoric-early-states.html">
+    <span class="idx">00 · 선사~기원 전후</span>
+    <h3>선사 시대 · 초기 국가</h3>
+    <p>구석기~철기 유물 판별과 부여·고구려·옥저·동예·삼한의 풍습 짝짓기</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="three-kingdoms-growth-gaya.html">
+    <span class="idx">0-1 · ~6세기</span>
+    <h3>삼국의 성장 · 가야</h3>
+    <p>고구려·백제·신라 왕별 업적과 371·475·554년 세 연도, 가야 연맹까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="three-kingdoms-kings-timeline.html">
+    <span class="idx">0-2 · 2~6세기</span>
+    <h3>삼국 왕 연대 비교</h3>
+    <p>고구려·백제·신라 왕을 같은 시간대에 나란히 놓은 3단 비교표</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="unification-war-north-south-states.html">
+    <span class="idx">0-3 · 648~926</span>
+    <h3>삼국 통일 · 남북국 시대</h3>
+    <p>나당동맹부터 삼국 통일까지, 통일신라 체제 정비와 발해 왕 4명까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="silla-decline-ancient-culture.html">
+    <span class="idx">0-4 · 신라 말~고대 전체</span>
+    <h3>신라 말 동요 · 고대 문화</h3>
+    <p>호족·6두품·후삼국 성립과, 원효·의상·혜초 및 고대 유물 사진 문제</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">근대 태동기 → 개항기</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--heuk)" href="heungseon-daewongun.html">
+    <span class="idx">01 · 1863~1873</span>
+    <h3>흥선대원군</h3>
+    <p>왕권 회복 ↔ 세도정치, 민생 안정 ↔ 삼정 문란, 통상 수교 거부 ↔ 서세동점 — 세 대립 구도와 두문자 암기법</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="donghak-farmers-movement.html">
+    <span class="idx">02 · 1894</span>
+    <h3>동학 농민 운동</h3>
+    <p>1차 봉기(반봉건)와 2차 봉기(반외세) — 고부 봉기부터 우금치 전투까지 순서대로</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="gabo-eulmi-reform.html">
+    <span class="idx">03 · 1894~1896</span>
+    <h3>갑오개혁 · 을미개혁</h3>
+    <p>1차·2차 갑오개혁과 을미개혁 — 추진 기구와 핵심 키워드를 표로 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">대한제국 → 국권 피탈</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--green)" href="independence-club-daehan-empire.html">
+    <span class="idx">04 · 1896~1899</span>
+    <h3>독립협회 · 대한제국</h3>
+    <p>민간의 자주 국권·민권 운동(독립협회)과 황실의 구본신참(대한제국), 같은 시기 다른 방향</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="loss-of-sovereignty.html">
+    <span class="idx">05 · 1904~1910</span>
+    <h3>국권 피탈 과정</h3>
+    <p>한일의정서 → 을사늑약 → 정미7조약 → 기유각서 → 한일병합, 조약마다 빼앗긴 권한 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="national-sovereignty-defense.html">
+    <span class="idx">06 · 1895~1911</span>
+    <h3>국권 수호 운동</h3>
+    <p>을미·을사·정미의병 3단계, 신민회와 애국 계몽 운동, 국채 보상 운동</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">일제 강점기</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--blue)" href="military-rule-3-1-movement.html">
+    <span class="idx">07 · 1910~1919</span>
+    <h3>무단 통치 · 3·1 운동</h3>
+    <p>헌병 경찰과 토지 조사 사업, 그리고 3·1 운동으로 이어지는 흐름 — 임시 정부 수립까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="cultural-rule-armed-struggle.html">
+    <span class="idx">08 · 1919~1930s</span>
+    <h3>문화 통치 · 무장 독립 전쟁</h3>
+    <p>기만적 문화 통치의 실상, 봉오동·청산리 대첩과 그 이후 한중 연합 작전까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="armed-resistance-mass-movement.html">
+    <span class="idx">09 · 1919~1932</span>
+    <h3>의열 투쟁 · 대중 운동</h3>
+    <p>의열단·한인애국단의 의거와, 물산장려운동·신간회·광주학생항일운동까지 대중 운동</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="national-obliteration-liberation-army.html">
+    <span class="idx">10 · 1931~1945</span>
+    <h3>민족 말살 통치 · 광복군</h3>
+    <p>황국신민서사·창씨개명·국가총동원법과, 한국광복군·건국강령·조선건국동맹까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="national-culture-preservation.html">
+    <span class="idx">11 · 일제 강점기 전체</span>
+    <h3>민족 문화 수호 운동</h3>
+    <p>박은식·신채호·정인보·백남운의 사관 비교와 조선어 학회의 한글 수호 운동</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">현대</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--blue)" href="liberation-government-establishment.html">
+    <span class="idx">12 · 1945~1949</span>
+    <h3>광복과 정부 수립</h3>
+    <p>신탁 통치 논쟁, 좌우 합작 운동, 남북 협상을 거쳐 대한민국 정부 수립까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="korean-war.html">
+    <span class="idx">13 · 1950~1953</span>
+    <h3>6·25 전쟁</h3>
+    <p>남침부터 인천 상륙, 중국군 개입, 1·4 후퇴, 정전 협정까지 전선의 흐름</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="rhee-government-april19.html">
+    <span class="idx">14 · 1952~1960</span>
+    <h3>이승만 정부 · 4·19 혁명</h3>
+    <p>발췌개헌·사사오입개헌부터 3·15 부정선거, 4·19 혁명과 장면 내각까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="park-chung-hee-government.html">
+    <span class="idx">15 · 1961~1979</span>
+    <h3>박정희 정부</h3>
+    <p>한일협정·베트남파병과 경제 개발, 유신 헌법과 그 종말(부마항쟁·10·26)까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="democratization-movement.html">
+    <span class="idx">16 · 1979~1987</span>
+    <h3>민주화 운동</h3>
+    <p>5·18 민주화 운동과 6월 민주 항쟁 — 두 항쟁이 요구한 것과 개헌 결과의 차이</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--green)" href="economic-growth-unification-policy.html">
+    <span class="idx">17 · 1987~현재</span>
+    <h3>경제 성장 · 통일 정책</h3>
+    <p>3저 호황과 외환위기, 노태우~문재인 정부의 남북 합의문 5종 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">고려</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--green)" href="goryeo-founding-governance.html">
+    <span class="idx">G-1 · 918~성종</span>
+    <h3>고려 건국 · 통치 체제</h3>
+    <p>태조·광종·성종의 왕권 강화책과 2성6부·도병마사·5도양계 통치 기구</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="goryeo-khitan-jurchen-wars.html">
+    <span class="idx">G-2 · 993~1107</span>
+    <h3>거란 · 여진과의 항쟁</h3>
+    <p>서희의 외교 담판부터 강감찬의 귀주 대첩, 윤관의 별무반과 동북 9성까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="goryeo-noble-unrest-military.html">
+    <span class="idx">G-3 · 1126~1258</span>
+    <h3>문벌 동요 · 무신 정권</h3>
+    <p>이자겸의 난, 묘청의 서경 천도 운동, 최충헌·최우 정권과 하층민 봉기</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="goryeo-mongol-yuan-period.html">
+    <span class="idx">G-4 · 1232~1374</span>
+    <h3>대몽 항쟁 · 원 간섭기</h3>
+    <p>강화 천도와 삼별초 항쟁, 원 간섭기의 내정 간섭, 공민왕의 반원 개혁까지</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--green)" href="goryeo-economy-society.html">
+    <span class="idx">G-5 · 고려 전체</span>
+    <h3>고려의 경제 · 사회</h3>
+    <p>전시과 3단계, 화폐와 벽란도 무역, 조선과 다른 고려 여성의 지위</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="goryeo-buddhism-culture.html">
+    <span class="idx">G-6 · 고려 전체</span>
+    <h3>고려의 불교 · 문화</h3>
+    <p>의천·지눌의 사상 차이, 직지심체요절, 삼국사기·삼국유사 등 역사서 4권</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">조선 전기</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--green)" href="joseon-founding-governance.html">
+    <span class="idx">J-1 · 1392~성종</span>
+    <h3>조선 건국 · 통치 체제</h3>
+    <p>태종·세종·세조·성종의 왕권 정비와 6조 직계제·의정부 서사제, 3사</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="sarim-sahwa-factions.html">
+    <span class="idx">J-2 · 1498~1575</span>
+    <h3>사림 · 사화 · 붕당</h3>
+    <p>무오·갑자·기묘·을사 4대 사화와 이조 전랑 문제로 시작된 동서 분당</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="joseon-land-tax-system.html">
+    <span class="idx">J-3 · 조선 전기</span>
+    <h3>수취 제도 · 토지 제도</h3>
+    <p>과전법→직전법→관수관급제 토지 제도 변천과 전분6등법·연분9등법</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="imjin-byeongja-wars.html">
+    <span class="idx">J-4 · 1592~1637</span>
+    <h3>왜란 · 호란</h3>
+    <p>이순신의 해전과 훈련도감, 광해군의 중립외교, 정묘·병자호란</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--green)" href="joseon-early-culture.html">
+    <span class="idx">J-5 · 조선 전기</span>
+    <h3>조선 전기 문화</h3>
+    <p>세종 대 과학 기구, 조선왕조실록, 분청사기→백자, 이황·이이 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">조선 후기</div><div class="section-line"></div></div>
+
+  <a class="card-link" style="color:var(--blue)" href="joseon-late-tax-reform.html">
+    <span class="idx">L-1 · 인조~영조</span>
+    <h3>수취 체제의 개편</h3>
+    <p>영정법(전세)·대동법(공납)·균역법(군역) — 세 제도의 핵심 변화 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="hwanguk-tangpyeong.html">
+    <span class="idx">L-2 · 현종~정조</span>
+    <h3>환국 · 탕평책</h3>
+    <p>예송 논쟁과 숙종의 3차례 환국, 영조·정조의 탕평 정책 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--red)" href="sedo-politics-peasant-uprisings.html">
+    <span class="idx">L-3 · 순조~철종</span>
+    <h3>세도 정치 · 농민 봉기</h3>
+    <p>삼정의 문란과 홍경래의 난(1811), 임술 농민 봉기(1862) 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--blue)" href="joseon-late-economy-social-change.html">
+    <span class="idx">L-4 · 조선 후기</span>
+    <h3>경제 변화 · 신분제 동요</h3>
+    <p>모내기법·광작·사상(私商) 4개와 양반·중인·노비 신분제 변화</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--green)" href="silhak.html">
+    <span class="idx">L-5 · 조선 후기</span>
+    <h3>실학</h3>
+    <p>중농학파(유형원·이익·정약용), 중상학파(홍대용·박지원·박제가), 국학 인물</p>
+    <span class="go">열기 →</span>
+  </a>
+
+  <a class="card-link" style="color:var(--purple)" href="folk-culture-new-religions.html">
+    <span class="idx">L-6 · 조선 후기</span>
+    <h3>서민 문화 · 새 종교</h3>
+    <p>진경산수화·풍속화·판소리와, 천주교(신유박해)·동학(인내천) 비교</p>
+    <span class="go">열기 →</span>
+  </a>
+</section>
+
+<footer>
+  각 노트는 독립된 페이지로, 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다. 다음 편은 일제 강점기(1910년대 무단 통치 · 3·1 운동)로 이어집니다.
+</footer>
+
+</div>
+</body>
+</html>

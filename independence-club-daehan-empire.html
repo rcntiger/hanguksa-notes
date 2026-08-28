@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>독립협회 · 대한제국 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 16%;min-width:76px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:11.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.vs{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);border:1px solid var(--rule);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 88px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 9px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.slogan{text-align:center;font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;color:var(--red);margin:14px 0 4px;letter-spacing:.02em}
+.slogan-sub{text-align:center;font-size:11px;color:var(--ink-soft);margin-bottom:2px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대</div>
+  <h1>독립협회 · 대한제국</h1>
+  <p class="sub">아관파천으로 실추된 자주권을 되찾으려는 민간(독립협회)과 황실(대한제국)의 움직임 — 둘의 지향점 차이가 핵심입니다</p>
+  <p class="period">1896.4 독립신문 창간 &nbsp;→&nbsp; 1897.10 대한제국 선포 &nbsp;→&nbsp; 1898.10 관민공동회 &nbsp;→&nbsp; 1898.12 독립협회 해산</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>독립신문</b>서재필</div>
+      <div class="tl-node"><b>독립협회</b>독립문</div>
+      <div class="tl-node p2"><b>대한제국</b>연호 광무</div>
+      <div class="tl-node"><b>관민공동회</b>헌의6조</div>
+      <div class="tl-node"><b>협회 해산</b>황국협회</div>
+      <div class="tl-node p2"><b>광무개혁</b>양전·지계</div>
+    </div>
+  </div>
+</header>
+
+<!-- 독립협회 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">독립협회</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">주도: <b>서재필</b> 등 — 민간 중심의 자주 국권·자유 민권 운동</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1896.4</div>
+        <div class="evt-body">
+          <h4>독립신문 창간</h4>
+          <p><b>서재필</b>이 정부 지원을 받아 창간 — <b>한글판과 영문판</b>을 함께 발행한 최초의 민간 신문.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1896.7</div>
+        <div class="evt-body">
+          <h4>독립협회 창립</h4>
+          <p>청 사신을 맞던 <b>영은문 자리에 독립문</b>을 세우고, <b>모화관을 독립관으로</b> 고쳐 사용 — 청과의 사대 관계 청산을 상징.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1898</div>
+        <div class="evt-body">
+          <h4>이권 수호 운동</h4>
+          <p><b>만민공동회</b> 개최 — 러시아의 절영도 조차 요구 저지, 한러은행 폐쇄 요구 등 <b>열강의 이권 침탈에 맞서 자주 국권 주장</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1898.10</div>
+        <div class="evt-body">
+          <h4>관민공동회 · 헌의 6조</h4>
+          <p>정부 관료까지 참여한 <b>관민공동회</b>에서 <b>헌의 6조</b> 결의 — 자주 국권 확립, <b>중추원을 의회식으로 개편</b>해 국민 참정권 반영 요구.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">5</div>
+        <div class="evt-year">1898.12</div>
+        <div class="evt-body">
+          <h4>독립협회 해산</h4>
+          <p>보수 세력이 <b>"독립협회가 공화정을 세우려 한다"</b>고 모함 → 정부가 <span class="redmark">황국협회</span>(보부상 중심)를 동원해 탄압, 독립협회 강제 해산.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 헌의 6조의 핵심은 <b>중추원 개편(의회 설립 시도)</b>입니다. "만민공동회에서 시전 상인 벌금을 논의했다"처럼 세부를 뒤바꾼 오답에 주의하세요.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>같은 시기, 황실은 다른 길을 갑니다</b><br>
+  독립협회가 민권·의회 설립을 추진하는 동안, 고종은 <b>경운궁(현 덕수궁)으로 환궁</b>(1897.2)해 황제권 강화를 중심으로 한 별도의 개혁을 준비합니다. 이것이 대한제국 수립으로 이어집니다.
+</div>
+
+<!-- 대한제국 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">대한제국 · 광무개혁</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">방향: <b>구본신참</b>(옛 것을 근본으로 새 것을 참작) — 옛 제도를 바탕으로 점진적 개혁, <b>황제권 강화 중심</b></p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>1897.10</b> 환구단에서 황제 즉위식, 국호 <b>'대한제국'</b>, 연호 <b>'광무'</b> 선포</li>
+      <li><b>대한국 국제</b>(1899) 반포 — 황제에게 <b>무한한 권력</b>이 있음을 명시(전제 군주제 강화)</li>
+      <li><b>원수부</b> 설치 — 황제가 군 통수권 직접 장악</li>
+      <li><b>양전 사업</b>과 <b>지계(토지 소유권 증명서) 발급</b> — 근대적 토지 소유 제도 도입</li>
+      <li>상공업 진흥책: 공장·회사 설립 지원, 근대 학교·병원 설립</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>'지계'</b>는 대한제국 광무개혁의 대표 키워드입니다. 훗날 일제의 <b>'토지 조사 사업'</b>(1910년대)과 목적·성격이 전혀 다르니 혼동하지 마세요 — 지계는 소유권 보호, 토지 조사 사업은 수탈이 목적입니다.</div>
+  </div>
+</section>
+
+<!-- 비교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>주도 세력</th><th>지향</th><th>핵심 키워드</th></tr>
+    <tr><td><b>독립협회</b></td><td>서재필 등 민간</td><td>자주 국권 + 자유 민권(의회 설립)</td><td>독립문, 만민공동회, 헌의 6조</td></tr>
+    <tr><td><b>대한제국</b></td><td>고종(황실)</td><td>구본신참, 황제권 강화</td><td>광무, 대한국 국제, 지계</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

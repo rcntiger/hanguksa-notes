@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>국권 수호 운동 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 14%;min-width:70px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:11px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대</div>
+  <h1>국권 수호 운동</h1>
+  <p class="sub">국권 피탈에 맞선 두 갈래 대응 — 총을 든 <b>의병</b>과, 실력을 기르자는 <b>애국 계몽 운동</b></p>
+  <p class="period">1895 을미의병 &nbsp;→&nbsp; 1905 을사의병 &nbsp;→&nbsp; 1907 정미의병 &nbsp;→&nbsp; 1907 신민회 &nbsp;→&nbsp; 1907~08 국채 보상 운동</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>을미의병</b>단발령</div>
+      <div class="tl-node p2"><b>을사의병</b>신돌석</div>
+      <div class="tl-node p3"><b>정미의병</b>서울진공</div>
+      <div class="tl-node"><b>보안회</b>황무지반대</div>
+      <div class="tl-node"><b>신민회</b>비밀결사</div>
+      <div class="tl-node"><b>국채보상</b>대구</div>
+      <div class="tl-node p3"><b>105인사건</b>신민회해체</div>
+    </div>
+  </div>
+</header>
+
+<!-- 의병 운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">의병 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">계기가 달라질 때마다 규모와 참여층이 커진다는 흐름을 기억하세요</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1895~96</div>
+        <div class="evt-body">
+          <h4>을미의병 <span class="stamp">단발령 반발</span></h4>
+          <p>을미사변과 <b>단발령</b>에 반발 — <b>유인석·이소응</b> 등 <b>위정척사파 유생</b>이 주도. 아관파천 이후 고종의 <b>단발령 철회·해산 권고 조칙</b>으로 자진 해산.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1905~06</div>
+        <div class="evt-body">
+          <h4>을사의병 <span class="stamp blue">을사늑약 반발</span></h4>
+          <p><b>민종식</b>(홍주성 점령), <b>최익현</b>(태인, 이후 쓰시마 유배 중 순국), <b>신돌석</b>(평민 출신 의병장, 태백산 호랑이로 불림) — <b>평민 의병장의 등장</b>이 핵심.</p>
+        </div>
+      </div>
+      <div class="evt p3">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1907~</div>
+        <div class="evt-body">
+          <h4>정미의병 <span class="stamp purple">군대 해산 이후</span></h4>
+          <p><b>해산된 군인들이 합류</b>하며 조직력·화력 강화 → 의병 전쟁으로 발전. 각지 부대가 연합해 <b>13도 창의군</b> 결성(총대장 <b>이인영</b>, 군사장 <b>허위</b>) → <b>서울 진공 작전</b>(1908) 시도했으나 실패.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> "평민 출신 의병장 신돌석"이 보이면 <span class="redmark">을사의병</span>, "해산 군인이 합류"·"서울 진공 작전"이 보이면 <span class="redmark">정미의병</span>입니다. 계기 → 주도 계층 순서로 짝지어 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 애국 계몽 운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">애국 계몽 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">"실력을 길러야 국권을 되찾을 수 있다"는 <b>사회 진화론</b>적 인식이 배경</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>보안회</b>(1904) — 일본의 <b>황무지 개간권 요구를 저지</b></li>
+      <li><b>헌정연구회</b>(1905) → <b>대한자강회</b>(1906, 고종 강제 퇴위 반대 운동 전개하다 해산) → <b>대한협회</b></li>
+      <li>교육·언론 활동: 사립 학교 설립 운동, 신문을 통한 국권 의식 고취</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 신민회 (1907)</h3>
+    <ul class="chk">
+      <li><b>안창호·양기탁</b> 등이 조직한 <b>비밀 결사</b> — 회원 개개인이 신분을 숨기고 활동</li>
+      <li>목표: <b>실력 양성</b> + <b>공화정 수립</b> 지향(이전 단체들과 달리 입헌 군주제가 아닌 공화정을 지향한 최초의 단체)</li>
+      <li>교육: <b>대성 학교</b>(평양)·<b>오산 학교</b>(정주) 설립</li>
+      <li>산업: <b>자기 회사</b>(평양, 도자기), 태극 서관(출판·서적 보급)</li>
+      <li>국외 독립운동 기지 건설: 서간도 <b>삼원보</b>에 <b>신흥 강습소</b>(훗날 신흥 무관 학교) 설립 추진</li>
+      <li><b>1911년 105인 사건</b>(총독 암살 미수 사건 조작)으로 조직 발각 → 해체</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 신민회는 애국 계몽 운동 단체 중 <b>유일하게 '공화정'을 지향</b>했고, <b>국내 계몽 운동과 국외 무장 투쟁 기지 건설을 동시에</b> 추진했다는 점이 다른 단체와 구분되는 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 국채보상운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">국채 보상 운동</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>1907년 대구</b>에서 <b>서상돈·김광제</b>의 발의로 시작</li>
+      <li>일본에서 도입한 <b>차관 1,300만 원</b>을 갚아 <b>경제적 예속에서 벗어나자</b>는 취지 — 금연·금주, 반지·비녀 등 패물 헌납으로 모금</li>
+      <li><b>대한매일신보</b>(양기탁·베델)가 적극 후원해 전국으로 확산</li>
+      <li>통감부의 방해(양기탁을 횡령 혐의로 구속)로 좌절</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 국채 보상 운동은 <b>여성·학생 등 전 계층이 참여한 자발적 모금 운동</b>이라는 성격이 시험에서 자주 강조됩니다. 1997년 외환 위기 때의 '금 모으기 운동'과 성격을 비교하는 문제도 나옵니다.</div>
+  </div>
+</section>
+
+<!-- 비교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 의병 3단계</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>계기</th><th>주도 계층</th></tr>
+    <tr><td><b>을미의병</b></td><td>을미사변·단발령</td><td>위정척사 유생(유인석 등)</td></tr>
+    <tr><td><b>을사의병</b></td><td>을사늑약</td><td>유생 + <b>평민 의병장(신돌석)</b></td></tr>
+    <tr><td><b>정미의병</b></td><td>군대 해산</td><td>유생·평민 + <b>해산 군인</b> → 의병 전쟁화</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

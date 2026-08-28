@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>삼국 통일 · 남북국 시대 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 88px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고대</div>
+  <h1>삼국 통일과 남북국 시대</h1>
+  <p class="sub">신라의 삼국 통일 과정과, 이후 대동강 이남의 통일 신라·만주의 발해가 함께 존재한 '남북국' 체제까지</p>
+  <p class="period">648 나당동맹 &nbsp;→&nbsp; 660 백제멸망 &nbsp;→&nbsp; 668 고구려멸망 &nbsp;→&nbsp; 676 삼국통일 &nbsp;→&nbsp; 698 발해건국</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>나당동맹</b>648</div>
+      <div class="tl-node"><b>백제멸망</b>660</div>
+      <div class="tl-node"><b>고구려멸망</b>668</div>
+      <div class="tl-node p2"><b>매소성기벌포</b>675~76</div>
+      <div class="tl-node p2"><b>신문왕</b>체제정비</div>
+      <div class="tl-node p3"><b>발해건국</b>698</div>
+      <div class="tl-node p3"><b>해동성국</b>선왕</div>
+    </div>
+  </div>
+</header>
+
+<!-- 통일전쟁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">삼국 통일 전쟁</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">648</div>
+        <div class="evt-body">
+          <h4>나당 동맹</h4>
+          <p><b>김춘추</b>가 당과 교섭해 군사 동맹 체결.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">660</div>
+        <div class="evt-body">
+          <h4>백제 멸망</h4>
+          <p><b>황산벌 전투</b>(계백)에서 신라군이 승리 → <b>사비성 함락</b>. 이후 <b>백제 부흥 운동</b>(복신·도침, 흑치상지) 전개, <b>백강 전투</b>(663, 왜의 지원군 참전)에서 패배하며 부흥 운동 좌절.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">668</div>
+        <div class="evt-body">
+          <h4>고구려 멸망</h4>
+          <p>연개소문 사후 지배층 분열 → 평양성 함락. 이후 <b>검모잠·안승</b>의 부흥 운동(신라가 안승을 <b>보덕국왕</b>으로 책봉해 지원) 전개되나 실패.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">4</div>
+        <div class="evt-year">675~676</div>
+        <div class="evt-body">
+          <h4>나당 전쟁 승리</h4>
+          <p>당이 한반도 전체를 지배하려 하자 신라가 저항 — <b>매소성 전투(675)</b>·<b>기벌포 전투(676)</b> 승리로 당군을 축출, <b>삼국 통일 완성</b>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> <b>백강 전투(663)는 백제 멸망(660) 이후</b>의 사건입니다 — 백제가 멸망하기 전 전투로 착각하는 오답이 흔합니다. 왜가 참전했다는 점도 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 통일신라 체제정비 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">통일 신라의 체제 정비</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>신문왕</b> — <b>김흠돌의 난</b> 진압 후 왕권 강화, <b>9주 5소경</b>(지방 행정), <b>9서당 10정</b>(군사, 옛 삼국·말갈인 포함해 민족 융합 도모), <b>국학</b> 설립</li>
+      <li>토지 제도: <b>관료전 지급·녹읍 폐지</b> — 귀족의 경제 기반 약화가 목적</li>
+      <li><b>성덕왕</b> — 백성에게 <b>정전</b> 지급</li>
+      <li><b>경덕왕</b> — <b>녹읍 부활</b> — 귀족 세력이 다시 강해지는 신호</li>
+      <li><b>원성왕</b> — <b>독서삼품과</b> 실시(유교 경전 이해 수준으로 관리 등용 시도, 진골 반발로 큰 효과는 없었음)</li>
+      <li><b>신라 촌락 문서(민정 문서)</b> — 촌주가 3년마다 작성, 인구·토지·가축 수 기록 → 조세 수취의 근거 자료</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 녹읍은 <span class="redmark">신문왕이 폐지 → 경덕왕이 부활</span>— 이 순서를 뒤집는 오답이 자주 나옵니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>같은 시기, 북쪽에서는 발해가 일어섭니다</b><br>
+  고구려 멸망 이후 유민들이 만주에 흩어져 있던 중, 고구려 장수 출신 <b>대조영</b>이 이들을 모아 새로운 나라를 세웁니다. 신라와 발해가 남북에 나란히 존재한 이 시기를 <b>남북국 시대</b>라 부릅니다.
+</div>
+
+<!-- 발해 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">발해</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>대조영</b> — <b>동모산</b>에서 건국(698), 고구려 계승 의식(일본에 보낸 국서에 스스로를 '고려국왕'으로 표현)</li>
+      <li><b>무왕</b> — 연호 '인안', 장문휴를 보내 <b>당의 등주 공격</b></li>
+      <li><b>문왕</b> — 연호 '대흥', <b>상경 천도</b>, <b>신라도</b> 개설(신라와 교류로), 당과 친선 관계로 전환</li>
+      <li><b>선왕</b> — 최대 영토 확보, 중국으로부터 <b>'해동성국'</b>이라 불림, <b>5경 15부 62주</b> 지방 제도 정비</li>
+      <li>통치 조직: 당의 3성 6부제를 수용했지만 <b>정당성 중심 운영</b>, <b>6부의 유교식 명칭(충·인·의…)</b> 등 독자성 유지</li>
+      <li>926년 <b>거란(요)</b>에 멸망</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "발해는 고구려를 계승했다"는 서술의 근거로 <b>일본에 보낸 국서의 '고려' 표현</b>, <b>온돌 문화</b>, <b>정혜공주·정효공주 묘의 고구려 양식</b>이 사료로 자주 등장합니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 발해 왕 4명</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>왕</th><th>연호</th><th>핵심</th></tr>
+    <tr><td><b>대조영</b></td><td>천통</td><td>동모산 건국(698)</td></tr>
+    <tr><td><b>무왕</b></td><td>인안</td><td>당의 등주 공격(장문휴)</td></tr>
+    <tr><td><b>문왕</b></td><td>대흥</td><td>상경 천도, 신라도 개설</td></tr>
+    <tr><td><b>선왕</b></td><td>건흥</td><td>해동성국, 5경 15부 62주</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>왜란 · 호란 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 88px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 전기~중기</div>
+  <h1>왜란과 호란</h1>
+  <p class="sub">7년의 왜란과, 광해군의 실리 외교가 인조반정으로 꺾이며 벌어진 두 차례 호란까지 — 하나로 이어지는 이야기입니다</p>
+  <p class="period">1592 임진왜란 &nbsp;→&nbsp; 1608 광해군 즉위 &nbsp;→&nbsp; 1623 인조반정 &nbsp;→&nbsp; 1627 정묘호란 &nbsp;→&nbsp; 1636 병자호란</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>임진왜란</b>1592</div>
+      <div class="tl-node"><b>한산도대첩</b>이순신</div>
+      <div class="tl-node"><b>훈련도감</b>정유재란</div>
+      <div class="tl-node p2"><b>광해군</b>중립외교</div>
+      <div class="tl-node p3"><b>인조반정</b>1623</div>
+      <div class="tl-node p3"><b>정묘호란</b>1627</div>
+      <div class="tl-node p3"><b>병자호란</b>1636</div>
+    </div>
+  </div>
+</header>
+
+<!-- 임진왜란 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">임진왜란</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>1592년</b> 일본(도요토미 히데요시)이 조선 침입 — 부산진·동래성 함락 후 빠르게 북상, 선조는 의주로 피난</li>
+      <li>해전: <b>이순신</b>의 <b>옥포 해전</b>(첫 승리), <b>한산도 대첩</b>(학익진 전법으로 대승) — 제해권 장악으로 일본의 수륙 병진 작전 좌절</li>
+      <li>육전: <b>진주 대첩</b>(<b>김시민</b>), <b>행주 대첩</b>(<b>권율</b>) — 3대첩으로 불림</li>
+      <li><b>의병</b> 활동 — <b>곽재우</b>(홍의장군) 등 각지에서 자발적으로 조직, 익숙한 지형을 활용한 유격전으로 활약</li>
+      <li>전시 대응: <b>훈련도감</b> 설치(포수·살수·사수의 삼수병으로 구성, 직업 군인 성격) — 기존 5위 체제의 한계를 보완</li>
+      <li><b>정유재란</b>(1597) — 명량 해전(이순신, 12척으로 대승), 이후 노량 해전에서 이순신 전사하며 전쟁 종결</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>한산도 대첩(1592)</b>과 <b>명량·노량 해전(1597~98, 정유재란)</b>은 <b>5년의 시차</b>가 있습니다 — 모두 임진년 사건으로 묶어버리는 오답에 주의하세요.</div>
+  </div>
+</section>
+
+<!-- 광해군 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">광해군의 전후 복구와 중립 외교</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>전후 복구: 토지·인구 조사, <b>대동법을 경기도에서 시범 시행</b>(1608)</li>
+      <li><b>중립 외교</b> — 새로 성장한 <b>후금</b>과 기존의 <b>명</b> 사이에서 실리를 추구, 강홍립을 파견하되 상황에 따라 대처하도록 함(사르후 전투에서 후금에 투항)</li>
+      <li>서인을 비롯한 신하들이 <b>명에 대한 의리를 저버렸다</b>고 비판 → <b>인조반정</b>(1623)으로 폐위</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 대동법을 <b>처음(경기도) 시행</b>한 것은 광해군입니다 — 전국 확대는 훨씬 후대(숙종)의 일이라는 점과 구분하세요.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>인조반정 이후, 친명배금 정책이 호란을 부릅니다</b><br>
+  인조와 서인 정권은 광해군과 반대로 <b>친명배금</b> 정책을 펼치는데, 이것이 후금(청)을 자극해 두 차례 호란으로 이어집니다.
+</div>
+
+<!-- 호란 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">정묘호란 · 병자호란</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p3">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1627</div>
+        <div class="evt-body">
+          <h4>정묘호란 <span class="stamp purple">형제 관계</span></h4>
+          <p><b>후금</b>이 침입 — 인조가 <b>강화도</b>로 피난, <b>정봉수·이립</b> 등의 항전. 후금과 <b>형제 관계</b>를 맺는 조건으로 강화.</p>
+        </div>
+      </div>
+      <div class="evt p3">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1636</div>
+        <div class="evt-body">
+          <h4>병자호란 <span class="stamp purple">군신 관계</span></h4>
+          <p>국호를 <b>청</b>으로 바꾼 후금이 <b>군신 관계</b>를 요구하며 재침입 — 인조가 <b>남한산성</b>에서 항전하다 결국 <b>삼전도에서 항복</b>(삼전도의 굴욕), 청과 <b>군신 관계</b> 체결. 소현세자·봉림대군 등이 <b>청에 인질</b>로 끌려감.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 정묘호란=<span class="redmark">형제 관계</span>, 병자호란=<span class="redmark">군신 관계</span> — 관계의 성격이 격상된다는 점이 핵심입니다. 봉림대군은 이후 <b>효종</b>이 되어 북벌을 추진합니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>연도</th><th>결과</th></tr>
+    <tr><td><b>정묘호란</b></td><td>1627</td><td>후금과 <b>형제 관계</b></td></tr>
+    <tr><td><b>병자호란</b></td><td>1636</td><td>청과 <b>군신 관계</b>, 삼전도의 굴욕</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

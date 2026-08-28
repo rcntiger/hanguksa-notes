@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한국사능력검정시험 심화 · 시대별 핵심 정리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1116;
+  --ink2:#161A21;
+  --ink3:#1E232C;
+  --line:#2B313C;
+  --paper:#ECE7DA;
+  --muted:#939BA8;
+  --jeok:#D0453F;
+  --cheong:#4FA3B8;
+  --hwang:#E0A62C;
+  --nok:#6FA86B;
+  --jaju:#9A6FB0;
+  --heuk:#7C848F;
+  --baek:#C9CDD4;
+  --danju:#E07A4B;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Noto Sans KR',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.72;
+  font-size:15px;
+  overflow-x:hidden;
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 18px 90px}
+
+/* ---------- header ---------- */
+header{padding:44px 0 8px;position:relative}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.22em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:14px;
+}
+h1{
+  font-family:'Gowun Batang',serif;font-weight:700;
+  font-size:clamp(30px,8.4vw,46px);line-height:1.24;
+  margin:0 0 14px;letter-spacing:-.01em;
+}
+h1 em{font-style:normal;color:var(--hwang)}
+.lede{color:var(--baek);font-size:14.5px;max-width:46ch;margin:0 0 4px}
+.note{
+  margin-top:20px;border-left:2px solid var(--jeok);
+  padding:10px 0 10px 14px;font-size:12.8px;color:var(--muted);line-height:1.7;
+}
+
+/* ---------- signature: 출제비중 연표 리본 ---------- */
+.ribbon-label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin:34px 0 8px;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;letter-spacing:.16em;color:var(--muted)
+}
+.ribbon{
+  display:flex;width:100%;height:64px;border-radius:3px;overflow:hidden;
+  border:1px solid var(--line);
+}
+.seg{
+  flex-grow:1;border:0;padding:0;cursor:pointer;position:relative;
+  background:transparent;display:flex;flex-direction:column;justify-content:flex-end;
+  align-items:center;transition:filter .2s ease;
+  border-right:1px solid rgba(14,17,22,.65);
+}
+.seg:last-child{border-right:0}
+.seg .fill{
+  width:100%;background:currentColor;opacity:.9;
+}
+.seg .tick{
+  font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--baek);
+  padding:3px 0 4px;opacity:.75;writing-mode:horizontal-tb;
+}
+.seg:hover,.seg:focus-visible{filter:brightness(1.35)}
+.seg:focus-visible{outline:2px solid var(--hwang);outline-offset:2px}
+.ribbon-foot{
+  font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.6
+}
+
+/* ---------- controls ---------- */
+.controls{
+  position:sticky;top:0;z-index:40;background:rgba(14,17,22,.94);
+  backdrop-filter:blur(8px);padding:12px 0 10px;margin-top:26px;
+  border-bottom:1px solid var(--line);
+}
+.search{
+  width:100%;background:var(--ink2);border:1px solid var(--line);color:var(--paper);
+  font-family:'Noto Sans KR',sans-serif;font-size:15px;padding:11px 14px;border-radius:3px;
+}
+.search::placeholder{color:#69707C}
+.search:focus{outline:none;border-color:var(--hwang)}
+.chips{display:flex;gap:6px;overflow-x:auto;margin-top:10px;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;background:transparent;border:1px solid var(--line);color:var(--baek);
+  font-family:'Noto Sans KR',sans-serif;font-size:12.5px;padding:6px 11px;border-radius:2px;
+  cursor:pointer;white-space:nowrap;transition:.15s
+}
+.chip[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper);font-weight:500}
+.chip:focus-visible{outline:2px solid var(--hwang);outline-offset:2px}
+.progress{
+  display:flex;align-items:center;gap:10px;margin-top:10px;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted);letter-spacing:.1em
+}
+.bar{flex:1;height:2px;background:var(--line);position:relative}
+.bar span{position:absolute;left:0;top:0;bottom:0;background:var(--jeok);width:0;transition:width .35s}
+
+/* ---------- era ---------- */
+.era{margin-top:46px;scroll-margin-top:130px}
+.era-head{display:flex;align-items:flex-start;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.era-mark{
+  width:4px;align-self:stretch;min-height:52px;background:currentColor;flex:0 0 4px;margin-top:3px
+}
+.era-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:24px;margin:0;line-height:1.3}
+.era-meta{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted);
+  letter-spacing:.12em;margin-top:3px
+}
+.era-desc{font-size:13px;color:var(--baek);margin:6px 0 0;line-height:1.65}
+
+/* ---------- card ---------- */
+.card{
+  background:var(--ink2);border:1px solid var(--line);border-radius:4px;
+  margin-top:12px;padding:16px 16px 14px;position:relative;overflow:hidden;
+}
+.card.done{border-color:rgba(208,69,63,.5)}
+.card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:currentColor;opacity:.85
+}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card h3{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:17.5px;margin:0 0 2px;
+  line-height:1.4;color:var(--paper)
+}
+.card-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  color:currentColor;opacity:.9
+}
+ul.key{list-style:none;padding:0;margin:10px 0 0}
+ul.key li{
+  position:relative;padding-left:14px;margin-bottom:5px;font-size:14px;color:#DDD8CC;line-height:1.68
+}
+ul.key li::before{
+  content:"";position:absolute;left:0;top:10px;width:5px;height:1px;background:currentColor;opacity:.8
+}
+ul.key b{font-weight:500;color:var(--paper);border-bottom:1px solid rgba(224,166,44,.45)}
+.point{
+  margin-top:11px;padding:9px 11px;background:var(--ink3);border-radius:3px;
+  font-size:12.8px;color:var(--baek);line-height:1.65
+}
+.point strong{
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  color:var(--jeok);display:block;margin-bottom:3px;font-weight:600
+}
+
+/* 인장 도장 버튼 */
+.seal{
+  flex:0 0 auto;width:38px;height:38px;border-radius:3px;cursor:pointer;
+  border:1px dashed var(--line);background:transparent;color:#5A616C;
+  font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;transition:.18s;padding:0
+}
+.seal:focus-visible{outline:2px solid var(--hwang);outline-offset:2px}
+.card.done .seal{
+  border:1px solid var(--jeok);border-style:solid;background:var(--jeok);color:#fff;
+  transform:rotate(-7deg);box-shadow:0 0 0 3px rgba(208,69,63,.13)
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .card.done .seal{transform:none}
+}
+
+.empty{padding:36px 0;text-align:center;color:var(--muted);font-size:14px}
+footer{
+  margin-top:56px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11.5px;color:#6B7280;line-height:1.75
+}
+.top-btn{
+  position:fixed;right:16px;bottom:18px;z-index:50;width:44px;height:44px;border-radius:50%;
+  background:var(--ink3);border:1px solid var(--line);color:var(--paper);cursor:pointer;
+  font-size:15px;display:none;align-items:center;justify-content:center
+}
+.top-btn.show{display:flex}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">한국사능력검정시험 · 심화 1·2·3급</div>
+  <h1>시대의 뼈대를<br><em>먼저</em> 세운다</h1>
+  <p class="lede">심화 시험은 50문항이 시대 순으로 흐릅니다. 문제를 하나씩 푸는 대신, 시대마다 반복해서 나오는 뼈대를 먼저 세워두면 낯선 사료가 나와도 위치를 찾을 수 있습니다.</p>
+  <div class="note">
+    실제 기출 문항의 지문·선지는 저작권이 있어 그대로 싣지 않았습니다. 대신 심화 시행 이후 회차들에서 반복 출제되는 주제를 시대별로 묶고, 정답을 가르는 핵심 근거만 정리했습니다. 원문 문항은 국사편찬위원회 시험 홈페이지에서 회차별 PDF로 받아볼 수 있습니다.
+  </div>
+
+  <div class="ribbon-label"><span>출제 비중 (50문항 기준 · 대략)</span><span>탭하면 이동</span></div>
+  <div class="ribbon" id="ribbon"></div>
+  <p class="ribbon-foot">회차마다 한두 문항씩 달라지지만 큰 틀은 거의 그대로입니다. 고대·근대·일제강점기 세 구간이 전체의 절반을 넘습니다.</p>
+</header>
+
+<div class="controls">
+  <input class="search" id="q" type="search" placeholder="키워드로 찾기 — 예: 대동법, 신간회, 6월 민주항쟁" aria-label="키워드 검색">
+  <div class="chips" id="chips"></div>
+  <div class="progress">
+    <span id="pcount">0 / 0</span>
+    <span class="bar"><span id="pbar"></span></span>
+    <span>학습 완료</span>
+  </div>
+</div>
+
+<main id="list"></main>
+
+<footer>
+  주제 선정과 정리 내용은 기출 경향을 바탕으로 한 학습용 요약입니다. 연도·인명은 교과서 표기를 따랐으며, 시험 직전에는 반드시 최근 회차 원문으로 한 번 더 확인하세요.<br>
+  도장을 눌러 표시한 학습 기록은 이 페이지 안에만 저장됩니다.
+</footer>
+
+</div>
+<button class="top-btn" id="top" aria-label="맨 위로">↑</button>
+
+<script>
+const ERAS = [
+ {id:"sunsa", name:"선사 · 초기 국가", meta:"구석기 ~ 삼한", weight:4, color:"var(--heuk)",
+  desc:"유물 하나로 시대를 특정하는 문제와, 나라별 제천행사·혼인 풍습을 짝짓는 문제가 거의 고정입니다.",
+  items:[
+   {t:"구석기 · 신석기", tag:"유물 판별", k:["구석기: <b>뗀석기</b>, 주먹도끼(연천 전곡리), 동굴·막집, 이동 생활, 공주 석장리","신석기: <b>간석기·빗살무늬토기</b>, 움집, 조·피 재배 시작, 가락바퀴와 뼈바늘","신석기 신앙: 애니미즘·토테미즘·샤머니즘, 대표 유적 서울 암사동·부산 동삼동"],p:"'농경이 시작되었다'는 신석기, '벼농사'는 청동기. 계급 발생은 청동기부터입니다."},
+   {t:"청동기 · 철기", tag:"유물 판별", k:["청동기: <b>비파형 동검</b>, 미송리식 토기, 민무늬토기, 고인돌, 반달 돌칼로 벼 수확","철기: <b>세형 동검</b>·잔무늬 거울, 거푸집, 널무덤·독무덤","중국과 교류: <b>명도전·반량전·오수전</b>, 창원 다호리 붓 → 한자 사용 증거"],p:"비파형은 청동기, 세형은 철기. 거푸집이 보이면 한반도 독자 생산 = 철기입니다."},
+   {t:"고조선", tag:"빈출", k:["단군 건국 이야기: 『삼국유사』·『제왕운기』에 수록, 농경·토테미즘 반영","<b>범금 8조</b> 중 3개 조목 전함 → 생명·노동력·사유재산 중시","<b>위만</b> 집권(기원전 194) 후 철기 본격 수용, 중계무역 독점","한 무제 침입으로 <b>왕검성 함락(기원전 108)</b>, 이후 군현 설치"],p:"'중계무역으로 갈등' '진번·임둔 복속'은 위만 조선 시기 서술입니다."},
+   {t:"부여 · 고구려(초기)", tag:"풍습 짝짓기", k:["부여: <b>사출도</b>(마가·우가·저가·구가), 제천행사 <b>영고(12월)</b>, 순장·형사취수제, 1책 12법","고구려: <b>제가 회의</b>, 제천행사 <b>동맹(10월)</b>, <b>서옥제</b>, 약탈 경제","고구려 왕 밑 상가·고추가 등 대가들이 사자·조의·선인을 거느림"],p:"영고만 12월(수렵 사회의 흔적), 나머지 제천행사는 대개 10월입니다."},
+   {t:"옥저 · 동예 · 삼한", tag:"풍습 짝짓기", k:["옥저: <b>민며느리제</b>, 가족 공동 무덤(골장제), 소금·해산물 풍부","동예: <b>무천(10월)</b>, <b>책화</b>, 족외혼, 특산물 단궁·과하마·반어피","옥저·동예 모두 왕 없이 읍군·삼로가 다스림","삼한: 신지·읍차, <b>천군과 소도</b>(제정 분리), 수릿날(5월)·계절제(10월), 변한의 <b>철 수출</b>"],p:"소도는 군장의 힘이 미치지 못하는 곳 → 제정 분리의 근거로 늘 나옵니다."}
+  ]},
+
+ {id:"godae", name:"삼국 · 남북국", meta:"고대", weight:10, color:"var(--cheong)",
+  desc:"왕의 업적을 시기 순으로 배열하는 문제, 비석·유물 사진 문제가 매 회차 등장합니다.",
+  items:[
+   {t:"고구려의 성장", tag:"왕 업적", k:["<b>소수림왕</b>: 불교 수용·태학 설립·율령 반포(372년 무렵)","<b>광개토 대왕</b>: 연호 '영락', 신라에 침입한 왜 격퇴(400), 요동 확보","<b>장수왕</b>: <b>평양 천도(427)</b>, 한성 함락(475) → 충주(중원) 고구려비","미천왕: 낙랑군 축출(313), 고국천왕: <b>진대법</b>(을파소 건의)"],p:"'남진 정책'이 보이면 장수왕, '남한강 유역 진출 기념비'는 충주 고구려비입니다."},
+   {t:"백제의 성장과 중흥", tag:"왕 업적", k:["<b>근초고왕</b>: 마한 병합, 평양성 공격해 고국원왕 전사(371), 칠지도·왜 교류","침류왕: 불교 수용(384) / 고이왕: 관등제·율령 정비","<b>무령왕</b>: <b>22담로</b>에 왕족 파견, 벽돌무덤(무령왕릉)","<b>성왕</b>: <b>사비 천도</b>·국호 남부여, 한강 일시 회복 후 <b>관산성에서 전사(554)</b>"],p:"무령왕릉은 중국 남조 양식 벽돌무덤이며 묘지석으로 주인이 확인된 무덤입니다."},
+   {t:"신라의 성장", tag:"왕 업적", k:["<b>지증왕</b>: 국호 '신라'·왕 칭호, 우산국 복속(512), 우경 장려, 순장 금지","<b>법흥왕</b>: 율령 반포, 병부 설치, <b>이차돈 순교로 불교 공인(527)</b>, 금관가야 병합(532), 연호 '건원'","<b>진흥왕</b>: 화랑도 국가 조직화, 한강 유역 차지, <b>4개 순수비</b>, 대가야 정복(562)","골품제: 6두품은 아찬까지 → 학문·종교로 진출"],p:"'북한산·창녕·황초령·마운령' 비석 넷은 모두 진흥왕 순수비입니다."},
+   {t:"가야 연맹", tag:"단독 출제", k:["<b>금관가야</b>(김해): 김수로 건국, 구지가 설화, 덩이쇠 수출, 532년 신라에 병합","<b>대가야</b>(고령): 후기 맹주, 이진아시왕, 562년 신라에 정복","유물: 판갑옷·철제 무기, 대성동·지산동 고분군"],p:"'철이 많아 낙랑·왜에 수출'은 변한~금관가야를 가리키는 단골 표현입니다."},
+   {t:"삼국 통일 전쟁", tag:"순서 배열", k:["나당 동맹(648) → <b>황산벌 전투·사비 함락(660)</b> → 백제 부흥 운동과 <b>백강 전투(663)</b>","고구려 멸망(668) → 검모잠·안승의 부흥 운동","<b>매소성(675)·기벌포(676)</b> 승리로 당군 축출 → 삼국 통일"],p:"백강 전투는 왜가 참전한 전투로, 백제 멸망 '이후'에 벌어졌다는 점이 함정입니다."},
+   {t:"통일 신라의 체제 정비", tag:"왕 업적", k:["<b>신문왕</b>: 김흠돌의 난 진압, <b>9주 5소경</b>, 9서당 10정, 국학 설립, <b>관료전 지급·녹읍 폐지</b>","성덕왕: 백성에게 정전 지급 / 원성왕: <b>독서삼품과</b>","신라 촌락 문서(민정 문서): 3년마다 촌주가 작성, 인구·토지·가축 기록"],p:"녹읍은 신문왕이 폐지했다가 경덕왕 때 부활 — 부활 시점을 묻는 선지가 자주 나옵니다."},
+   {t:"발해", tag:"빈출", k:["<b>대조영</b>이 동모산에서 건국(698), 고구려 계승 의식(일본에 보낸 국서의 '고려국왕')","<b>무왕</b>: 연호 '인안', 장문휴가 당의 <b>등주 공격</b>","<b>문왕</b>: 연호 '대흥', 상경 천도, 신라도 개설, 당과 친선","<b>선왕</b>: 최대 영토, <b>해동성국</b>, 5경 15부 62주 정비 → 926년 거란에 멸망"],p:"3성 6부는 당 제도를 수용했지만 정당성 중심 운영과 6부의 유교식 명칭은 독자성입니다."},
+   {t:"신라 말의 동요", tag:"흐름", k:["진성여왕 때 <b>원종·애노의 난</b>(889), 조세 독촉이 원인","<b>6두품</b> 지식인(최치원의 시무 10여 조)과 <b>호족</b>의 성장","<b>선종</b> 9산 선문과 <b>풍수지리설</b>(도선) 유행 → 지방 중심 사상","후백제(견훤, 900)·후고구려(궁예, 901) 성립"],p:"'선종·풍수지리 유행'은 호족의 사상적 기반이라는 맥락으로 출제됩니다."},
+   {t:"고대 문화", tag:"사진 문제", k:["<b>원효</b>: 일심 사상·화쟁, 아미타 신앙으로 불교 대중화, 『대승기신론소』","<b>의상</b>: 화엄 사상('일즉다 다즉일'), 부석사 창건, 관음 신앙","<b>혜초</b>: 『왕오천축국전』","유물: 백제 <b>금동 대향로</b>, 무령왕릉, 신라 <b>첨성대</b>, 불국사·석굴암, <b>무구정광대다라니경</b>"],p:"금동 미륵보살 반가 사유상과 일본 고류사 목조 반가 사유상의 유사성은 문화 전파 근거입니다."}
+  ]},
+
+ {id:"goryeo", name:"고려", meta:"918 ~ 1392", weight:8, color:"var(--nok)",
+  desc:"왕별 정책, 대외 항쟁 순서, 무신 집권기 기구가 세 축입니다.",
+  items:[
+   {t:"태조 · 광종 · 성종", tag:"왕 업적", k:["<b>태조</b>: 흑창 설치, <b>사심관·기인 제도</b>, 훈요 10조, 북진 정책(서경 중시)","<b>광종</b>: <b>노비안검법</b>, <b>과거제</b>(쌍기 건의), 공복 제정, 광덕·준풍 연호","<b>성종</b>: <b>최승로의 시무 28조</b> 수용, <b>12목에 지방관 파견</b>, 국자감·의창"],p:"노비안검법(광종)과 전민변정도감(공민왕)은 목적이 비슷해 자주 헷갈립니다."},
+   {t:"통치 체제", tag:"기구", k:["<b>2성 6부</b>: 중서문하성(문하시중)·상서성","<b>도병마사·식목도감</b>: 재신과 추밀이 모인 고려 독자 회의 기구","<b>대간</b>(어사대 + 중서문하성 낭사): 서경·간쟁·봉박권","지방: 5도(안찰사)·양계(병마사), 주현보다 속현이 많음, 향·부곡·소"],p:"도병마사는 후기에 <b>도평의사사</b>로 확대되어 권한이 커집니다."},
+   {t:"거란 · 여진과의 관계", tag:"순서 배열", k:["1차: <b>서희</b>의 외교 담판 → <b>강동 6주</b> 확보(993)","2차: 개경 함락·현종 나주 피난, 양규의 활약","3차: <b>강감찬의 귀주 대첩(1019)</b> → 이후 천리장성·개경 나성 축조","여진: <b>윤관의 별무반</b>(1104) → <b>동북 9성</b> 축조(1107) 후 반환"],p:"별무반은 신기군·신보군·항마군 세 부대로 구성됩니다."},
+   {t:"문벌 사회의 동요와 무신 정권", tag:"빈출", k:["<b>이자겸의 난</b>(1126) → <b>묘청의 서경 천도 운동</b>(1135, 김부식이 진압)","<b>무신정변</b>(1170) 이후 중방 중심 정치","<b>최충헌</b>: 교정도감 설치, 봉사 10조 / <b>최우</b>: <b>정방</b>(인사)·서방·삼별초","하층민 봉기: 망이·망소이(공주 명학소), <b>만적의 난</b>(신분 해방 주장)"],p:"신채호가 묘청의 난을 '조선 역사상 일천년래 제일 대사건'이라 평한 대목이 자료로 나옵니다."},
+   {t:"대몽 항쟁과 원 간섭기", tag:"순서 배열", k:["강화 천도(1232), <b>김윤후</b>의 처인성 승리, <b>팔만대장경</b> 조판","개경 환도(1270) 반대 → <b>삼별초</b>: 강화(배중손) → 진도 → 제주(김통정)","원 간섭기: <b>정동행성</b>, 관제 격하(중서문하성+상서성 → 첨의부), 결혼도감·응방","<b>공민왕</b>: 기철 제거, <b>쌍성총관부 수복</b>, 정방 폐지, <b>전민변정도감</b>(신돈)"],p:"공민왕의 반원 정책과 왕권 강화 정책을 구분해 묻는 선지가 자주 등장합니다."},
+   {t:"경제와 사회", tag:"제도", k:["<b>전시과</b>: 시정(광종·인품)→개정(목종·관직)→경정(문종·현직)","화폐: 건원중보, 삼한통보·해동통보, <b>활구(은병)</b> — 널리 유통되지는 못함","<b>벽란도</b>가 국제 무역항, 아라비아 상인 왕래 → '코리아'","여성 지위: 자녀 균분 상속, 윤회 봉사, 사위·외손도 음서 혜택"],p:"'여성이 호주가 될 수 있었다'는 고려~조선 전기, 부계 중심 강화는 조선 후기입니다."},
+   {t:"불교와 사상", tag:"인물", k:["<b>의천</b>: 해동 천태종 창시, <b>교관겸수</b>, 교장(속장경) 편찬","<b>지눌</b>: 수선사 결사, <b>정혜쌍수·돈오점수</b>, 조계종의 토대","혜심: 유불 일치설 / 요세: 백련사 결사","<b>『직지심체요절』</b>(1377, 청주 흥덕사) — 현존 최고 금속 활자본"],p:"결사 운동은 무신 집권기 불교 개혁 운동이라는 시대 배경이 함께 나옵니다."},
+   {t:"역사서와 예술", tag:"사진 문제", k:["<b>『삼국사기』</b>(김부식, 기전체, 현존 최고 역사서) / <b>『삼국유사』</b>(일연, 단군 기록)","『제왕운기』(이승휴), 『동명왕편』(이규보, 고구려 계승 의식)","<b>상감청자</b>는 12세기 중엽 이후 유행, 원 간섭기 이후 쇠퇴","건축: 안동 봉정사 극락전, <b>영주 부석사 무량수전</b>(주심포·배흘림기둥)"],p:"『삼국사기』는 유교 사관·기전체, 『삼국유사』는 불교 설화 중심이라는 대비가 핵심입니다."}
+  ]},
+
+ {id:"joseon-early", name:"조선 전기", meta:"1392 ~ 16세기", weight:7, color:"var(--baek)",
+  desc:"왕별 업적과 3사·사화의 흐름, 왜란·호란 순서가 반복됩니다.",
+  items:[
+   {t:"국가 기틀의 확립", tag:"왕 업적", k:["태조·<b>정도전</b>: 『조선경국전』, 재상 중심 정치, 요동 정벌 추진","<b>태종</b>: 6조 직계제, <b>호패법</b>, 사병 혁파, 신문고","<b>세종</b>: 집현전, <b>훈민정음</b>, 4군 6진(최윤덕·김종서), 『농사직설』·『칠정산』, 의정부 서사제","<b>세조</b>: 계유정난, 6조 직계제 부활, <b>직전법</b>, 『경국대전』 편찬 시작","<b>성종</b>: 홍문관 설치, <b>『경국대전』 완성</b>, 『국조오례의』"],p:"6조 직계제(태종·세조)와 의정부 서사제(세종)의 주체를 바꿔놓는 함정이 흔합니다."},
+   {t:"통치 조직", tag:"기구", k:["<b>3사</b>: 사헌부(감찰)·사간원(간쟁)·홍문관(경연·자문) → 권력 견제","승정원(왕명 출납)·의금부(국왕 직속 사법)","지방: 8도 아래 부·목·군·현, <b>모든 군현에 수령 파견</b>, 향리는 세습 아전으로 지위 하락","<b>유향소</b>(향촌 자치)와 <b>경재소</b>(중앙 연결)"],p:"'모든 군현에 지방관을 파견했다'는 고려와 조선을 가르는 대표 선지입니다."},
+   {t:"사림의 성장과 사화", tag:"순서 배열", k:["<b>무오사화</b>(1498, 김종직의 조의제문) → <b>갑자사화</b>(1504, 폐비 윤씨)","<b>기묘사화</b>(1519): <b>조광조</b>의 현량과·소격서 폐지·위훈 삭제 추진이 반발 불러","<b>을사사화</b>(1545): 외척 간 다툼","이후 서원과 <b>향약</b>을 기반으로 사림이 향촌 장악 → <b>1575년 동인·서인 분당</b>(이조 전랑 문제)"],p:"조광조는 기묘사화, 이황·이이는 붕당 형성기 인물로 시기를 구분해야 합니다."},
+   {t:"수취 제도와 토지", tag:"제도", k:["<b>과전법</b>(1391) → <b>직전법</b>(세조, 현직만) → <b>관수관급제</b>(성종) → 직전법 폐지(명종)","<b>공법</b>: 전분 6등법(토지 비옥도)·연분 9등법(풍흉)","군역: 보법, 방군수포·대립의 폐단 → 군적수포제"],p:"관수관급제는 국가가 직접 조세를 거둬 지급 — 수조권 통제 강화가 목적입니다."},
+   {t:"왜란과 호란", tag:"순서 배열", k:["<b>임진왜란(1592)</b>: 옥포·<b>한산도 대첩</b>, 진주 대첩(김시민), <b>행주 대첩</b>(권율), 의병(곽재우)","전시 개편: <b>훈련도감</b> 설치(포수·살수·사수), 속오군 편성","광해군: <b>중립 외교</b>, <b>대동법 경기도 시행</b>(1608) → 인조반정으로 축출","<b>정묘호란</b>(1627) → <b>병자호란</b>(1636): 남한산성 항전 후 삼전도에서 항복"],p:"명량·노량은 정유재란(1597~98) 시기 — 임진년 해전과 시기를 구분하세요."},
+   {t:"조선 전기 문화", tag:"사진 문제", k:["<b>혼일강리역대국도지도</b>(태종), 『동국여지승람』, 『동국통감』","<b>『조선왕조실록』</b>: 사초·시정기 바탕, 춘추관과 사고에 보관","도자기: <b>분청사기</b>(15~16세기) → 순백자로 변화","성리학: <b>이황</b>(『성학십도』, 주리론) / <b>이이</b>(『성학집요』, 주기론·수미법)"],p:"이황은 '왕이 스스로 성학을 따를 것', 이이는 '신하가 왕을 이끌 것'에 무게를 둡니다."}
+  ]},
+
+ {id:"joseon-late", name:"조선 후기", meta:"17 ~ 19세기", weight:7, color:"var(--hwang)",
+  desc:"수취 제도 3종, 환국과 탕평, 실학자 짝짓기가 고정 출제 구간입니다.",
+  items:[
+   {t:"수취 체제의 개편", tag:"필수", k:["<b>영정법</b>(인조): 풍흉 관계없이 토지 1결당 4~6두","<b>대동법</b>: 공납을 <b>토지 결수 기준 쌀·베·동전</b>으로 → <b>공인</b> 등장, 상품 화폐 경제 자극(1608 경기 → 1708 전국)","<b>균역법</b>(영조, 1750): 군포 2필 → 1필, 부족분은 <b>결작</b>·선무군관포·어염선세로 보충"],p:"대동법의 가장 큰 파급은 공인의 등장 → 수공업·장시 발달로 이어지는 연결입니다."},
+   {t:"붕당 정치와 환국", tag:"순서 배열", k:["예송 논쟁(기해·갑인): 자의 대비 복상 문제 → 서인·남인 대립","<b>경신환국</b>(1680, 서인 집권) → 기사환국(남인) → <b>갑술환국</b>(1694, 서인·노론 우세)","일당 전제화 → 왕권 약화 → 탕평책의 배경"],p:"환국은 '왕이 정국을 급격히 바꾼 사건'이라는 성격을 묻는 선지가 많습니다."},
+   {t:"영조와 정조", tag:"왕 업적", k:["<b>영조</b>: 탕평비, 서원 정리, <b>균역법</b>, 신문고 부활, 『속대전』·『동국문헌비고』","<b>정조</b>: <b>규장각</b>·초계문신제, <b>장용영</b>, <b>수원 화성</b>(거중기), 『대전통편』","<b>신해통공</b>(1791): 육의전 제외한 <b>금난전권 폐지</b>"],p:"장용영과 규장각은 왕권 강화 기구, 신해통공은 사상(私商) 성장의 계기입니다."},
+   {t:"세도 정치와 농민 봉기", tag:"빈출", k:["순조·헌종·철종 3대 60여 년, 안동 김씨·풍양 조씨 권력 독점, 비변사 장악","<b>삼정의 문란</b>(전정·군정·환곡), 특히 환곡이 가장 큰 폐단","<b>홍경래의 난</b>(1811): 서북민 차별과 세도 정치에 반발","<b>임술 농민 봉기</b>(1862): 진주에서 시작 → 박규수 안핵사, <b>삼정이정청</b> 설치"],p:"홍경래의 난은 평안도 지역 차별이 배경, 임술 봉기는 삼정 문란이 배경입니다."},
+   {t:"경제 변화", tag:"흐름", k:["<b>모내기법</b> 확산 → 이모작·노동력 절감 → <b>광작</b>과 농민층 분화","상품 작물: 담배·인삼·목화 재배, 장시 확대와 <b>보부상</b>","사상: <b>송상(개성)·만상(의주)·내상(동래)·경강상인</b>, 객주·여각","<b>상평통보</b> 전국 유통, 전황 발생 / 광산은 <b>덕대</b>가 경영"],p:"'개성 송상은 송방을 두고 인삼을 재배·판매했다'는 대표 선지입니다."},
+   {t:"신분제의 동요", tag:"흐름", k:["부농의 <b>납속·공명첩</b>을 통한 양반 신분 획득, 족보 위조","중인: <b>통청 운동</b>, 서얼의 청요직 진출 요구(정조 때 규장각 검서관 등용)","<b>노비종모법</b>(영조) → <b>공노비 해방</b>(1801, 순조)","향촌: 구향(사족)과 신향(부농)의 <b>향전</b>, 수령·향리 권한 강화"],p:"공노비 해방은 1801년, 신분제 법적 폐지는 1894년 갑오개혁으로 구분됩니다."},
+   {t:"실학", tag:"인물 짝짓기", k:["중농: <b>유형원</b>(균전론) · <b>이익</b>(한전론·나라를 좀먹는 6가지) · <b>정약용</b>(여전론·정전제, 『목민심서』·거중기)","중상: 유수원(『우서』) · <b>홍대용</b>(『의산문답』·지전설) · <b>박지원</b>(『열하일기』·수레와 선박) · <b>박제가</b>(『북학의』·소비 = 우물론)","국학: <b>유득공 『발해고』</b>(남북국), 안정복 『동사강목』, 이긍익 『연려실기술』","지도·금석: 정상기 동국지도(백리척), <b>김정호 대동여지도</b>, 김정희 『금석과안록』(북한산비 고증)"],p:"'소비를 우물에 비유'는 박제가, '수레와 선박 이용 강조'는 박지원의 대표 논지입니다."},
+   {t:"서민 문화와 새 종교", tag:"사진 문제", k:["<b>진경산수화</b> 정선(인왕제색도·금강전도), <b>풍속화</b> 김홍도·신윤복, 민화","한글 소설(홍길동전·춘향전), <b>판소리</b>와 탈춤, 사설시조","천주교: 제사 문제로 탄압(신유박해 1801)","<b>동학</b>: 1860년 최제우 창시, 인내천·후천개벽, 『동경대전』·『용담유사』"],p:"'인내천'과 '보국안민'이 나오면 동학, '평등'만 나오면 천주교·동학 모두 가능하니 다른 단서를 보세요."}
+  ]},
+
+ {id:"gundae", name:"개항기 · 근대", meta:"1863 ~ 1910", weight:8, color:"var(--danju)",
+  desc:"사건 순서 배열이 가장 많이 나오는 구간입니다. 연도 감각이 곧 점수입니다.",
+  items:[
+   {t:"흥선 대원군", tag:"정책", k:["왕권 강화: <b>비변사 혁파</b>, 『대전회통』, <b>경복궁 중건</b>(원납전·<b>당백전</b>)","민생: <b>서원 정리</b>(47개만 존치), <b>호포제</b>(양반에게도 군포), 사창제","<b>병인양요</b>(1866, 프랑스·외규장각 도서 약탈) → <b>신미양요</b>(1871, 미국·어재연) → <b>척화비</b>"],p:"오페르트 도굴 사건(1868)이 두 양요 사이에 낀다는 점이 순서 문제의 핵심입니다."},
+   {t:"개항과 불평등 조약", tag:"조약", k:["<b>강화도 조약</b>(1876): 운요호 사건이 계기, <b>해안 측량권·치외법권</b>, 부산·원산·인천 개항","<b>조·미 수호 통상 조약</b>(1882): <b>최혜국 대우</b> 최초, 거중조정, 관세 규정","조·청 상민 수륙 무역 장정(1882): 청 상인의 <b>내지 통상</b> 허용"],p:"강화도 조약에는 최혜국 대우가 없고, 조·미 조약에서 처음 등장합니다."},
+   {t:"개화 정책과 반발", tag:"순서 배열", k:["통리기무아문·12사, <b>별기군</b> 창설, 수신사·조사 시찰단(일본)·<b>영선사</b>(청, 기기창)","<b>임오군란</b>(1882): 구식 군인 차별 → 제물포 조약, 청 내정 간섭 심화","<b>갑신정변</b>(1884): 급진 개화파의 <b>14개조 정강</b>(문벌 폐지·지조법 개혁) → 3일 천하, <b>한성 조약·톈진 조약</b>","위정척사: 1860s 통상 반대 → 1870s 개항 반대(최익현) → 1880s <b>『조선책략』</b> 반발 영남 만인소"],p:"톈진 조약의 '파병 시 상호 통보'가 훗날 청일전쟁의 빌미가 됩니다."},
+   {t:"동학 농민 운동(1894)", tag:"순서 배열", k:["고부 봉기(조병갑) → 무장·백산 봉기 → <b>황토현 전투</b> 승리","<b>전주 화약</b> → <b>집강소</b> 설치, <b>폐정 개혁 12개조</b>(신분 차별 철폐·토지 균등 분작)","일본군 경복궁 점령 → 2차 봉기(남접+북접) → <b>우금치 전투</b> 패배"],p:"'집강소'는 1차 봉기 이후, '우금치'는 2차 봉기 — 사이에 청일전쟁 발발이 들어갑니다."},
+   {t:"갑오·을미개혁과 대한제국", tag:"개혁 내용", k:["<b>1차 갑오개혁</b>: <b>군국기무처</b>, 개국 기년, <b>신분제·과거제 폐지</b>, 재정 일원화(탁지아문)","2차: 홍범 14조, 8아문 → 7부, 재판소 설치 / <b>을미개혁</b>: <b>단발령</b>·태양력·종두법","을미사변(1895) → 아관파천(1896) → <b>독립협회</b>(만민공동회·<b>헌의 6조</b>)","<b>대한제국</b>(1897): 광무개혁, <b>구본신참</b>, 대한국 국제, <b>양전 사업과 지계 발급</b>"],p:"'지계'는 광무개혁, '토지 조사 사업'은 일제 무단 통치기입니다."},
+   {t:"국권 피탈 과정", tag:"순서 배열", k:["한·일 의정서(1904) → 1차 한·일 협약(고문 정치) → <b>을사늑약</b>(1905, <b>외교권 박탈·통감부</b>)","<b>헤이그 특사</b>(1907) → 고종 강제 퇴위 → <b>한·일 신협약(정미 7조약)</b>과 <b>군대 해산</b>","기유각서(1909, 사법권 박탈) → 경찰권 박탈(1910) → 한·일 병합(1910)"],p:"을사늑약은 외교권, 정미 7조약은 차관 정치와 군대 해산 — 짝을 정확히 기억하세요."},
+   {t:"국권 수호 운동", tag:"빈출", k:["의병: 을미(단발령) → <b>을사</b>(민종식·최익현·신돌석) → <b>정미</b>(해산 군인 합류, <b>서울 진공 작전</b>)","<b>신민회</b>(1907): 공화정 지향 비밀 결사, 대성·오산 학교, 자기 회사, 남만주 삼원보 → <b>105인 사건</b>으로 해체","<b>국채 보상 운동</b>(1907): 대구에서 시작, 대한매일신보 후원","애국 계몽: 보안회(황무지 개간 반대), 헌정연구회, 대한자강회"],p:"'평민 의병장 신돌석'은 을사의병의 대표 단서입니다."},
+   {t:"근대 문물과 언론", tag:"사진 문제", k:["교육: <b>원산 학사</b>(최초 근대 사립), 육영 공원(관립·헐버트), 이화 학당","언론: <b>한성순보</b>(순한문·관보) → <b>독립신문</b>(한글·영문) → <b>대한매일신보</b>(양기탁·베델)","시설: 전신·전화, 전차(1899), <b>경인선</b>(1899), 경부선(1905), 광혜원(제중원), 명동 성당","국학: 국문 연구소(주시경), 신채호 「독사신론」"],p:"베델이 발행인이라 통감부 검열을 피할 수 있었다는 점이 대한매일신보의 특징입니다."}
+  ]},
+
+ {id:"ilje", name:"일제 강점기", meta:"1910 ~ 1945", weight:8, color:"var(--jeok)",
+  desc:"통치 방식 3단계와 각 시기의 경제 정책·독립운동을 층층이 맞추는 문제가 핵심입니다.",
+  items:[
+   {t:"1910년대 무단 통치", tag:"시기 구분", k:["<b>헌병 경찰제</b>, 조선 태형령, 관리·교원의 제복과 칼","<b>토지 조사 사업</b>(1912~18): 기한부 신고제 → 총독부 소유지 확대, 소작농 지위 악화","<b>회사령</b>(허가제)으로 민족 자본 성장 억제","비밀 결사: 독립 의군부(임병찬, 복벽주의), 대한 광복회(박상진, 공화정)"],p:"'태형령·헌병 경찰'이 보이면 1910년대로 시기를 즉시 확정할 수 있습니다."},
+   {t:"3·1 운동과 대한민국 임시 정부", tag:"필수", k:["배경: 민족 자결주의, 2·8 독립 선언, 고종 서거 → <b>1919년 3월 1일</b> 전국 확산","의의: 일제 통치 방식 전환, <b>임시 정부 수립의 계기</b>, 중국 5·4 운동에 영향","임정: <b>연통제·교통국</b>, 독립 공채, 구미 위원부, 『독립신문』","<b>국민대표회의</b>(1923) 창조파·개조파 분열 → 1940년 충칭 정착, <b>한국광복군</b> 창설"],p:"연통제·교통국은 1920년대 초 발각되어 사실상 마비됩니다."},
+   {t:"1920년대 문화 통치", tag:"시기 구분", k:["보통 경찰제(경찰 수는 오히려 증가), 신문 발행 허용하되 검열","<b>산미 증식 계획</b>: 증산량보다 많은 양을 반출 → 국내 식량 사정 악화","회사령 폐지(신고제) → 일본 자본 진출, 관세 철폐","<b>치안유지법</b>(1925)으로 사회주의·독립운동 탄압"],p:"'문화 통치'는 민족 분열이 목적이라는 서술이 정답 근거로 자주 쓰입니다."},
+   {t:"무장 독립 전쟁", tag:"순서 배열", k:["<b>봉오동 전투</b>(홍범도) → <b>청산리 대첩</b>(김좌진·북로군정서, 1920) → <b>간도 참변</b> → 자유시 참변","3부(참의부·정의부·신민부) 성립 → 미쓰야 협정(1925)","1930년대 한·중 연합: <b>한국독립군</b>(지청천, 쌍성보·대전자령), <b>조선혁명군</b>(양세봉, 영릉가·흥경성)","<b>조선의용대</b>(1938, 김원봉) → 일부는 화북, 일부는 <b>한국광복군</b> 합류(1942)"],p:"봉오동·청산리 '이후'에 간도 참변이 일어났다는 순서를 반드시 기억하세요."},
+   {t:"의열 투쟁", tag:"단체 구분", k:["<b>의열단</b>(1919, 김원봉): 신채호의 <b>「조선혁명선언」</b>이 지침, 김익상·김상옥·나석주","<b>한인애국단</b>(1931, 김구): <b>이봉창</b>(도쿄)·<b>윤봉길</b>(상하이 훙커우) 의거","윤봉길 의거 → 중국 국민당의 임정 지원 강화"],p:"「조선혁명선언」의 '민중 직접 혁명'은 의열단만의 단서입니다."},
+   {t:"실력 양성과 대중 운동", tag:"빈출", k:["<b>물산 장려 운동</b>(1920, 평양·조만식): '내 살림 내 것으로'","<b>민립 대학 설립 운동</b> → 총독부의 경성제국대학 설립으로 무마","<b>6·10 만세 운동</b>(1926, 순종 인산일) → 민족 유일당 분위기","<b>신간회</b>(1927): 비타협 민족주의+사회주의, <b>광주 학생 항일 운동</b>(1929)에 조사단 파견","농민·노동: 암태도 소작 쟁의(1923), 원산 총파업(1929)"],p:"신간회는 광주 학생 항일 운동을 지원했고, 이 사건은 3·1 운동 이후 최대 규모입니다."},
+   {t:"1930년대 이후 민족 말살 통치", tag:"시기 구분", k:["<b>황국 신민 서사</b> 암송, 신사 참배, <b>창씨개명</b>, 조선어 교육 폐지","<b>국가 총동원법</b>(1938): 지원병·징병, 징용, 공출, <b>일본군 '위안부'</b> 강제 동원","경제: 남면북양·병참 기지화, 농촌 진흥 운동"],p:"국가 총동원법 이후 서술은 모두 1938년 이후로 시기를 잡으면 됩니다."},
+   {t:"민족 문화 수호", tag:"인물 짝짓기", k:["<b>박은식</b>: '혼', 『한국통사』·『한국독립운동지혈사』","<b>신채호</b>: '낭가 사상', 『조선상고사』(역사 = 아와 비아의 투쟁), 『조선사연구초』","정인보 '얼', 조선학 운동 / <b>백남운</b>: 사회 경제 사학, 식민 사관의 정체성론 반박","<b>조선어 학회</b>: 한글 맞춤법 통일안·표준어 제정, 『우리말 큰사전』 편찬 시도 → 1942년 사건으로 해산"],p:"『한국통사』는 박은식, 『조선상고사』는 신채호 — 저자 뒤바꾸기가 가장 흔한 오답입니다."}
+  ]},
+
+ {id:"hyundae", name:"현대", meta:"1945 ~ 현재", weight:6, color:"var(--jaju)",
+  desc:"정부 수립 과정과 개헌·민주화 운동 순서, 통일 정책이 세 갈래로 나옵니다.",
+  items:[
+   {t:"광복과 정부 수립", tag:"순서 배열", k:["조선 건국 준비 위원회 → 미군정 → <b>모스크바 3국 외상 회의</b>(1945, 신탁 통치 결정)","미소 공동 위원회 결렬 → 이승만의 <b>정읍 발언</b> → <b>좌우 합작 운동</b>(여운형·김규식, 좌우 합작 7원칙)","유엔 결의 → <b>제주 4·3 사건</b>, 김구의 남북 협상 → <b>5·10 총선거</b> → <b>1948년 8월 15일 정부 수립</b>","<b>반민특위</b> 활동 위축, <b>농지 개혁법</b>(1949): 유상 매수·유상 분배, 3정보 상한"],p:"신탁 통치 논의는 '모스크바 3상 회의' — 카이로·포츠담과 헷갈리지 마세요."},
+   {t:"6·25 전쟁", tag:"순서 배열", k:["남침(1950.6.25) → 낙동강 방어선 → <b>인천 상륙 작전</b> → 압록강 진격","중국군 개입 → <b>1·4 후퇴</b> → 38도선 부근 교착 → 휴전 회담(포로 송환 문제)","<b>정전 협정</b>(1953.7) → <b>한·미 상호 방위 조약</b> 체결"],p:"이승만의 반공 포로 석방은 휴전 회담 진행 중의 사건입니다."},
+   {t:"이승만 정부와 4·19 혁명", tag:"개헌", k:["<b>발췌 개헌</b>(1952, 대통령 직선제) → <b>사사오입 개헌</b>(1954, 초대 대통령 중임 제한 철폐)","진보당 사건(조봉암), 국가보안법 개정, 경향신문 폐간","<b>3·15 부정 선거</b> → 마산 시위와 김주열 → <b>4·19 혁명</b>(1960) → 이승만 하야","<b>장면 내각</b>: 내각 책임제·양원제 개헌, 경제 개발 계획 준비"],p:"4·19의 결과는 '내각 책임제 개헌'이라는 연결이 정답 근거로 자주 쓰입니다."},
+   {t:"박정희 정부", tag:"빈출", k:["5·16 군사 정변(1961), 국가재건최고회의 → 1963년 대통령 직선","<b>한·일 협정</b>(1965): 6·3 시위 / <b>베트남 파병</b>: 브라운 각서","경제 개발 5개년 계획, 경부 고속 국도(1970), <b>새마을 운동</b>(1970), 전태일 분신(1970)","<b>유신 헌법</b>(1972): 통일 주체 국민 회의·긴급 조치·대통령 중임 제한 철폐","<b>7·4 남북 공동 성명</b>(1972): 자주·평화·민족 대단결 3원칙"],p:"7·4 공동 성명과 유신 헌법이 같은 해라는 점이 자료 문제의 단골 포인트입니다."},
+   {t:"민주화 운동", tag:"순서 배열", k:["부·마 항쟁(1979) → 10·26 → <b>12·12 사태</b> → 서울의 봄","<b>5·18 민주화 운동</b>(1980): 신군부 퇴진·계엄 철폐 요구, 기록물 유네스코 등재","<b>6월 민주 항쟁</b>(1987): 박종철 고문치사 → <b>4·13 호헌 조치</b> → 이한열 → <b>6·29 선언</b> → <b>5년 단임 대통령 직선제 개헌</b>"],p:"'대통령 직선제 개헌'을 이끈 것은 6월 민주 항쟁, 4·19는 내각 책임제입니다."},
+   {t:"경제 성장과 통일 정책", tag:"흐름", k:["1960s 경공업 → 1970s 중화학 공업 → 1980s 3저 호황 → 1996 OECD 가입","<b>외환 위기</b>(1997) → 금 모으기 운동·구조 조정 / 금융 실명제(1993)","<b>남북 기본 합의서</b>(1991)와 한반도 비핵화 공동 선언","<b>6·15 남북 공동 선언</b>(2000, 1차 정상회담) → 개성 공단·금강산 관광 → 10·4 선언(2007) → 판문점 선언(2018)"],p:"남북 유엔 동시 가입(1991)과 남북 기본 합의서(1991)는 같은 해 사건으로 묶어 외우세요."}
+  ]}
+];
+
+/* ---------- render ---------- */
+const list = document.getElementById('list');
+const ribbon = document.getElementById('ribbon');
+const chips = document.getElementById('chips');
+let done = new Set();
+let filterEra = 'all';
+
+const totalW = ERAS.reduce((a,e)=>a+e.weight,0);
+ERAS.forEach(e=>{
+  const b = document.createElement('button');
+  b.className='seg'; b.style.color=e.color; b.style.flexGrow=e.weight;
+  b.setAttribute('aria-label', e.name+' 약 '+e.weight+'문항');
+  b.innerHTML = '<div class="fill" style="height:'+(24+e.weight*3.4)+'px"></div><div class="tick">'+e.weight+'</div>';
+  b.onclick = ()=>{ document.getElementById(e.id).scrollIntoView({behavior:'smooth',block:'start'}); };
+  ribbon.appendChild(b);
+});
+
+const mkChip=(label,val)=>{
+  const c=document.createElement('button');
+  c.className='chip'; c.textContent=label; c.setAttribute('aria-pressed', val===filterEra);
+  c.onclick=()=>{ filterEra=val; [...chips.children].forEach(x=>x.setAttribute('aria-pressed','false')); c.setAttribute('aria-pressed','true'); render(); };
+  return c;
+};
+chips.appendChild(mkChip('전체','all'));
+ERAS.forEach(e=>chips.appendChild(mkChip(e.name,e.id)));
+
+const allItems = ERAS.reduce((a,e)=>a+e.items.length,0);
+
+function render(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  list.innerHTML='';
+  let shown=0;
+  ERAS.forEach(e=>{
+    if(filterEra!=='all' && filterEra!==e.id) return;
+    const items = e.items.filter(it=>{
+      if(!q) return true;
+      const hay = (it.t+it.k.join(' ')+it.p).replace(/<[^>]+>/g,'').toLowerCase();
+      return hay.includes(q);
+    });
+    if(!items.length) return;
+    shown+=items.length;
+    const sec=document.createElement('section');
+    sec.className='era'; sec.id=e.id;
+    sec.innerHTML='<div class="era-head" style="color:'+e.color+'"><div class="era-mark"></div><div>'+
+      '<h2 class="era-title">'+e.name+'</h2>'+
+      '<div class="era-meta">'+e.meta+' · 약 '+e.weight+'문항</div>'+
+      '<p class="era-desc">'+e.desc+'</p></div></div>';
+    items.forEach(it=>{
+      const key=e.id+'|'+it.t;
+      const card=document.createElement('article');
+      card.className='card'+(done.has(key)?' done':'');
+      card.style.color=e.color;
+      card.innerHTML=
+        '<div class="card-top"><div><div class="card-tag">'+it.tag+'</div><h3>'+it.t+'</h3></div>'+
+        '<button class="seal" aria-label="학습 완료 표시">讀</button></div>'+
+        '<ul class="key">'+it.k.map(x=>'<li>'+x+'</li>').join('')+'</ul>'+
+        '<div class="point"><strong>정답을 가르는 지점</strong>'+it.p+'</div>';
+      card.querySelector('.seal').onclick=()=>{
+        if(done.has(key)) done.delete(key); else done.add(key);
+        card.classList.toggle('done'); save(); updateProgress();
+      };
+      sec.appendChild(card);
+    });
+    list.appendChild(sec);
+  });
+  if(!shown){
+    list.innerHTML='<p class="empty">찾는 키워드가 없습니다. 다른 말로 검색해 보세요.</p>';
+  }
+  updateProgress();
+}
+function updateProgress(){
+  document.getElementById('pcount').textContent=done.size+' / '+allItems;
+  document.getElementById('pbar').style.width=(done.size/allItems*100)+'%';
+}
+async function save(){
+  try{ await window.storage.set('kh:done', JSON.stringify([...done])); }catch(err){}
+}
+async function load(){
+  try{
+    const r = await window.storage.get('kh:done');
+    if(r && r.value) done = new Set(JSON.parse(r.value));
+  }catch(err){}
+  render();
+}
+
+document.getElementById('q').addEventListener('input', render);
+const topBtn=document.getElementById('top');
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+window.addEventListener('scroll',()=>topBtn.classList.toggle('show', window.scrollY>700));
+
+render();
+load();
+</script>
+</body>
+</html>

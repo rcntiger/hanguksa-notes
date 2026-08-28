@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조선 전기 문화 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.card-title .who{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);font-weight:400}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 전기</div>
+  <h1>조선 전기 문화</h1>
+  <p class="sub">세종 때 과학 기구가 집중적으로 만들어졌고, 이황·이이는 성리학 이해의 두 갈래를 대표합니다</p>
+</header>
+
+<!-- 과학기술 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">과학 기술 (세종 대 집중)</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>혼일강리역대국도지도</b>(태종) — 현존 동양 最古 세계 지도 중 하나</li>
+      <li><b>측우기</b> — 세계 최초로 강우량을 표준화해 측정</li>
+      <li><b>앙부일구</b> — 해시계, <b>자격루</b> — 물시계(자동 시보 장치)</li>
+      <li><b>혼천의·간의</b> — 천체 관측 기구</li>
+      <li><b>『칠정산』</b> — 한양을 기준으로 한 독자적 역법서(중국 역법을 우리 실정에 맞게 재계산)</li>
+      <li><b>『농사직설』</b> — 우리 풍토에 맞는 농법을 정리한 농서</li>
+      <li>무기: <b>신기전</b>(로켓형 화살), <b>화포</b> 개량</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 이 기구들은 대부분 <span class="redmark">세종</span> 때 집중적으로 만들어졌습니다 — "실용적이고 자주적인 성격"이 세종 대 과학 기술의 공통된 평가입니다.</div>
+  </div>
+</section>
+
+<!-- 역사서 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">역사서 · 지리서</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>『동국통감』</b> — 성종 때 편찬, 고조선부터 고려 말까지의 역사를 다룬 통사</li>
+      <li><b>『동국여지승람』</b> — 성종 때 편찬된 지리서, 각 지역의 연혁·풍속·인물 등 수록</li>
+      <li><b>『조선왕조실록』</b> — <b>사초</b>와 <b>시정기</b>를 바탕으로 왕이 죽은 후 편찬, 왕이라도 함부로 열람할 수 없었음(객관성 확보) — <b>춘추관</b>과 지방 <b>사고</b>에 나누어 보관, 유네스코 세계 기록 유산 등재</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "왕이 살아있을 때는 실록을 볼 수 없었다"는 서술이 『조선왕조실록』의 핵심 특징으로 자주 나옵니다 — 사관의 독립성을 보장하기 위한 장치였습니다.</div>
+  </div>
+</section>
+
+<!-- 도자기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">도자기</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>분청사기</b>(15~16세기 전반) — 고려 상감청자 기법을 계승하되 소박하고 자유분방한 무늬가 특징</li>
+      <li>16세기 이후 <b>순백자</b>가 유행 — 성리학적 검소함의 미의식을 반영</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "분청사기 → 백자"로의 흐름은 성리학이 사회 전반에 자리 잡으며 <b>미의식이 검소한 방향으로 바뀌었다</b>는 맥락과 함께 출제됩니다.</div>
+  </div>
+</section>
+
+<!-- 성리학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">이황과 이이</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">이황 <span class="who">주리론 · 예안향약</span></h3>
+    <ul class="chk">
+      <li><b>주리론</b> — 이(理)의 능동성을 강조, 도덕적 근본을 중시</li>
+      <li><b>『성학십도』</b> — 왕이 스스로 성학(유학의 이상적 학문)을 따라야 한다고 강조 — <b>군주 스스로의 수양</b>에 무게</li>
+      <li>일본 성리학(에도 시대)에 큰 영향을 줌</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">이이 <span class="who">주기론 · 수미법</span></h3>
+    <ul class="chk">
+      <li><b>주기론</b> — 기(氣)의 역할을 상대적으로 중시, 현실 개혁적 성격</li>
+      <li><b>『성학집요』</b> — <b>신하가 왕을 이끌어야 한다</b>는 관점에 무게 — 현명한 신하의 역할 강조</li>
+      <li><b>수미법</b> 주장 — 공납을 쌀로 통일해 걷자는 제안(훗날 대동법의 선구적 아이디어)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 이황은 <b>"왕이 스스로 성학을 따를 것"</b>, 이이는 <b>"신하가 왕을 이끌 것"</b>에 방점 — 두 사람의 정치적 태도 차이로 기억하면 헷갈리지 않습니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 이황 vs 이이</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>이황</th><th>이이</th></tr>
+    <tr><td>이론</td><td><b>주리론</b></td><td><b>주기론</b></td></tr>
+    <tr><td>저서</td><td>성학십도</td><td>성학집요</td></tr>
+    <tr><td>정치관</td><td>왕의 자기 수양</td><td>신하의 역할</td></tr>
+    <tr><td>기타</td><td>일본 성리학에 영향</td><td>수미법(대동법의 선구)</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

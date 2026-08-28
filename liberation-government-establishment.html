@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>광복과 정부 수립 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:70px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt.p3 .evt-num{background:var(--purple)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+.stamp.purple{border-color:var(--purple);color:var(--purple)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 현대</div>
+  <h1>광복과 정부 수립</h1>
+  <p class="sub">광복 직후 3년, 통일 정부를 세우려는 노력과 분단으로 향하는 흐름이 동시에 진행됩니다 — 사건의 순서가 곧 시험의 핵심입니다</p>
+  <p class="period">1945.8 광복 &nbsp;→&nbsp; 1945.12 모스크바 3상회의 &nbsp;→&nbsp; 1947 좌우합작 결렬 &nbsp;→&nbsp; 1948.4 남북협상 &nbsp;→&nbsp; 1948.8.15 정부 수립</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>건준</b>여운형</div>
+      <div class="tl-node"><b>3상회의</b>신탁통치</div>
+      <div class="tl-node"><b>정읍발언</b>이승만</div>
+      <div class="tl-node p2"><b>좌우합작</b>7원칙</div>
+      <div class="tl-node p2"><b>4·3사건</b>제주</div>
+      <div class="tl-node p2"><b>남북협상</b>김구</div>
+      <div class="tl-node p3"><b>정부수립</b>1948</div>
+    </div>
+  </div>
+</header>
+
+<!-- 광복 직후 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">광복 직후 (1945.8)</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>조선 건국 준비 위원회</b>(위원장 <b>여운형</b>) — 조선 건국 동맹을 모체로 결성, 치안대 운영하며 과도기 질서 유지 시도</li>
+      <li>38도선을 경계로 <b>미군(남)·소련군(북)</b>이 각각 진주, <b>미군정</b>이 남한을 직접 통치(대한민국 임시 정부·건준 모두 부정)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 신탁통치 논쟁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">신탁 통치 논쟁</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1945.12</div>
+        <div class="evt-body">
+          <h4>모스크바 3국 외상 회의</h4>
+          <p>미·영·소 3국 외상이 <b>임시 민주 정부 수립</b>과 최고 <b>5년간의 신탁 통치</b>를 결정. 국내에서는 이를 <span class="redmark">신탁 통치 찬반</span>으로 단순화해 좌우 대립 격화(우익은 반탁, 좌익은 초기 반탁 → 이후 총체적 지지로 선회).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1946</div>
+        <div class="evt-body">
+          <h4>미소 공동 위원회 결렬</h4>
+          <p>임시 정부 수립을 논의할 협의 대상 범위를 두고 미·소가 이견을 좁히지 못해 두 차례 모두 결렬.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1946.6</div>
+        <div class="evt-body">
+          <h4>이승만의 정읍 발언</h4>
+          <p><b>남한만이라도 단독 정부를 수립</b>하자고 주장 — 분단 정부 수립론이 처음 공식화됨.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> <b>'신탁 통치'는 모스크바 3국 외상 회의</b>에서 결정됐습니다. 카이로 회담(1943, 한국 독립 최초 약속)·포츠담 선언(1945, 카이로 선언 재확인)과 혼동하지 마세요.</div>
+  </div>
+</section>
+
+<!-- 좌우합작운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">좌우 합작 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>여운형·김규식</b> 등 중도 세력이 주도 — 단독 정부 수립을 막고 <b>통일 정부</b>를 세우려는 시도</li>
+      <li><b>좌우 합작 7원칙</b> 발표(1946) — 토지 개혁, 친일파 처리 등을 포함</li>
+      <li>좌우 극단 세력의 불참과 <b>여운형 암살</b>(1947)로 동력 상실 → 결국 결렬</li>
+    </ul>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>유엔으로 넘어간 한반도 문제</b><br>
+  미소 공동 위원회가 완전히 결렬되자 미국은 한반도 문제를 <b>유엔에 상정</b>합니다. 유엔은 <b>인구 비례에 따른 남북 총선거</b>를 결의하지만 <b>소련이 유엔 한국 임시 위원단의 입북을 거부</b>, 이에 유엔은 <b>'선거 가능한 지역(남한)만의 총선거'</b>를 다시 결의합니다.
+</div>
+
+<!-- 남북협상 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">단독 정부 수립 반대 움직임</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>제주 4·3 사건</b>(1948) — 남한 단독 선거 반대 시위를 시작으로 유혈 진압 확산, 제주도 일부 지역에서 5·10 총선거 무산</li>
+      <li><b>김구·김규식의 남북 협상</b>(1948.4, 평양) — 단독 정부 수립을 막기 위해 북측 지도자들과 회담을 시도했으나 성과 없이 끝남</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 김구는 이 시점에서 <b>남한 단독 정부 수립에 반대</b>했습니다 — 이후 5·10 총선거에 <b>불참</b>했다는 점도 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 정부수립 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">대한민국 정부 수립</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>1948.5.10</b> 남한 단독 총선거 실시 — <b>제헌 국회</b> 구성</li>
+      <li>제헌 국회가 헌법 제정, <b>이승만을 초대 대통령으로 선출</b></li>
+      <li><b>1948.8.15</b> <b>대한민국 정부 수립</b> 선포</li>
+      <li>같은 해 북한도 <b>조선 민주주의 인민 공화국</b> 수립(1948.9) → 분단 고착화</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 정부 수립 초기 정책</h3>
+    <ul class="chk">
+      <li><b>반민족 행위 특별 조사 위원회(반민특위)</b> — 친일파 청산을 위해 구성됐으나 정부의 비협조와 방해로 <b>활동이 위축·해체</b></li>
+      <li><b>농지 개혁법</b>(1949) — <b>유상 매수·유상 분배</b> 원칙, <b>1가구당 3정보</b>를 상한으로 토지 소유 제한</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 농지 개혁법은 <b>유상 매수·유상 분배</b>입니다. 북한의 <b>무상 몰수·무상 분배</b> 토지 개혁과 짝지어 대비해서 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>입장</th><th>인물</th><th>핵심</th></tr>
+    <tr><td>단독 정부 수립</td><td>이승만</td><td>정읍 발언(1946)</td></tr>
+    <tr><td>통일 정부 지향(중도)</td><td>여운형·김규식</td><td>좌우 합작 7원칙</td></tr>
+    <tr><td>단독 정부 반대</td><td>김구</td><td>남북 협상(1948)</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

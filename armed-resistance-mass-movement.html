@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>의열 투쟁 · 대중 운동 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:70px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 88px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.slogan{text-align:center;font-family:'Gowun Batang',serif;font-size:15.5px;font-weight:700;color:var(--red);margin:14px 0 4px;letter-spacing:.02em}
+.slogan-sub{text-align:center;font-size:11px;color:var(--ink-soft);margin-bottom:2px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 일제 강점기</div>
+  <h1>의열 투쟁과 대중 운동</h1>
+  <p class="sub">폭탄과 총으로 맞선 소수(의열단·한인애국단)와, 대중을 조직해 맞선 다수(신간회·학생 운동) — 방식은 다르지만 같은 시기에 함께 전개됩니다</p>
+  <p class="period">1919 의열단 결성 &nbsp;→&nbsp; 1920s 실력 양성 운동 &nbsp;→&nbsp; 1927 신간회 &nbsp;→&nbsp; 1929 광주 학생 항일 운동 &nbsp;→&nbsp; 1931~32 한인애국단 의거</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>의열단</b>1919</div>
+      <div class="tl-node p2"><b>물산장려</b>1920</div>
+      <div class="tl-node p2"><b>민립대학</b>좌절</div>
+      <div class="tl-node p2"><b>6·10만세</b>1926</div>
+      <div class="tl-node p2"><b>신간회</b>1927</div>
+      <div class="tl-node p2"><b>광주항일</b>1929</div>
+      <div class="tl-node"><b>한인애국단</b>1931</div>
+    </div>
+  </div>
+</header>
+
+<!-- 의열단 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">의열단</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">1919년 만주에서 <b>김원봉</b>이 조직 — 암살·파괴 등 개인 폭력 투쟁으로 일제 요인과 기관을 겨냥</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li>행동 지침: <b>신채호</b>가 작성한 <span class="redmark">「조선혁명선언」</span> — 민중의 직접 혁명을 통한 독립 쟁취를 주장</li>
+      <li><b>김익상</b> — 조선 총독부에 폭탄 투척</li>
+      <li><b>김상옥</b> — 종로 경찰서에 폭탄 투척</li>
+      <li><b>나석주</b> — 동양 척식 주식회사에 폭탄 투척</li>
+      <li>1920년대 후반부터 <b>개인 의거의 한계</b>를 느끼고 조직적 무장 투쟁으로 노선 전환 → 일부는 <b>황푸 군관 학교</b> 입교, 이후 <b>조선의용대</b>(1938) 결성으로 이어짐</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 「조선혁명선언」이 사료로 나오면 <span class="redmark">의열단</span>입니다. '민중 직접 혁명'이라는 표현이 핵심 단서입니다.</div>
+  </div>
+</section>
+
+<!-- 한인애국단 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">한인애국단</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">1931년 상하이에서 <b>김구</b>가 조직 — 임시 정부의 침체를 극복하기 위한 의열 투쟁 단체</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p2">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1932.1</div>
+        <div class="evt-body">
+          <h4>이봉창 의거</h4>
+          <p><b>도쿄</b>에서 일왕이 탄 마차를 향해 폭탄 투척(실패했으나 일본 사회에 큰 충격).</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1932.4</div>
+        <div class="evt-body">
+          <h4>윤봉길 의거</h4>
+          <p><b>상하이 훙커우 공원</b>에서 일본군 축하 기념식에 폭탄 투척, 일본군 고위 인사 다수 살상.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 윤봉길 의거 이후 <span class="redmark">중국 국민당 정부가 임시 정부를 적극 지원</span>하기 시작합니다 — 이후 <b>한국광복군 창설(1940)</b>의 발판이 된다는 흐름까지 연결하면 완벽합니다.</div>
+  </div>
+</section>
+
+<!-- 실력양성운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">실력 양성 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">"먼저 힘을 길러야 독립할 수 있다" — 경제·교육 영역에서 전개</p>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>물산 장려 운동</b>(1920, <b>평양</b>에서 <b>조만식</b> 주도) — <span class="redmark">"내 살림 내 것으로"</span>, <b>토산품 애용</b> 운동으로 확산. 사회주의 계열은 "자본가만 배불린다"고 비판</li>
+      <li><b>민립 대학 설립 운동</b> — <span class="redmark">"한민족 1천만이 한 사람 1원씩"</span> 구호로 모금 → 총독부가 <b>경성 제국 대학</b> 설립을 서둘러 무마</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 두 운동 모두 <b>실패로 귀결</b>됐다는 점이 시험에서 강조됩니다. 성공한 운동으로 서술하면 오답입니다.</div>
+  </div>
+</section>
+
+<!-- 대중운동 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">학생·민족 협동 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1926.6</div>
+        <div class="evt-body">
+          <h4>6·10 만세 운동</h4>
+          <p><b>순종의 인산일(장례일)</b>을 계기로 학생들이 주도한 만세 시위 — 사회주의 세력과 민족주의 세력이 함께 준비하며 <b>민족 유일당 운동</b>의 분위기 조성.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1927</div>
+        <div class="evt-body">
+          <h4>신간회 결성</h4>
+          <p><b>비타협적 민족주의</b> 세력과 <b>사회주의</b> 세력이 연합한 <b>최대 규모의 민족 협동 전선</b>. 전국에 지회를 두고 강연회 개최, 농민·노동 운동 지원.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1929.11</div>
+        <div class="evt-body">
+          <h4>광주 학생 항일 운동</h4>
+          <p>한·일 학생 간 충돌에서 비롯 — <b>3·1 운동 이후 최대 규모의 민족 운동</b>으로 확산. <b>신간회가 진상 조사단을 파견</b>해 지원.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 신간회는 <b>이념이 다른 두 세력(민족주의+사회주의)의 연합</b>이라는 점, 광주 학생 항일 운동을 <b>지원했다</b>는 연결이 자주 출제됩니다.</div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 같은 시기 농민·노동 운동</h3>
+    <ul class="chk">
+      <li><b>암태도 소작 쟁의</b>(1923, 전남) — 지주의 고율 소작료에 저항</li>
+      <li><b>원산 총파업</b>(1929) — 일제 강점기 <b>최대 규모의 노동 운동</b>, 국내외 노동 단체의 지지 성명 이어짐</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

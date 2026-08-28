@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>환국 · 탕평책 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--purple);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--purple);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>환국과 탕평책</h1>
+  <p class="sub">숙종의 급격한 환국 정치가 붕당을 파국으로 몰아넣자, 영조·정조가 탕평으로 수습에 나섭니다</p>
+  <p class="period">현종 예송 &nbsp;→&nbsp; 숙종 환국 &nbsp;→&nbsp; 영조 탕평 &nbsp;→&nbsp; 정조 탕평 강화</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>예송논쟁</b>현종</div>
+      <div class="tl-node p2"><b>경신환국</b>1680</div>
+      <div class="tl-node p2"><b>기사환국</b>남인</div>
+      <div class="tl-node p2"><b>갑술환국</b>1694</div>
+      <div class="tl-node p3"><b>영조탕평</b>균역법</div>
+      <div class="tl-node p3"><b>정조탕평</b>규장각</div>
+    </div>
+  </div>
+</header>
+
+<!-- 예송 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">예송 논쟁</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>현종 때 효종과 효종비의 국상에서 <b>자의 대비(인조의 계비)의 복상 기간</b>을 두고 논쟁</li>
+      <li><b>서인</b>은 효종을 차남으로 보아 <b>짧은 복상</b>을, <b>남인</b>은 왕통을 이었으니 <b>장남에 준하는 복상</b>을 주장 — 왕권에 대한 인식 차이가 담긴 논쟁</li>
+      <li><b>기해예송·갑인예송</b> 두 차례 진행, 결과가 엇갈리며 서인·남인 대립 격화</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 환국 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">숙종의 환국</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">환국은 <b>왕이 주도해 정국을 급격히 뒤바꾼 사건</b> — 이 성격을 이해하는 것이 핵심입니다</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1680</div>
+        <div class="evt-body">
+          <h4>경신환국</h4>
+          <p>남인이 몰락하고 <b>서인이 집권</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1689</div>
+        <div class="evt-body">
+          <h4>기사환국</h4>
+          <p>희빈 장씨 소생의 원자 책봉 문제를 계기로 <b>남인이 재집권</b>, 서인(송시열 등)이 화를 입음.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1694</div>
+        <div class="evt-body">
+          <h4>갑술환국</h4>
+          <p>다시 <b>서인(이후 노론 중심)이 정국 주도권</b>을 잡음 — 이후 붕당 간 세력 균형이 무너지고 <b>일당 전제화</b> 경향이 심해짐.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 환국의 반복은 붕당 정치의 <b>상호 견제 원리를 무너뜨려 왕권은 일시적으로 강해지지만, 결국 한 붕당의 권력 독점(일당 전제화)</b>으로 이어졌다는 흐름을 기억하세요.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>일당 전제화의 폐단을 고치기 위해, 탕평이 등장합니다</b><br>
+  붕당 간 극심한 대립과 정치 보복이 반복되자, 영조와 정조는 특정 붕당에 치우치지 않는 <b>탕평책</b>으로 왕권을 강화하며 정국을 안정시키려 합니다.
+</div>
+
+<!-- 영조 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">영조의 탕평</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>탕평비</b> 건립(성균관 입구) — 붕당을 초월한 인재 등용 의지 표명</li>
+      <li>붕당의 근거지였던 <b>서원을 대거 정리</b></li>
+      <li><b>균역법</b> 시행(군포 2필→1필), <b>신문고 부활</b></li>
+      <li>『속대전』·『동국문헌비고』 편찬</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 정조 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">정조의 탕평 강화</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>규장각</b> 설치 — 학술·정책 연구 기구이자 <b>왕권 강화의 정치 기구</b>로 활용, <b>초계문신제</b>(젊은 관리를 재교육해 친위 세력으로 양성)</li>
+      <li><b>장용영</b> 설치 — 국왕 직속 친위 부대</li>
+      <li><b>수원 화성</b> 건설 — 정약용이 설계, <b>거중기</b> 등을 활용한 과학적 축성</li>
+      <li><b>신해통공</b>(1791) — 육의전을 제외한 시전 상인의 <b>금난전권 폐지</b> → 사상(私商)의 자유로운 상업 활동 확대</li>
+      <li>『대전통편』 편찬</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 규장각·장용영은 <b>정조의 왕권 강화 기구</b>, 신해통공은 <b>상업 발달(사상 성장)</b>과 관련 — 정치와 경제 영역을 구분해서 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>왕</th><th>핵심 정책</th></tr>
+    <tr><td><b>영조</b></td><td>탕평비, 서원 정리, 균역법</td></tr>
+    <tr><td><b>정조</b></td><td>규장각·장용영, 수원 화성, 신해통공</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

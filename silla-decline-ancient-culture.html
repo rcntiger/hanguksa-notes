@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신라 말 동요 · 고대 문화 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.card-title .who{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);font-weight:400}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고대</div>
+  <h1>신라 말의 동요와 고대 문화</h1>
+  <p class="sub">중앙 정치가 흔들리는 사이 지방에서 호족이 성장하고, 이 시기까지의 불교·문화 유산이 함께 출제됩니다</p>
+</header>
+
+<!-- 신라 말 동요 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">신라 말의 동요</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>진골 귀족의 왕위 쟁탈전</b> 심화(혜공왕 이후) — 왕권 약화, 지방 통제력 상실</li>
+      <li><b>원종·애노의 난</b>(889, 진성여왕) — 사벌주(상주)에서 <b>조세 독촉</b>에 반발해 봉기, 신라 말 농민 봉기의 대표 사례</li>
+      <li><b>6두품</b> 지식인의 성장 — 골품제의 한계에 막혀 신분 상승이 어려움 → 개혁 요구. <b>최치원</b>이 <b>시무 10여 조</b>를 진성여왕에게 건의했으나 수용되지 않음</li>
+      <li><b>호족</b>의 성장 — 지방에서 독자적 군사력·경제력을 갖춘 세력, 스스로 <b>성주·장군</b> 자처</li>
+      <li>사상적 배경: <b>선종</b>(참선 중시, 지방 호족과 결탁해 9산 선문 형성)과 <b>풍수지리설</b>(도선, 지방의 중요성 부각) 유행 → 신라 왕경 중심 사고에서 벗어나는 사상적 기반</li>
+      <li><b>후삼국 성립</b> — <b>견훤</b>이 <b>후백제</b>(900), <b>궁예</b>가 <b>후고구려</b>(901) 건국</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "선종·풍수지리설이 유행했다"는 서술은 <b>호족의 사상적 기반</b>이라는 맥락으로 항상 함께 출제됩니다 — 단순 종교 유행이 아니라 정치적 함의를 기억하세요.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>고려로 넘어가기 전, 이 시기까지의 문화도 함께 정리됩니다</b><br>
+  고대 문화 문제는 시대를 특정하기보다 <b>삼국~남북국 전체를 아우르는 인물·유물 사진 문제</b>로 자주 나옵니다.
+</div>
+
+<!-- 불교사상 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">고대의 불교 사상가</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">원효 <span class="who">일심 · 화쟁</span></h3>
+    <ul class="chk">
+      <li><b>일심 사상</b>과 <b>화쟁 사상</b> — 종파 간 대립을 조화시키려 함</li>
+      <li><b>아미타 신앙</b>으로 "나무아미타불"만 외워도 극락왕생 가능하다며 <b>불교 대중화</b>에 기여</li>
+      <li>『대승기신론소』 저술, 요석공주와의 일화로도 유명</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">의상 <span class="who">화엄</span></h3>
+    <ul class="chk">
+      <li><b>화엄 사상</b> — <span class="redmark">"하나가 곧 전체요, 전체가 곧 하나"(일즉다 다즉일)</span></li>
+      <li><b>부석사</b> 창건, <b>관음 신앙</b> 전파</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">혜초</h3>
+    <ul class="chk">
+      <li>인도와 중앙아시아를 순례하고 <b>『왕오천축국전』</b> 저술 — 8세기 인도·중앙아시아 기행 기록</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 원효=대중화(아미타), 의상=화엄(일즉다 다즉일), 혜초=기행문(왕오천축국전) — 세 사람을 키워드 하나씩으로 묶어 기억하면 충분합니다.</div>
+  </div>
+</section>
+
+<!-- 유물 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">고대 유물 · 유적 (사진 문제)</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>백제 금동 대향로</b> — 도교와 불교 사상이 함께 반영된 백제 금속 공예의 걸작</li>
+      <li><b>무령왕릉</b> — 중국 남조 <b>벽돌무덤</b> 양식, 묘지석으로 주인이 확인된 유일한 삼국 왕릉</li>
+      <li><b>신라 첨성대</b>(선덕여왕) — 동양에서 가장 오래된 천문 관측대로 알려짐</li>
+      <li><b>불국사·석굴암</b> — 통일 신라 불교 예술의 정수, 유네스코 세계 유산</li>
+      <li><b>무구정광대다라니경</b> — 불국사 석가탑에서 발견된, <b>현존 최고(最古)의 목판 인쇄물</b></li>
+      <li><b>금동 미륵보살 반가 사유상</b>과 일본 <b>고류사 목조 반가 사유상</b>의 유사성 — 삼국 문화의 일본 전파 근거</li>
+      <li>발해: <b>정혜공주 묘</b>(고구려 양식 굴식 돌방무덤)·<b>정효공주 묘</b>(당 양식과 혼합) — 발해 문화의 이중성을 보여줌</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 무구정광대다라니경은 <b>세계에서 가장 오래된 목판 인쇄물</b>이라는 점이 반복 출제됩니다 — 발견 장소(불국사 석가탑)까지 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 비교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 역사서 (참고)</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>저자</th><th>특징</th></tr>
+    <tr><td><b>『삼국사기』</b></td><td>김부식(고려)</td><td>유교 사관, 기전체, 현존 최고(最古) 역사서 — 단군 기록 없음</td></tr>
+    <tr><td><b>『삼국유사』</b></td><td>일연(고려)</td><td>불교 설화 중심, <b>단군 기록 수록</b></td></tr>
+  </table>
+  <p class="section-note" style="margin-top:8px">두 역사서 모두 <b>고려 시대</b>에 편찬됐지만, 삼국 시대의 역사를 다룬다는 이유로 이 단원에서 함께 출제됩니다.</p>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

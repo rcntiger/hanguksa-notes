@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세도 정치 · 농민 봉기 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:66px;padding:8px 3px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:8.8px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>세도 정치와 농민 봉기</h1>
+  <p class="sub">정조 사후 60년, 소수 가문의 권력 독점이 삼정의 문란으로 이어지고 결국 전국적 농민 봉기를 부릅니다</p>
+  <p class="period">순조·헌종·철종(세도정치) &nbsp;→&nbsp; 1811 홍경래의 난 &nbsp;→&nbsp; 1862 임술 농민 봉기</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>세도정치</b>순조~철종</div>
+      <div class="tl-node"><b>삼정문란</b>전정군정환곡</div>
+      <div class="tl-node"><b>홍경래의난</b>1811</div>
+      <div class="tl-node p2"><b>임술봉기</b>1862</div>
+      <div class="tl-node p2"><b>삼정이정청</b>사후수습</div>
+    </div>
+  </div>
+</header>
+
+<!-- 세도정치 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">세도 정치</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>순조·헌종·철종</b> 3대 <b>약 60여 년</b>간 지속</li>
+      <li><b>안동 김씨·풍양 조씨</b> 등 왕의 외척 가문이 권력 독점</li>
+      <li>정치 기구 중 <b>비변사</b>를 장악해 의정부·6조의 기능을 무력화 — 국정 전반을 좌우</li>
+      <li>매관매직 성행, 관리들의 부정부패가 심화되며 <b>삼정의 문란</b>으로 이어짐</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>전정</b> — 정해진 양보다 많은 세금을 부과하는 <b>도결</b> 등의 폐단</li>
+      <li><b>군정</b> — 죽은 사람에게 군포를 거두는 <b>백골징포</b>, 어린아이에게 거두는 <b>황구첨정</b></li>
+      <li><b>환곡</b> — 원래 빈민 구제 목적이었으나 <b>고리대로 변질</b>, 강제로 빌려주고 높은 이자를 받는 <b>늑대</b> 등 성행 — <b>삼정 중 폐단이 가장 심각</b></li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 삼정 중 <span class="redmark">환곡의 폐단이 가장 심각</span>했다는 평가가 반복 출제됩니다 — 세 가지 중 하나를 고르는 문제에서 자주 등장합니다.</div>
+  </div>
+</section>
+
+<!-- 농민봉기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">농민 봉기</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1811</div>
+        <div class="evt-body">
+          <h4>홍경래의 난</h4>
+          <p><b>평안도(서북) 지역민에 대한 차별</b>과 세도 정치의 부패에 반발 — <b>홍경래</b>를 중심으로 광산 노동자·상인·농민 등이 참여, <b>정주성</b>까지 점령했으나 결국 관군에 진압됨.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1862</div>
+        <div class="evt-body">
+          <h4>임술 농민 봉기</h4>
+          <p><b>진주</b>(경상 우병사 <b>백낙신</b>의 수탈에 반발, <b>유계춘</b> 주도)에서 시작 → <b>삼정의 문란</b>에 대한 불만이 폭발하며 <b>전국적으로 확산</b>. 정부는 <b>박규수를 안핵사</b>로 파견해 사태 수습, <b>삼정이정청</b> 설치해 개혁을 시도했으나 <b>근본적 해결에는 실패</b>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 홍경래의 난은 <b>지역 차별(평안도)</b>이 배경, 임술 농민 봉기는 <b>삼정 문란(전국적 수탈)</b>이 배경 — 두 봉기의 원인이 다르다는 점이 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>구분</th><th>연도</th><th>배경</th><th>중심 인물</th></tr>
+    <tr><td><b>홍경래의 난</b></td><td>1811</td><td>서북 지역 차별</td><td>홍경래</td></tr>
+    <tr><td><b>임술 농민 봉기</b></td><td>1862</td><td>삼정의 문란(전국)</td><td>유계춘(진주) → 전국 확산</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

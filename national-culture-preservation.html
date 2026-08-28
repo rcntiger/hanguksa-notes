@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>민족 문화 수호 운동 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.card-title .who{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);font-weight:400}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.quote{
+  margin-top:8px;padding:10px 12px;background:var(--paper);border-radius:3px;
+  font-family:'Gowun Batang',serif;font-size:13.5px;color:var(--ink);line-height:1.6;
+  border:1px dashed var(--rule);
+}
+.quote span{display:block;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-soft);margin-top:4px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 일제 강점기</div>
+  <h1>민족 문화 수호 운동</h1>
+  <p class="sub">역사학자마다 강조점이 다릅니다 — 인물과 핵심어를 정확히 짝짓는 것이 이 단원의 전부입니다</p>
+</header>
+
+<!-- 민족주의 사학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">민족주의 사학</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">민족의 정신적 구심점을 역사에서 찾으려는 흐름 — 학자마다 강조한 단어가 다릅니다</p>
+
+  <div class="card">
+    <h3 class="card-title">박은식 <span class="who">魂</span></h3>
+    <ul class="chk">
+      <li>나라는 멸망해도 <span class="redmark">'혼(魂)'</span>은 사라지지 않는다 — 정신사 강조</li>
+      <li><b>『한국통사』</b> — 근대 이후 국권 피탈 과정을 서술</li>
+      <li><b>『한국독립운동지혈사』</b> — 독립운동의 역사를 정리</li>
+      <li>대한민국 임시 정부 2대 대통령 역임</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">신채호 <span class="who">郎家 · 我와 非我</span></h3>
+    <ul class="chk">
+      <li><b>낭가 사상</b> 강조 — 자주적 민족정신을 고유 사상에서 찾음</li>
+      <li><b>『조선상고사』</b> — <span class="redmark">"역사란 아(我)와 비아(非我)의 투쟁"</span>이라는 정의로 유명</li>
+      <li><b>『조선사연구초』</b>, 묘청의 서경 천도 운동을 "일천년래 제일 대사건"으로 평가</li>
+      <li>의열단의 <b>「조선혁명선언」</b> 작성(의열단 단원과 혼동 주의 — 신채호는 사학자이자 이 선언문의 <b>작성자</b>)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>『한국통사』는 박은식</b>, <b>『조선상고사』는 신채호</b> — 저자를 뒤바꾼 오답이 가장 흔합니다.</div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">정인보 <span class="who">얼</span></h3>
+    <ul class="chk">
+      <li><span class="redmark">'얼'</span> 사상 강조, <b>조선학 운동</b> 주도(안재홍 등과 함께 정약용의 『여유당전서』 간행 사업)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 사회경제 사학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">사회 경제 사학</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <h3 class="card-title">백남운</h3>
+    <ul class="chk">
+      <li><b>유물 사관</b>(마르크스주의 역사학)에 입각 — 한국사도 세계사의 <b>보편적 발전 법칙</b>을 따랐음을 입증</li>
+      <li><b>『조선사회경제사』</b> — 일제가 주장한 <span class="redmark">'정체성론'(한국사는 정체되어 있었다는 식민 사관)을 정면 반박</span></li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "식민 사관의 정체성론을 반박했다"는 서술이 나오면 <span class="redmark">백남운</span>입니다.</div>
+  </div>
+</section>
+
+<!-- 실증사학 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">실증 사학</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>진단 학회</b>(이병도·손진태 등) — 문헌 고증에 기반한 객관적 역사 연구, 『진단학보』 발간</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 조선어학회 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">한글 수호 운동</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <h3 class="card-title">조선어 학회</h3>
+    <ul class="chk">
+      <li>전신은 <b>조선어 연구회</b>(가갸날 제정, 잡지 『한글』 발간) → 조선어 학회로 확대 개편</li>
+      <li><b>한글 맞춤법 통일안</b>·<b>표준어</b> 제정</li>
+      <li><b>『우리말 큰사전』</b> 편찬을 시도했으나 완간 전 중단</li>
+      <li><b>1942년 조선어 학회 사건</b> — 독립운동 단체로 몰려 회원들이 체포·투옥, 학회 강제 해산</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 국문 연구소(대한제국기, 주시경)와 조선어 연구회·조선어 학회(일제 강점기)는 <b>시기가 다른 별개의 단체</b>입니다 — 혼동하지 마세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>인물/단체</th><th>계열</th><th>핵심 키워드</th></tr>
+    <tr><td><b>박은식</b></td><td>민족주의</td><td>魂, 『한국통사』</td></tr>
+    <tr><td><b>신채호</b></td><td>민족주의</td><td>낭가 사상, 『조선상고사』, 아와 비아의 투쟁</td></tr>
+    <tr><td><b>정인보</b></td><td>민족주의</td><td>얼, 조선학 운동</td></tr>
+    <tr><td><b>백남운</b></td><td>사회경제</td><td>유물 사관, 정체성론 반박</td></tr>
+    <tr><td><b>이병도 등</b></td><td>실증</td><td>진단 학회, 문헌 고증</td></tr>
+    <tr><td><b>조선어 학회</b></td><td>어문</td><td>한글 맞춤법, 우리말 큰사전, 1942년 사건</td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이승만 정부 · 4·19 혁명 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;transform:translateY(-50%);border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 12%;min-width:70px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--ink-soft)}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:10.5px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+.tl-node.p3{background:#DAD2C2}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.stamp{display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);font-family:'Gowun Batang',serif;font-weight:700;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-left:4px;opacity:.85}
+.stamp.blue{border-color:var(--blue);color:var(--blue)}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.8px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+
+.slogan{text-align:center;font-family:'Gowun Batang',serif;font-size:15.5px;font-weight:700;color:var(--red);margin:14px 0 4px;letter-spacing:.02em}
+.slogan-sub{text-align:center;font-size:11px;color:var(--ink-soft);margin-bottom:2px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 현대</div>
+  <h1>이승만 정부와 4·19 혁명</h1>
+  <p class="sub">장기 집권을 위한 두 차례 편법 개헌이, 결국 부정 선거를 거쳐 시민의 힘으로 무너지는 과정입니다</p>
+  <p class="period">1952 발췌개헌 &nbsp;→&nbsp; 1954 사사오입개헌 &nbsp;→&nbsp; 1960.3.15 부정선거 &nbsp;→&nbsp; 1960.4.19 혁명 &nbsp;→&nbsp; 1960 장면내각</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>발췌개헌</b>1952</div>
+      <div class="tl-node"><b>사사오입</b>1954</div>
+      <div class="tl-node"><b>진보당사건</b>1958</div>
+      <div class="tl-node p2"><b>3·15부정선거</b>1960</div>
+      <div class="tl-node p2"><b>김주열</b>마산</div>
+      <div class="tl-node p2"><b>4·19혁명</b>이승만하야</div>
+      <div class="tl-node p3"><b>장면내각</b>내각책임제</div>
+    </div>
+  </div>
+</header>
+
+<!-- 장기집권 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">이승만 정부의 장기 집권 시도</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1952</div>
+        <div class="evt-body">
+          <h4>발췌 개헌</h4>
+          <p>6·25 전쟁 중 임시 수도 부산에서 <b>계엄령</b>을 선포한 상태로 강행 — 국회에서의 <b>간선제</b>를 <b>대통령 직선제</b>로 바꿔 재선을 노림.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1954</div>
+        <div class="evt-body">
+          <h4>사사오입 개헌</h4>
+          <p><b>초대 대통령에 한해 중임 제한을 철폐</b>하는 개헌안을 표결 — 1표가 부족했지만 <b>'사사오입(반올림)' 논리</b>로 억지로 통과시킴.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1958~59</div>
+        <div class="evt-body">
+          <h4>정치적 반대 세력 탄압</h4>
+          <p><b>진보당 사건</b> — 조봉암을 간첩 혐의로 처형. <b>국가보안법 개정</b>(1958)으로 언론·야당 탄압 강화, <b>경향신문 폐간</b>(1959).</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 발췌 개헌은 <b>직선제 도입</b>, 사사오입 개헌은 <b>중임 제한 철폐</b> — 목적이 다른 두 개헌을 순서와 함께 정확히 구분해야 합니다.</div>
+  </div>
+</section>
+
+<!-- 4.19혁명 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">4·19 혁명</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p2">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1960.3.15</div>
+        <div class="evt-body">
+          <h4>3·15 부정 선거</h4>
+          <p>이승만·이기붕을 당선시키기 위해 <b>사전 투표·투표함 바꿔치기</b> 등 <b>대대적인 부정 선거</b> 자행.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1960.3~4</div>
+        <div class="evt-body">
+          <h4>마산 시위 · 김주열</h4>
+          <p><b>마산</b>에서 부정 선거 규탄 시위 발생, 실종됐던 고등학생 <b>김주열</b>의 시신이 <b>최루탄이 눈에 박힌 채</b> 발견되며 시위가 전국으로 확산.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1960.4.19</div>
+        <div class="evt-body">
+          <h4>4·19 혁명</h4>
+          <p>전국 대학생·시민이 대규모 시위 — 경찰의 발포로 다수 사상자 발생. 대학 교수단까지 시국 선언 발표.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1960.4.26</div>
+        <div class="evt-body">
+          <h4>이승만 하야</h4>
+          <p>이승만이 대통령직에서 물러나 하와이로 망명.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 4·19 혁명의 직접적 도화선은 <b>3·15 부정 선거</b>입니다. 유신 체제 반대 운동(부마항쟁·6월항쟁)과 계기를 혼동하지 마세요.</div>
+  </div>
+
+  <div class="slogan">"부정 선거 다시 하라"</div>
+  <p class="slogan-sub">전국 시위에서 등장한 대표 구호 — 정권 퇴진이 아닌 재선거 요구에서 하야 요구로 확대됨</p>
+</section>
+
+<!-- 장면내각 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">장면 내각</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>4·19 혁명의 결과로 <b>내각 책임제·양원제</b>로 개헌(허정 과도 정부 거쳐 성립)</li>
+      <li><b>장면이 국무총리</b>, 윤보선이 대통령(상징적 지위)</li>
+      <li><b>경제 개발 5개년 계획</b>을 수립했으나 실행에 옮기기 전에 <b>5·16 군사 정변(1961)</b>으로 붕괴</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 경제 개발 5개년 계획을 <b>'수립'한 것은 장면 내각</b>, 실제로 <b>'실행'한 것은 박정희 정부</b>입니다 — 주체를 뒤바꾼 오답에 주의하세요.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교 — 개헌 2회</div>
+    <div class="section-line"></div>
+  </div>
+  <table class="cmp">
+    <tr><th>연도</th><th>개헌</th><th>목적</th></tr>
+    <tr><td>1952</td><td><b>발췌 개헌</b></td><td>간선제 → <b>직선제</b> (계엄 선포 중 강행)</td></tr>
+    <tr><td>1954</td><td><b>사사오입 개헌</b></td><td>초대 대통령 <b>중임 제한 철폐</b></td></tr>
+    <tr><td>1960</td><td>4·19 이후 개헌</td><td><b>내각 책임제·양원제</b></td></tr>
+  </table>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+</div>
+</body>
+</html>
