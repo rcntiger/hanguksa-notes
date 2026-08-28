@@ -87,6 +87,18 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
   .tblwrap{overflow:visible}
   .cmp{min-width:0}
 }
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:10px}
+figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+figure .ph-wrap{aspect-ratio:4/3;position:relative}
+figure .ph-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+figure .ph{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(135deg, var(--paper2) 0 8px, #DCD3B8 8px 16px);
+  color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:center;padding:8px;line-height:1.5;
+}
+figcaption{padding:8px 10px;font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+figcaption b{color:var(--ink);font-family:'Gowun Batang',serif;font-size:12.5px;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
@@ -183,6 +195,73 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
       <li><b>무기</b> — <b>최무선</b>이 <b>화통도감</b> 설치 건의 → 화약 무기 제조 → <b>진포 대첩</b>(왜구 격퇴)</li>
     </ul>
     <div class="subnote"><b>정답 포인트</b> '최무선-화통도감-진포대첩'은 하나의 세트로 출제됩니다. 이후 이성계의 <b>황산 대첩</b>, 최영의 왜구 격퇴와 함께 <b>신흥 무인 세력 성장</b>의 배경이 됩니다.</div>
+  </div>
+</section>
+
+<!-- 사진 자료 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">사진 자료</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">사진을 이 페이지와 같은 폴더의 <b>images/</b> 폴더에 아래 파일명 그대로 넣으시면 자동으로 채워집니다. <a href="https://www.heritage.go.kr" target="_blank" rel="noopener">국가유산포털</a>이나 <a href="https://www.emuseum.go.kr" target="_blank" rel="noopener">e뮤지엄</a>에서 이름으로 검색하시면 공공누리(KOGL) 라이선스 사진을 받으실 수 있습니다.</p>
+  <div class="gallery">
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/gwanchoksa-mireuk.jpg" alt="논산 관촉사 석조 미륵보살 입상" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/gwanchoksa-mireuk.jpg</div>
+      </div>
+      <figcaption><b>논산 관촉사 석조 미륵보살 입상</b>은진미륵 · 고려 초기 불상</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/buseoksa-amita.jpg" alt="영주 부석사 소조 아미타여래 좌상" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/buseoksa-amita.jpg</div>
+      </div>
+      <figcaption><b>영주 부석사 소조 아미타여래 좌상</b>고려 중기 · 신라 양식 계승</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/woljeongsa-tap.jpg" alt="평창 월정사 8각 9층 석탑" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/woljeongsa-tap.jpg</div>
+      </div>
+      <figcaption><b>평창 월정사 8각 9층 석탑</b>고려 중기 · 송의 영향</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/gyeongcheonsaji-tap.jpg" alt="개성 경천사지 10층 석탑" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/gyeongcheonsaji-tap.jpg</div>
+      </div>
+      <figcaption><b>개성 경천사지 10층 석탑</b>고려 후기 · 원의 영향, 대리석</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/goryeo-sanggam-cheongja.jpg" alt="고려 상감청자" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/goryeo-sanggam-cheongja.jpg</div>
+      </div>
+      <figcaption><b>고려 상감청자</b>12세기 중엽 이후 유행</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/palman-daejanggyeong.jpg" alt="팔만대장경(재조대장경)" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/palman-daejanggyeong.jpg</div>
+      </div>
+      <figcaption><b>팔만대장경(재조대장경)</b>합천 해인사 · 몽골 격퇴 염원</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/jikji.jpg" alt="직지심체요절" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/jikji.jpg</div>
+      </div>
+      <figcaption><b>직지심체요절</b>1377 · 현존 최고(最古) 금속 활자본</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/bongjeongsa-geungnakjeon.jpg" alt="안동 봉정사 극락전" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/bongjeongsa-geungnakjeon.jpg</div>
+      </div>
+      <figcaption><b>안동 봉정사 극락전</b>현존 最古 목조 건물 · 주심포 양식</figcaption>
+    </figure>
   </div>
 </section>
 

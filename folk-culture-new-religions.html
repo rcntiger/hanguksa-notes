@@ -85,6 +85,18 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 .pagenav .listlink:hover{color:var(--ink)}
 @media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
 @media print{.pagenav{display:none}}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:10px}
+figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+figure .ph-wrap{aspect-ratio:4/3;position:relative}
+figure .ph-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+figure .ph{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(135deg, var(--paper2) 0 8px, #DCD3B8 8px 16px);
+  color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:center;padding:8px;line-height:1.5;
+}
+figcaption{padding:8px 10px;font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+figcaption b{color:var(--ink);font-family:'Gowun Batang',serif;font-size:12.5px;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
@@ -180,6 +192,45 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <tr><td>핵심 사상</td><td>평등, 제사 거부</td><td>인내천, 후천개벽</td></tr>
     <tr><td>탄압</td><td>신유박해(1801)</td><td>최제우 처형(혹세무민)</td></tr>
   </table>
+</section>
+
+<!-- 사진 자료 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">사진 자료</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">사진을 이 페이지와 같은 폴더의 <b>images/</b> 폴더에 아래 파일명 그대로 넣으시면 자동으로 채워집니다. <a href="https://www.heritage.go.kr" target="_blank" rel="noopener">국가유산포털</a>이나 <a href="https://www.emuseum.go.kr" target="_blank" rel="noopener">e뮤지엄</a>에서 이름으로 검색하시면 공공누리(KOGL) 라이선스 사진을 받으실 수 있습니다.</p>
+  <div class="gallery">
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/inwangjesaekdo.jpg" alt="인왕제색도" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/inwangjesaekdo.jpg</div>
+      </div>
+      <figcaption><b>인왕제색도</b>정선 · 진경산수화 대표작</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/ssireum-kimhongdo.jpg" alt="씨름(김홍도)" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/ssireum-kimhongdo.jpg</div>
+      </div>
+      <figcaption><b>씨름(김홍도)</b>서민의 일상을 담은 풍속화</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/danopungjeong-sinyunbok.jpg" alt="단오풍정(신윤복)" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/danopungjeong-sinyunbok.jpg</div>
+      </div>
+      <figcaption><b>단오풍정(신윤복)</b>양반·여성의 풍류를 담은 풍속화</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/minhwa-kkachi-horangi.jpg" alt="까치와 호랑이(민화)" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/minhwa-kkachi-horangi.jpg</div>
+      </div>
+      <figcaption><b>까치와 호랑이(민화)</b>서민들이 복을 빌며 그린 그림</figcaption>
+    </figure>
+  </div>
 </section>
 
 <footer>

@@ -83,6 +83,18 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 .pagenav .listlink:hover{color:var(--ink)}
 @media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
 @media print{.pagenav{display:none}}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:10px}
+figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+figure .ph-wrap{aspect-ratio:4/3;position:relative}
+figure .ph-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+figure .ph{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(135deg, var(--paper2) 0 8px, #DCD3B8 8px 16px);
+  color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:center;padding:8px;line-height:1.5;
+}
+figcaption{padding:8px 10px;font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+figcaption b{color:var(--ink);font-family:'Gowun Batang',serif;font-size:12.5px;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
@@ -187,6 +199,66 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <tr><td>정치관</td><td>왕의 자기 수양</td><td>신하의 역할</td></tr>
     <tr><td>기타</td><td>일본 성리학에 영향</td><td>수미법(대동법의 선구)</td></tr>
   </table>
+</section>
+
+<!-- 사진 자료 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">사진 자료</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">사진을 이 페이지와 같은 폴더의 <b>images/</b> 폴더에 아래 파일명 그대로 넣으시면 자동으로 채워집니다. <a href="https://www.heritage.go.kr" target="_blank" rel="noopener">국가유산포털</a>이나 <a href="https://www.emuseum.go.kr" target="_blank" rel="noopener">e뮤지엄</a>에서 이름으로 검색하시면 공공누리(KOGL) 라이선스 사진을 받으실 수 있습니다.</p>
+  <div class="gallery">
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/honilgangni-do.jpg" alt="혼일강리역대국도지도" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/honilgangni-do.jpg</div>
+      </div>
+      <figcaption><b>혼일강리역대국도지도</b>태종 · 동양 最古 세계 지도 중 하나</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/angbuilgu.jpg" alt="앙부일구" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/angbuilgu.jpg</div>
+      </div>
+      <figcaption><b>앙부일구</b>세종 · 해시계</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/jagyeongnu.jpg" alt="자격루" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/jagyeongnu.jpg</div>
+      </div>
+      <figcaption><b>자격루</b>세종 · 물시계(자동 시보 장치)</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/cheugugi.jpg" alt="측우기" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/cheugugi.jpg</div>
+      </div>
+      <figcaption><b>측우기</b>세종 · 세계 최초 강우량 측정기</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/joseon-wangjo-sillok.jpg" alt="조선왕조실록" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/joseon-wangjo-sillok.jpg</div>
+      </div>
+      <figcaption><b>조선왕조실록</b>유네스코 세계 기록 유산</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/buncheongsagi.jpg" alt="분청사기" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/buncheongsagi.jpg</div>
+      </div>
+      <figcaption><b>분청사기</b>15~16세기 전반</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/baekja.jpg" alt="순백자" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/baekja.jpg</div>
+      </div>
+      <figcaption><b>순백자</b>16세기 이후 유행</figcaption>
+    </figure>
+  </div>
 </section>
 
 <footer>
