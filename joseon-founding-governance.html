@@ -80,6 +80,15 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
   .wrap{max-width:100%}
   .card,.section{break-inside:avoid}
 }
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
 </style>
 </head>
 <body>
@@ -173,6 +182,12 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 <footer>
   실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
 </footer>
+
+<nav class="pagenav">
+  <a class="prev" href="goryeo-buddhism-culture.html"><span class="dir">← 이전</span><span class="ttl">고려의 불교 사상과 문화</span></a>
+  <a class="next" href="sarim-sahwa-factions.html"><span class="dir">다음 →</span><span class="ttl">사림의 성장과 사화·붕당</span></a>
+</nav>
+
 
 </div>
 </body>
