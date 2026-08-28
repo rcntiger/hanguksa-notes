@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고대 문화 종합 비교 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;min-width:600px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:11.5px;color:var(--ink);white-space:nowrap}
+.cmp td.rowh{background:var(--paper);font-weight:700;font-family:'Gowun Batang',serif;font-size:13px;white-space:nowrap}
+.cmp td b{color:var(--ink);font-weight:700}
+.cmp td .r{color:var(--red);font-weight:700}
+.scroll-hint{font-size:11px;color:var(--ink-soft);margin-top:5px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  .cmp{min-width:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 고대</div>
+  <h1>고대 문화 종합 비교</h1>
+  <p class="sub">고구려·백제·신라·통일신라·발해의 문화를 항목별로 나란히 놓았습니다 — 나라와 유물을 짝짓는 사진 문제 대비용입니다</p>
+</header>
+
+<!-- 유교와 교육 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">유교와 교육 기관</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>나라</th><th>중앙 교육</th><th>지방·기타</th></tr>
+      <tr><td class="rowh">고구려</td><td><b>태학</b>(소수림왕)</td><td><b>경당</b> — 문(글)과 무(활쏘기)를 함께 교육</td></tr>
+      <tr><td class="rowh">백제</td><td>기록은 없으나 <b>오경박사·의박사·역박사</b> 존재</td><td>사택지적비(도교적 내용), 개로왕의 국서</td></tr>
+      <tr><td class="rowh">신라</td><td>화랑도의 <b>세속 5계</b>(원광)</td><td><b>임신서기석</b> — 두 청년이 유교 경전 학습을 맹세한 기록</td></tr>
+      <tr><td class="rowh">통일신라</td><td><b>국학</b>(신문왕) → 태학감(경덕왕)</td><td><b>독서삼품과</b>(원성왕), <b>최치원</b>(6두품, 계원필경)</td></tr>
+      <tr><td class="rowh">발해</td><td><b>주자감</b></td><td>당에 유학생 파견, 빈공과 급제자 배출</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> '태학'은 고구려, '국학'은 통일신라, '주자감'은 발해 — 교육 기관 이름만으로 나라를 특정하는 문제가 자주 나옵니다.</div>
+</section>
+
+<!-- 역사서 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">역사서 (모두 현재 전하지 않음)</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>고구려</b> — 『유기』 100권 → <b>『신집』 5권</b>(이문진, 영양왕 때 간추림)</li>
+      <li><b>백제</b> — <b>『서기』</b>(고흥, 근초고왕)</li>
+      <li><b>신라</b> — <b>『국사』</b>(거칠부, 진흥왕)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 세 나라 모두 <b>중앙 집권 체제가 정비되던 시기</b>에 역사서를 편찬했습니다 — 왕실의 권위를 높이려는 목적이라는 서술이 함께 나옵니다. 다만 <span class="redmark">현재 전해지는 책은 하나도 없습니다.</span></div>
+  </div>
+</section>
+
+<!-- 도교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">도교</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>고구려</b> — <b>사신도</b>(강서대묘 등 고분 벽화의 청룡·백호·주작·현무), 연개소문이 도교를 장려해 불교 세력을 견제</li>
+      <li><b>백제</b> — <b>산수무늬 벽돌</b>(산수문전), <b>금동 대향로</b>(도교의 이상 세계와 불교적 요소가 함께 표현됨)</li>
+      <li><b>신라</b> — 화랑도의 명칭 '국선·풍류도'에 도교적 요소</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>백제 금동 대향로</b>는 도교 문제와 불교 문제 양쪽에 모두 등장합니다 — "도교와 불교가 함께 반영됐다"는 서술을 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 불교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">불교 수용과 사상</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>나라</th><th>수용</th><th>특징</th></tr>
+      <tr><td class="rowh">고구려</td><td><b>소수림왕</b>(전진에서)</td><td>왕권 강화와 함께 수용</td></tr>
+      <tr><td class="rowh">백제</td><td><b>침류왕</b>(동진에서)</td><td>일본에 불교 전파(노리사치계)</td></tr>
+      <tr><td class="rowh">신라</td><td><b>법흥왕</b>(<span class="r">이차돈 순교</span>로 공인)</td><td>귀족 반발로 수용이 가장 늦음, <b>업설·미륵불 신앙</b>이 왕권·화랑과 연결</td></tr>
+      <tr><td class="rowh">통일신라</td><td>—</td><td><b>원효</b>(아미타 신앙·불교 대중화), <b>의상</b>(화엄·관음), <b>혜초</b>(왕오천축국전)</td></tr>
+      <tr><td class="rowh">신라 말</td><td>—</td><td><b>선종</b> 유행 — 참선 중시, 호족과 결탁해 <b>9산 선문</b> 형성</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> 신라만 불교 수용에 <b>귀족의 반발</b>이 있었고, 그래서 이차돈의 순교라는 사건이 필요했다는 점이 핵심입니다.</div>
+</section>
+
+<!-- 불탑 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">불탑 (사진 문제 최다 출제)</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>나라</th><th>대표 탑</th><th>특징</th></tr>
+      <tr><td class="rowh">고구려</td><td>주로 목탑(현존하지 않음)</td><td>돌로 만든 탑이 거의 남아있지 않음</td></tr>
+      <tr><td class="rowh">백제</td><td><b>익산 미륵사지 석탑</b><br><b>부여 정림사지 5층 석탑</b></td><td>미륵사지: 현존 最古 석탑, 목탑 양식을 돌로 재현<br>정림사지: 평제탑이라고도 불림(당의 소정방이 글을 새김)</td></tr>
+      <tr><td class="rowh">신라</td><td><b>경주 분황사 모전 석탑</b><br>황룡사 9층 목탑</td><td>분황사: 돌을 벽돌 모양으로 다듬어 쌓음<br>황룡사 목탑: 선덕여왕 때 건립, <span class="r">몽골 침입으로 소실</span></td></tr>
+      <tr><td class="rowh">통일신라</td><td><b>불국사 3층 석탑(석가탑)</b><br>다보탑<br>진전사지 3층 석탑</td><td>석가탑에서 <b>무구정광대다라니경</b> 발견<br>다보탑: 독특한 형태<br>진전사지: 승탑(부도) 유행의 시작</td></tr>
+      <tr><td class="rowh">발해</td><td>영광탑</td><td>당의 영향을 받은 벽돌탑</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> <b>미륵사지 석탑</b>(현존 最古 석탑)과 <b>무구정광대다라니경</b>(현존 最古 목판 인쇄물)을 헷갈리지 마세요 — 둘 다 '가장 오래된'이지만 분야가 다릅니다.</div>
+</section>
+
+<!-- 고분 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">고분 양식</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>나라</th><th>초기</th><th>후기</th><th>대표</th></tr>
+      <tr><td class="rowh">고구려</td><td>돌무지무덤</td><td>굴식 돌방무덤</td><td><b>장군총</b>(돌무지), 강서대묘·무용총(벽화 있음)</td></tr>
+      <tr><td class="rowh">백제</td><td>돌무지무덤<br>(한성기)</td><td>굴식 돌방무덤<br><b>벽돌무덤</b>(웅진기)</td><td><b>서울 석촌동 고분</b>(고구려와 유사 → 건국 세력 연관 근거)<br><b>무령왕릉</b>(벽돌무덤, 중국 남조 양식)</td></tr>
+      <tr><td class="rowh">신라</td><td colspan="2"><b>돌무지덧널무덤</b> — 도굴이 어려워 <b>유물이 많이 남음</b>, 벽화는 없음</td><td>천마총(천마도), 황남대총</td></tr>
+      <tr><td class="rowh">통일신라</td><td colspan="2">굴식 돌방무덤으로 변화, 규모 축소</td><td><b>둘레돌에 12지 신상</b> 조각</td></tr>
+      <tr><td class="rowh">발해</td><td colspan="2">—</td><td><b>정혜공주 묘</b>(고구려식 굴식 돌방무덤·모줄임 천장)<br><b>정효공주 묘</b>(당식 벽돌무덤 + 고구려 요소)</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> 신라의 <b>돌무지덧널무덤</b>은 구조상 <span class="redmark">도굴이 어려워 껴묻거리가 풍부</span>하지만 <b>벽화가 없습니다</b> — "벽화가 발견됐다"는 신라 고분 서술은 오답입니다(천마도는 벽화가 아니라 말다래에 그린 그림).</div>
+</section>
+
+<!-- 일본 전파 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">일본으로의 문화 전파</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>고구려</b> — <b>담징</b>(종이·먹 제조법, 호류사 금당 벽화), <b>혜자</b>(쇼토쿠 태자의 스승)</li>
+      <li><b>백제</b> — <b>아직기</b>(한자)·<b>왕인</b>(천자문·논어), <b>노리사치계</b>(불경과 불상 전달) — <span class="redmark">일본 고대 문화에 가장 큰 영향</span></li>
+      <li><b>신라</b> — 조선술, <b>축제술</b>(제방 쌓는 기술) → '한인의 연못'</li>
+      <li><b>가야</b> — <b>토기 제작 기술</b> → 일본 <b>스에키 토기</b>에 영향</li>
+      <li>삼국 문화 전체가 일본 <b>아스카 문화</b> 형성에 기여</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 인물-전파 내용 짝짓기가 핵심입니다: <b>담징=종이·먹</b>, <b>왕인=천자문</b>, <b>노리사치계=불교</b>, <b>가야=스에키 토기</b>.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="silla-decline-ancient-culture.html"><span class="dir">← 이전</span><span class="ttl">신라 말의 동요와 고대 문화</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="goryeo-founding-governance.html"><span class="dir">다음 →</span><span class="ttl">고려의 건국과 통치 체제</span></a>
+</nav>
+
+</div>
+</body>
+</html>

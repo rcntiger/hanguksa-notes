@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조선 관리 선발 제도 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;min-width:560px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:11.5px;color:var(--ink);white-space:nowrap}
+.cmp td.rowh{background:var(--paper);font-weight:700;font-family:'Gowun Batang',serif;font-size:13px;white-space:nowrap}
+.cmp td b{color:var(--ink);font-weight:700}
+.cmp td .r{color:var(--red);font-weight:700}
+
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 4px;font-family:'IBM Plex Mono',monospace;font-size:11.5px}
+.flow span{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:5px 9px;color:var(--ink);white-space:nowrap}
+.flow span.now{border-color:var(--red);color:var(--red);font-weight:700}
+.flow .arrow{color:var(--ink-soft)}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  .cmp{min-width:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선</div>
+  <h1>조선의 관리 선발 제도</h1>
+  <p class="sub">관직에 나아가는 길은 네 갈래였습니다 — 과거·천거·음서·취재. 고려와 무엇이 달라졌는지가 핵심입니다</p>
+</header>
+
+<!-- 4경로 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">관리가 되는 네 가지 길</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>경로</th><th>내용</th><th>특징</th></tr>
+      <tr><td class="rowh">과거</td><td>시험을 통한 선발 — 가장 일반적이고 중요한 경로</td><td><b>양인 이상</b>이면 응시 가능(법제상)</td></tr>
+      <tr><td class="rowh">천거</td><td>추천을 통한 등용 — 대개 <span class="r">기존 관리를 대상</span></td><td>조광조의 <b>현량과</b>가 대표적</td></tr>
+      <tr><td class="rowh">음서</td><td>공신·2품 이상 고관의 자제를 시험 없이 등용</td><td>고려보다 <span class="r">대상이 크게 축소</span>, <b>고관 승진에 제한</b></td></tr>
+      <tr><td class="rowh">취재</td><td>하급 실무직(서리·향리·기술관) 선발 시험</td><td>낮은 관직에 한정</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> 조선의 음서는 <span class="redmark">고려보다 훨씬 축소</span>됐고, 음서로 관직에 나가도 <b>고위직 승진이 어려웠습니다</b> — 그래서 양반들도 과거를 봐야 했다는 점이 고려와의 결정적 차이입니다.</div>
+</section>
+
+<!-- 과거의 종류 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">과거의 세 종류</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">문과 (문관 선발)</h3>
+    <div class="flow">
+      <span>소과</span><span class="arrow">→</span>
+      <span>생원·진사</span><span class="arrow">→</span>
+      <span>성균관 입학 / 하급 관리</span><span class="arrow">→</span>
+      <span class="now">대과(문과)</span><span class="arrow">→</span>
+      <span>관직</span>
+    </div>
+    <ul class="chk">
+      <li><b>소과</b> — <b>생원시</b>(유교 경전)와 <b>진사시</b>(문학) → 합격하면 <b>생원·진사</b> 칭호, 성균관 입학 자격</li>
+      <li><b>대과(문과)</b> — 초시·복시·전시 3단계, <b>전시에서 왕이 직접 등수를 결정</b></li>
+      <li>초시는 각 도의 <b>인구 비례</b>로 선발 인원 배분, 복시는 성적순</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">무과 · 잡과</h3>
+    <ul class="chk">
+      <li><b>무과</b> — 무관 선발. <span class="redmark">고려에는 사실상 없었으나 조선에서 정식으로 시행</span> → 문무 양반 체제 확립</li>
+      <li><b>잡과</b> — 기술관 선발: <b>역과</b>(통역)·<b>율과</b>(법률)·<b>의과</b>(의학)·<b>음양과</b>(천문·지리) → 주로 <b>중인</b>이 응시</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>무과의 정식 시행</b>은 조선의 특징입니다 — "고려에서는 무과가 거의 시행되지 않았다"는 서술과 짝을 이뤄 출제됩니다.</div>
+  </div>
+</section>
+
+<!-- 응시 자격 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">응시 자격과 현실</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>법제상</b> — <b>양인 이상</b>이면 누구나 응시 가능</li>
+      <li><b>응시 불가</b> — <span class="redmark">천민</span>, <span class="redmark">재가한 여성의 자손</span>, <span class="redmark">서얼</span>(문과 응시 제한 — '서얼금고법')</li>
+      <li><b>현실적으로</b> — 오랜 기간 공부에 전념할 경제력이 필요해 사실상 <b>양반이 독점</b></li>
+      <li>시행 시기: <b>식년시</b>(3년마다 정기) + <b>별시</b>(증광시·알성시 등 수시)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> "법적으로는 양인도 응시할 수 있었으나 실제로는 양반이 독점했다"는 서술이 정답 근거로 자주 쓰입니다 — 법과 현실의 괴리를 묻는 문제입니다. <b>서얼의 문과 응시 제한</b>은 조선 후기 <b>서얼 통청 운동</b>의 배경이 됩니다.</div>
+  </div>
+</section>
+
+<!-- 교육기관 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">교육 기관</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>구분</th><th>기관</th><th>성격</th></tr>
+      <tr><td class="rowh">최고 학부</td><td><b>성균관</b></td><td>생원·진사가 입학, 대과 준비. <b>문묘</b>(공자 사당)를 함께 둠</td></tr>
+      <tr><td class="rowh">중등 관학</td><td><b>4부 학당</b>(서울)<br><b>향교</b>(지방)</td><td>향교는 <span class="r">모든 군현에 하나씩</span> 설립, <b>중앙에서 교수·훈도 파견</b></td></tr>
+      <tr><td class="rowh">사학</td><td><b>서원</b></td><td>선현 제사 + 교육. <b>백운동 서원</b>(주세붕, 최초) → <b>소수 서원</b>(이황 건의로 <span class="r">최초의 사액 서원</span>)</td></tr>
+      <tr><td class="rowh">초등</td><td><b>서당</b></td><td>기초 교육, 사립</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> <b>백운동 서원</b>(주세붕이 세운 최초의 서원)과 <b>소수 서원</b>(이황의 건의로 국왕에게 편액·토지·노비를 받은 최초의 사액 서원)은 <span class="redmark">같은 서원</span>입니다 — 이름이 바뀐 것이라는 점을 정확히 알아두세요.</div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="joseon-founding-governance.html"><span class="dir">← 이전</span><span class="ttl">조선의 건국과 통치 체제</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="sarim-sahwa-factions.html"><span class="dir">다음 →</span><span class="ttl">사림의 성장과 사화·붕당</span></a>
+</nav>
+
+</div>
+</body>
+</html>

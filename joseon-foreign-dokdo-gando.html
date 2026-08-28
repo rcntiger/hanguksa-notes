@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조선 후기 대외관계 · 독도와 간도 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);margin-top:10px;font-weight:600}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 96px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13.2px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;min-width:520px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:11.5px;color:var(--ink);white-space:nowrap}
+.cmp td.rowh{background:var(--paper);font-weight:700;font-family:'Gowun Batang',serif;font-size:13px;white-space:nowrap}
+.cmp td b{color:var(--ink);font-weight:700}
+.cmp td .r{color:var(--red);font-weight:700}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  .cmp{min-width:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 후기</div>
+  <h1>대외관계와 독도·간도</h1>
+  <p class="sub">일본과의 통신사 외교, 그리고 독도와 간도의 영유권 문제 — <b>독도는 거의 매 회차 단독 문항</b>으로 나옵니다</p>
+  <p class="period">1607~1811 통신사 &nbsp;|&nbsp; 1693 안용복 &nbsp;|&nbsp; 1712 백두산정계비 &nbsp;|&nbsp; 1900 칙령 41호 &nbsp;|&nbsp; 1909 간도협약</p>
+</header>
+
+<!-- 일본과의 관계 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">일본과의 관계 — 통신사</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li>임진왜란 이후 국교 단절 → 일본(에도 막부)의 요청으로 국교 재개</li>
+      <li><b>기유약조</b>(1609) — 부산포에 <b>왜관</b>을 두고 제한적으로 무역 허용</li>
+      <li><b>통신사</b> 파견(1607~1811, 12회) — 막부 장군이 바뀔 때마다 <b>권위를 인정받기 위해</b> 파견을 요청</li>
+      <li>성격: 단순 외교 사절을 넘어 <b>조선의 선진 문물을 일본에 전하는 문화 사절</b> 역할</li>
+      <li>19세기 이후 일본 내 국학 운동 등의 영향으로 파견 중단</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 통신사는 <span class="redmark">조선이 일본에 보낸 사절</span>입니다 — 방향을 반대로 서술한 오답에 주의하세요. 왜관은 <b>부산포</b>에 설치됐다는 점도 함께 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 독도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">독도</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">우리 영토임을 보여주는 <b>기록·조치</b>를 시대순으로 알아두는 것이 핵심입니다</p>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">512</div>
+        <div class="evt-body">
+          <h4>신라 지증왕, 우산국 복속</h4>
+          <p><b>이사부</b>가 우산국(울릉도와 부속 도서)을 정복 — 독도가 우리 영토가 된 <b>최초의 기록</b>. 『삼국사기』에 수록.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">조선 전기</div>
+        <div class="evt-body">
+          <h4>문헌 기록</h4>
+          <p><b>『세종실록』 지리지</b>, <b>『신증동국여지승람』</b>(부속 지도 <b>팔도총도</b>에 우산도 표기) 등에 우리 영토로 기록.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1693~1696</div>
+        <div class="evt-body">
+          <h4>안용복의 활동</h4>
+          <p>동래 출신 <b>안용복</b>이 두 차례 일본에 건너가 <b>울릉도와 독도가 조선 영토임을 확인</b>받고 돌아옴 — 일본 막부로부터 도해 금지 조치를 이끌어냄.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1900</div>
+        <div class="evt-body">
+          <h4>대한제국 칙령 제41호</h4>
+          <p>울릉도를 <b>울도군</b>으로 승격하고 <b>독도를 관할 구역에 포함</b>시킴 — 근대적 행정 조치로 영유권을 명확히 한 문서.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">5</div>
+        <div class="evt-year">1905</div>
+        <div class="evt-body">
+          <h4>일본의 불법 편입</h4>
+          <p><b>러일전쟁 중</b> 일본이 시마네현 고시로 독도를 자국 영토에 편입 — 대한제국의 <b>외교권이 박탈되기 직전</b>의 일방적 조치.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> <b>안용복</b>(조선 숙종 때 민간인 신분으로 활약)과 <b>칙령 41호</b>(1900, 대한제국)가 가장 자주 출제됩니다. 일본의 편입이 <span class="redmark">러일전쟁 중</span>에 이뤄졌다는 시점도 중요합니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>독도와 간도는 성격이 다릅니다</b><br>
+  독도는 <b>일본</b>과의 문제이고 지금도 우리가 실효 지배하고 있지만, 간도는 <b>청(중국)</b>과의 국경 문제이며 일제가 우리 의사와 무관하게 청에 넘겨버린 곳입니다. 두 지역을 섞어 묻는 문제가 자주 나옵니다.
+</div>
+
+<!-- 간도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">간도</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt p2">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1712</div>
+        <div class="evt-body">
+          <h4>백두산정계비 건립 (숙종)</h4>
+          <p>조선과 청이 국경을 정하며 세운 비석 — <b>"서쪽으로는 압록강, 동쪽으로는 토문강을 경계로 한다"</b>고 새김.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">2</div>
+        <div class="evt-year">19세기 후반</div>
+        <div class="evt-body">
+          <h4>토문강 해석 논쟁</h4>
+          <p>비문의 <b>'토문강'</b>을 조선은 <span class="r">쑹화강 지류</span>로, 청은 <span class="r">두만강</span>으로 해석 → 간도 귀속 분쟁 발생. 조선인들이 간도로 이주해 개간하며 실제 거주.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1902~03</div>
+        <div class="evt-body">
+          <h4>대한제국의 조치</h4>
+          <p><b>이범윤</b>을 <b>간도 관리사</b>로 파견해 간도 거주민을 관리하고 영유권을 주장 — 간도를 함경도의 행정 구역으로 편입.</p>
+        </div>
+      </div>
+      <div class="evt p2">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1909</div>
+        <div class="evt-body">
+          <h4>간도 협약</h4>
+          <p>일본이 <b>남만주 철도 부설권</b> 등을 얻는 대가로 <b>간도를 청의 영토로 인정</b> — 을사늑약으로 <span class="r">외교권을 빼앗긴 상태</span>에서 체결되어 원천 무효라는 것이 우리 입장.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> 간도 협약(1909)은 <b>을사늑약(1905) 이후</b>, 즉 대한제국에 외교권이 없던 시기에 <span class="redmark">일본과 청이 마음대로 맺은 조약</span>이라는 점이 핵심 논거입니다.</div>
+  </div>
+</section>
+
+<!-- 비교표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">한눈에 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>구분</th><th>독도</th><th>간도</th></tr>
+      <tr><td class="rowh">상대국</td><td>일본</td><td>청(중국)</td></tr>
+      <tr><td class="rowh">핵심 근거</td><td>지증왕 우산국 복속(512)<br>안용복 활동<br><b>칙령 41호(1900)</b></td><td><b>백두산정계비(1712)</b><br>토문강 해석<br>간도 관리사 이범윤</td></tr>
+      <tr><td class="rowh">빼앗긴 시점</td><td>1905 일본이 불법 편입<br>(러일전쟁 중)</td><td>1909 <b>간도 협약</b><br>(을사늑약 이후, 일본이 청에 넘김)</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="folk-culture-new-religions.html"><span class="dir">← 이전</span><span class="ttl">서민 문화와 새 종교</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="heungseon-daewongun.html"><span class="dir">다음 →</span><span class="ttl">흥선대원군</span></a>
+</nav>
+
+</div>
+</body>
+</html>

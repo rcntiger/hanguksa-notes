@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>근대 문물 · 교육 · 언론 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(26px,7vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.blueph{color:var(--blue)}
+.purpleph{color:var(--purple)}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.card-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;min-width:580px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:11.5px;color:var(--ink);white-space:nowrap}
+.cmp td.rowh{background:var(--paper);font-weight:700;font-family:'Gowun Batang',serif;font-size:13px;white-space:nowrap}
+.cmp td b{color:var(--ink);font-weight:700}
+.cmp td .r{color:var(--red);font-weight:700}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
+
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  .cmp{min-width:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대</div>
+  <h1>근대 문물과 교육·언론</h1>
+  <p class="sub">개항 이후 들어온 근대 시설과 신문·학교 — 이름과 <b>'최초'</b> 수식어를 정확히 짝짓는 문제가 대부분입니다</p>
+</header>
+
+<!-- 신문 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">신문</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>신문</th><th>연도</th><th>특징</th></tr>
+      <tr><td class="rowh">한성순보</td><td>1883</td><td><b>최초의 신문</b>, <b>순한문</b>, 박문국에서 발행한 <b>관보</b> 성격(10일마다)</td></tr>
+      <tr><td class="rowh">한성주보</td><td>1886</td><td>국한문 혼용, <b>최초로 상업 광고</b> 게재</td></tr>
+      <tr><td class="rowh">독립신문</td><td>1896</td><td><b>서재필</b>, <span class="r">최초의 민간 신문</span>, <b>한글판과 영문판</b> 발행</td></tr>
+      <tr><td class="rowh">황성신문</td><td>1898</td><td>국한문 혼용, 유생층 대상. <b>장지연의 「시일야방성대곡」</b> 게재</td></tr>
+      <tr><td class="rowh">제국신문</td><td>1898</td><td><b>순한글</b>, 서민과 <b>부녀자</b>를 주 독자층으로</td></tr>
+      <tr><td class="rowh">대한매일신보</td><td>1904</td><td>양기탁 + 영국인 <b>베델</b> 발행 → <span class="r">일제 검열을 피하기 쉬움</span><br><b>국채 보상 운동</b>을 적극 후원, 항일 논조가 가장 강함</td></tr>
+      <tr><td class="rowh">만세보</td><td>1906</td><td><b>천도교</b> 계열 기관지</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> "최초의 신문"은 <span class="redmark">한성순보</span>, "최초의 <b>민간</b> 신문"은 <span class="redmark">독립신문</span> — 두 '최초'를 구분하세요. 베델이 발행인이라 통감부가 함부로 하지 못했다는 대한매일신보의 특성도 반복 출제됩니다.</div>
+</section>
+
+<!-- 학교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="blueph">근대 교육 기관</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>학교</th><th>연도</th><th>특징</th></tr>
+      <tr><td class="rowh">원산 학사</td><td>1883</td><td><span class="r">최초의 근대적 사립 학교</span> — <b>지역 주민(덕원부민)이 자발적으로 설립</b></td></tr>
+      <tr><td class="rowh">동문학</td><td>1883</td><td>통역관 양성을 위한 관립 기관</td></tr>
+      <tr><td class="rowh">육영 공원</td><td>1886</td><td><b>최초의 근대적 관립 학교</b>, 미국인 교사 <b>헐버트</b> 등 초빙, 양반 자제 대상 영어·근대 학문 교육</td></tr>
+      <tr><td class="rowh">이화 학당</td><td>1886</td><td>선교사가 세운 <b>최초의 여성 교육 기관</b></td></tr>
+      <tr><td class="rowh">배재 학당</td><td>1885</td><td>선교사 아펜젤러가 설립</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <ul class="chk">
+      <li><b>교육입국 조서</b>(1895, 2차 갑오개혁) — "국가의 부강은 국민 교육에 있다" → <b>한성 사범 학교</b>, 소학교, 외국어 학교 등 각종 관립 학교 설립의 근거</li>
+      <li>애국 계몽 운동기(1905~10) — <b>대성 학교</b>(평양, 안창호)·<b>오산 학교</b>(정주, 이승훈) 등 <b>신민회</b> 계열 사립 학교 설립</li>
+      <li>일제의 <b>사립학교령</b>(1908)으로 민족 교육 탄압</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>원산 학사</b>(사립, 주민 설립)와 <b>육영 공원</b>(관립, 정부 설립)의 성격 차이가 핵심입니다. 대성·오산 학교는 <span class="redmark">신민회</span>와 묶어서 기억하세요.</div>
+  </div>
+</section>
+
+<!-- 근대 시설 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="purpleph">근대 시설과 기술</span></div>
+    <div class="section-line"></div>
+  </div>
+  <div class="tblwrap">
+    <table class="cmp">
+      <tr><th>분야</th><th>시설</th><th>비고</th></tr>
+      <tr><td class="rowh">의료</td><td><b>광혜원</b>(1885) → 제중원</td><td>미국인 선교사 <b>알렌</b>의 건의로 설립된 <b>최초의 근대식 병원</b><br>이후 <b>세브란스 병원</b>으로 발전. <b>대한의원</b>(1907), 광제원</td></tr>
+      <tr><td class="rowh">통신</td><td>전신, 우편</td><td><b>우정총국</b>(1884) — 개국 축하연에서 <span class="r">갑신정변</span> 발생</td></tr>
+      <tr><td class="rowh">전기</td><td>경복궁 전등(1887)<br><b>전차</b>(1899)</td><td>전차는 서대문~청량리 구간, <b>한성 전기 회사</b>가 운영</td></tr>
+      <tr><td class="rowh">철도</td><td><b>경인선</b>(1899)<br><b>경부선</b>(1905)<br>경의선(1906)</td><td>경인선이 <span class="r">최초의 철도</span><br>경부·경의선은 <b>러일전쟁 중 일본의 군사적 목적</b>으로 부설</td></tr>
+      <tr><td class="rowh">건축</td><td>독립문(1897)<br>명동 성당<br>덕수궁 석조전</td><td>독립문은 <b>영은문 자리</b>에 건립<br>석조전은 르네상스 양식</td></tr>
+      <tr><td class="rowh">기술 기관</td><td><b>기기창</b>(1883)<br><b>박문국</b>(1883)<br>전환국(1883)</td><td>기기창: 무기 제조(<b>영선사</b> 파견의 결과)<br>박문국: 인쇄·신문 발행<br>전환국: 화폐 주조</td></tr>
+    </table>
+  </div>
+  <div class="subnote"><b>정답 포인트</b> <b>경부선·경의선이 러일전쟁 중 군사 목적으로 부설</b>됐다는 점은 침탈의 성격을 보여주는 근거로 자주 출제됩니다. <b>기기창은 영선사</b>(청에 파견)의 결과물이라는 연결도 함께 기억하세요.</div>
+</section>
+
+<!-- 국학과 종교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">국학 연구와 종교</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <h3 class="card-title">국어·국사</h3>
+    <ul class="chk">
+      <li><b>국문 연구소</b>(1907) — <b>주시경</b>·지석영 등이 한글 연구·정리</li>
+      <li><b>신채호</b> — <b>「독사신론」</b> 발표, 민족주의 사학의 방향 제시</li>
+      <li>박은식·장지연 등이 <b>위인전</b>(을지문덕전 등)과 외국 흥망사를 번역·저술해 애국심 고취</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">종교계의 변화</h3>
+    <ul class="chk">
+      <li><b>천도교</b> — 손병희가 <b>동학을 천도교로 개칭</b>(1905), 만세보 발행</li>
+      <li><b>대종교</b> — <b>나철·오기호</b>가 <b>단군 신앙</b>을 바탕으로 창시, 이후 <b>만주에서 무장 독립운동</b>(중광단·북로군정서)의 기반이 됨</li>
+      <li><b>천주교</b> — 조·프 수호 통상 조약(1886) 이후 포교의 자유 획득</li>
+      <li><b>개신교</b> — 교육·의료 사업을 통해 확산</li>
+      <li><b>불교</b> — <b>한용운</b>이 『조선불교유신론』으로 불교 개혁 주장</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> <b>대종교</b>는 단순 종교가 아니라 <span class="redmark">무장 독립운동의 인적 기반</span>이었다는 점이 핵심입니다 — 북로군정서(김좌진)와 연결해서 기억하세요. 동학→천도교 개칭은 <b>손병희</b>입니다.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="national-sovereignty-defense.html"><span class="dir">← 이전</span><span class="ttl">국권 수호 운동</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="military-rule-3-1-movement.html"><span class="dir">다음 →</span><span class="ttl">무단 통치와 3·1 운동</span></a>
+</nav>
+
+</div>
+</body>
+</html>
