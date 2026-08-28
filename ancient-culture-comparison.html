@@ -68,6 +68,20 @@ ul.chk .redmark{color:var(--red);font-weight:700;text-decoration:underline;text-
 .cmp td .r{color:var(--red);font-weight:700}
 .scroll-hint{font-size:11px;color:var(--ink-soft);margin-top:5px}
 
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:10px}
+figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+figure .ph-wrap{aspect-ratio:4/3;position:relative}
+figure .ph-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+figure .ph{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(135deg, var(--paper2) 0 8px, #DCD3B8 8px 16px);
+  color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:10px;text-align:center;padding:8px;line-height:1.5;
+}
+figcaption{padding:8px 10px;font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+figcaption b{color:var(--ink);font-family:'Gowun Batang',serif;font-size:12.5px;display:block;margin-bottom:2px}
+figcaption a{color:var(--blue);text-decoration:none;font-size:10.5px}
+figcaption a:hover{text-decoration:underline}
+
 footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
 
 .pagenav{display:flex;gap:10px;margin-top:28px}
@@ -225,6 +239,74 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
     </ul>
     <div class="subnote"><b>정답 포인트</b> 인물-전파 내용 짝짓기가 핵심입니다: <b>담징=종이·먹</b>, <b>왕인=천자문</b>, <b>노리사치계=불교</b>, <b>가야=스에키 토기</b>.</div>
   </div>
+</section>
+
+<!-- 사진 자료 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">사진 자료</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">사진 파일을 이 페이지와 같은 폴더의 <b>images/</b> 폴더에 아래 파일명으로 넣으시면 자동으로 채워집니다. 국가유산포털·국립박물관 소장품은 <b>공공누리(KOGL) 자유이용 라이선스</b>라 별도 허락 없이 쓰실 수 있습니다.</p>
+  <div class="gallery">
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/geumdong-daehyangno.jpg" alt="백제 금동대향로" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/geumdong-daehyangno.jpg</div>
+      </div>
+      <figcaption><b>백제 금동대향로</b>국보 287호 · 국립부여박물관<br><a href="https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1113402870000" target="_blank" rel="noopener">국가유산포털에서 보기 →</a></figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/mireuksaji-tap.jpg" alt="익산 미륵사지 석탑" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/mireuksaji-tap.jpg</div>
+      </div>
+      <figcaption><b>익산 미륵사지 석탑</b>국보 11호 · 현존 最古 석탑<br><a href="https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1113100110000" target="_blank" rel="noopener">국가유산포털에서 보기 →</a></figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/jeongnimsaji-tap.jpg" alt="부여 정림사지 5층 석탑" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/jeongnimsaji-tap.jpg</div>
+      </div>
+      <figcaption><b>부여 정림사지 5층 석탑</b>국보 9호 · 평제탑</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/cheomseongdae.jpg" alt="경주 첨성대" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/cheomseongdae.jpg</div>
+      </div>
+      <figcaption><b>경주 첨성대</b>국보 31호 · 선덕여왕</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/muryeongwangneung.jpg" alt="무령왕릉 내부" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/muryeongwangneung.jpg</div>
+      </div>
+      <figcaption><b>무령왕릉 내부</b>사적 13호 · 벽돌무덤(전축분)</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/cheonma-do.jpg" alt="천마도" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/cheonma-do.jpg</div>
+      </div>
+      <figcaption><b>천마도</b>국보 207호 · 천마총 출토(말다래 그림, 벽화 아님)</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/bulguksa-seokgatap.jpg" alt="불국사 3층 석탑(석가탑)" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/bulguksa-seokgatap.jpg</div>
+      </div>
+      <figcaption><b>불국사 3층 석탑(석가탑)</b>국보 21호 · 무구정광대다라니경 발견 장소</figcaption>
+    </figure>
+    <figure>
+      <div class="ph-wrap">
+        <img src="images/bangasayusang.jpg" alt="금동 미륵보살 반가 사유상" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph">images/bangasayusang.jpg</div>
+      </div>
+      <figcaption><b>금동 미륵보살 반가 사유상</b>국보 78호(또는 83호) · 국립중앙박물관</figcaption>
+    </figure>
+  </div>
+  <div class="subnote"><b>사진 넣는 법</b> ① 위 캡션 아래 링크를 눌러 국가유산포털에서 사진을 내려받습니다 ② 이 HTML 파일과 같은 위치에 <b>images</b> 폴더를 만들고 그 안에 표시된 파일명 그대로 저장합니다 ③ 저장만 하면 이 페이지가 자동으로 사진을 불러옵니다. 파일명을 다르게 하시려면, 이 카드의 <span style="font-family:'IBM Plex Mono',monospace">&lt;img&gt;</span> 태그 속 src 경로를 원하는 이름으로 바꿔주시면 됩니다.</div>
 </section>
 
 <footer>
