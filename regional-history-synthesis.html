@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지역사 종합 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6; --paper2:#E6DFC9; --ink:#232A35; --ink-soft:#4B5563;
+  --rule:#C9BFA0; --red:#B4362C; --red-soft:#C0392B; --green:#3F6D4E; --hl:#EFC94C; --blue:#3E5C86; --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px 80px}
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+.cmp{width:100%;border-collapse:collapse;margin-top:4px;font-size:12.6px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+.cmp-wrap{overflow-x:auto}
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+@media print{body{background:#fff;font-size:12px}.wrap{max-width:100%}.card,.section{break-inside:avoid}.pagenav{display:none}}
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+.imp{font-size:14px;color:var(--hl);letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">★★ 신유형 · 8회 반복</span>
+  <div class="eyebrow">한국사능력검정시험 · 전체 시대 통합</div>
+  <h1>지역사 종합</h1>
+  <p class="sub">특정 지역 하나를 잡고 <b>고대~현대까지 그 지역에서 있었던 일을 시대 순으로</b> 묻는 유형입니다. 답사 계획서·지역 채널·역사 강좌 형태로 자주 출제됩니다</p>
+  <p class="sub" style="margin-top:6px"><span class="imp">★★</span> 47~79회 중 2회 이상 출제 · <span class="imp">★</span> 1회 출제</p>
+</header>
+
+<section class="section">
+  <div class="section-head"><div class="duality">개성 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">고려 왕건이 도읍으로 삼음(만월대) — 이후 <b>국자감→성균관</b>이 자리했던 곳</li>
+      <li style="margin-bottom:6px">거란에 보낸 낙타를 만부교 아래 굶겨 죽인 <b>만부교 사건</b>(942)</li>
+      <li style="margin-bottom:6px">강감찬이 건의하여 축조된 <b>나성</b></li>
+      <li style="margin-bottom:6px">정몽주를 기리는 <b>숭양서원</b></li>
+      <li style="margin-bottom:6px">일제강점기 이후~현대: 개성공업지구(2000년대 남북경협)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">충주 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">고구려의 옛 땅임을 보여주는 <b>중원(충주) 고구려비</b></li>
+      <li style="margin-bottom:6px">몽골 2차 침입 때 <b>김윤후</b>가 노비 등을 이끌고 몽골군을 격퇴한 <b>충주성</b></li>
+      <li style="margin-bottom:6px">임진왜란 때 <b>신립</b>이 배수의 진을 치고 싸운 <b>탄금대</b>(패배)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 충주는 "고구려비"(고대)와 "김윤후·신립"(고려말~조선전기)이 세트로 묻는 것이 특징입니다.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">공주(웅진) <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">백제 <b>문주왕</b>이 한성 함락 이후 천도한 곳(공산성) — <b>무령왕릉</b>(송산리 고분군)</li>
+      <li style="margin-bottom:6px">고려 <b>망이·망소이의 난</b>이 일어난 <b>명학소</b>가 이 지역</li>
+      <li style="margin-bottom:6px">동학농민운동 2차 봉기 때 남접·북접이 연합, <b>우금치 전투</b>(관군·일본군에 패배)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">전주 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">후백제 <b>견훤</b>이 완산주(전주)를 도읍으로 나라를 세움</li>
+      <li style="margin-bottom:6px">조선 왕실의 발상지 — <b>경기전</b>(태조 이성계 어진 봉안)</li>
+      <li style="margin-bottom:6px">동학농민운동 때 정부와 <b>전주화약</b>을 맺은 곳(집강소 설치)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">안동 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;programs:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">고려 초 <b>왕건이 견훤(고려)에게 승리한 고창 전투</b> — 이후 '안동'이라는 지명 유래</li>
+      <li style="margin-bottom:6px"><b>봉정사 극락전</b>(현존 최고 목조 건물), <b>병산서원</b>(류성룡)</li>
+      <li style="margin-bottom:6px">일제강점기 임청각의 주인 <b>이상룡</b>이 대한민국 임시정부 국무령 역임 — 독립운동 성지</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">부산 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">임진왜란 발발 직후 함락된 <b>부산진·동래성</b></li>
+      <li style="margin-bottom:6px">조선 후기 대일 무역 거점 <b>초량왜관</b>(두모포에서 이전) — <b>내상</b>(동래상인)의 활동 근거지</li>
+      <li style="margin-bottom:6px">강화도조약으로 최초 개항된 3개 항구 중 하나</li>
+      <li style="margin-bottom:6px">일제강점기 <b>박재혁</b>이 부산 경찰서에 폭탄을 던진 의거</li>
+      <li style="margin-bottom:6px">6·25전쟁 때 <b>임시수도</b> — 정부가 부산에서 발췌개헌안을 통과시킴(1952)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">대구 · 광주 <span class="imp" title="출제 빈도">★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px"><b>대구</b> — 국채보상운동 발원지(김광제 등), <b>2·28 민주운동</b>(1960, 3·15 부정선거 규탄)</li>
+      <li style="margin-bottom:6px"><b>광주</b> — <b>광주학생항일운동</b>(1929, 한·일 학생 충돌), <b>5·18 민주화운동</b>(1980)</li>
+    </ul>
+    <div class="subnote"><b>정답 포인트</b> 대구 2·28과 광주 5·18을 "달구벌·빛고을 두 도시"처럼 세트로 묻는 문제가 나왔습니다 — 각 도시의 민주화운동을 짝지어 기억하세요.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="duality">강릉 · 창녕 · 제주도 <span class="imp" title="출제 빈도">★</span></div><div class="section-line"></div></div>
+  <div class="card">
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px"><b>강릉</b> — 오죽헌(율곡 이이 출생지), 경포대</li>
+      <li style="margin-bottom:6px"><b>창녕</b> — 신라 진흥왕 척경비(신라 영토 확장의 증거), 화왕산성</li>
+      <li style="margin-bottom:6px"><b>제주도</b> — 하멜 표류, <b>제주 4·3사건</b>(1948, 단독선거 반대 무장대와 토벌대 충돌로 다수 희생), 김만덕(흉년 구제)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시한 단어가 지역을 가르는 핵심 키워드입니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="institutional-timelines.html"><span class="dir">← 이전</span><span class="ttl">제도로 보는 한국사 종합</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="prehistoric-early-states.html"><span class="dir">다음 →</span><span class="ttl">선사 시대·초기 국가</span></a>
+</nav>
+
+</div>
+</body>
+</html>
