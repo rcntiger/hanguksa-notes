@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제도로 보는 한국사 종합 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:4px;font-size:12.6px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+.cmp-wrap{overflow-x:auto}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .pagenav{display:none}
+}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">67~70회 신유형</span>
+  <div class="eyebrow">한국사능력검정시험 · 전체 시대 통합</div>
+  <h1>제도로 보는 한국사 종합</h1>
+  <p class="sub">한 시대 안에서 끝나지 않고 <b>고대~조선을 넘나들며 순서를 묻는</b> 새로운 유형입니다. 화폐·군사·신분·사회보장, 네 갈래로 정리했습니다</p>
+</header>
+
+<!-- 화폐사 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">화폐사 종합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>시대</th><th>화폐</th><th>특징</th></tr>
+      <tr><td>고조선</td><td><b>명도전</b></td><td>중국과의 교류를 보여줌(연·제와 교역)</td></tr>
+      <tr><td>고려 성종</td><td><b>건원중보</b></td><td>최초의 철전, 유통은 부진</td></tr>
+      <tr><td>고려 숙종</td><td><b>해동통보 · 은병(활구)</b></td><td>의천의 건의로 주전도감 설치, 은병은 우리나라 지형을 본뜸</td></tr>
+      <tr><td>조선 전기</td><td><b>조선통보</b></td><td>유통 부진, 여전히 쌀·베가 중심</td></tr>
+      <tr><td>조선 후기</td><td><b>상평통보</b></td><td>전국적으로 유통된 <b>법화</b>, 숙종 때 정착</td></tr>
+      <tr><td>대한제국</td><td><b>백동화</b></td><td><b>전환국</b>에서 발행, 화폐 정리 사업(1905)으로 정리됨</td></tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> "의천의 건의로 주조되었다" → <b>은병(활구)</b>. "전환국에서 발행되었다" → <b>백동화</b>. "전국적으로 유통된 법화" → <b>상평통보</b>. 시대 순서(고조선→고려→조선전기→조선후기→대한제국)만 잡으면 순서 배열 문제는 대부분 풀립니다.</div>
+  </div>
+</section>
+
+<!-- 군사 제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">군사 제도 종합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>시대</th><th>군사 조직</th><th>특징</th></tr>
+      <tr><td>통일신라(신문왕)</td><td><b>9서당 10정</b></td><td>9서당은 고구려·백제·말갈인까지 포함한 중앙군</td></tr>
+      <tr><td>고려</td><td><b>2군 6위</b></td><td>중앙군, 응양군·용호군(2군)이 국왕 친위 부대</td></tr>
+      <tr><td>고려(거란 대비)</td><td><b>광군</b></td><td>정종 때 거란 침입에 대비해 조직</td></tr>
+      <tr><td>고려 무신정권</td><td><b>삼별초</b></td><td>최우가 조직한 야별초에서 출발, 좌별초·우별초·신의군</td></tr>
+      <tr><td>조선 전기</td><td><b>5위</b></td><td>중앙군</td></tr>
+      <tr><td>조선 후기(임진왜란 중)</td><td><b>훈련도감</b></td><td>포수·살수·사수의 삼수병으로 구성 — 5군영의 시작</td></tr>
+      <tr><td>조선 후기</td><td><b>어영청·총융청·수어청·금위영</b></td><td>차례로 설치되어 <b>5군영</b> 완성(숙종 때 금위영으로 마무리)</td></tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> 5군영 설치 순서는 <b>훈련도감 → 어영청 → 총융청 → 수어청 → 금위영</b>입니다. "삼수병으로 구성" → <b>훈련도감</b>, "이괄의 난 이후 수도 외곽 방어" → <b>총융청</b>이 정답을 가르는 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 토지 제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">토지 제도 종합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>시기</th><th>제도</th><th>내용</th></tr>
+      <tr><td>통일신라 신문왕</td><td><b>관료전 지급 · 녹읍 폐지</b></td><td>귀족의 경제적 기반을 약화시키려는 목적</td></tr>
+      <tr><td>통일신라 경덕왕</td><td><b>녹읍 부활</b></td><td>귀족 세력이 다시 강해짐</td></tr>
+      <tr><td>고려 태조</td><td><b>역분전</b></td><td>공신에게 논공행상 성격으로 지급</td></tr>
+      <tr><td>고려 경종</td><td><b>시정 전시과</b></td><td>관품과 인품을 함께 고려해 지급한 최초의 전시과</td></tr>
+      <tr><td>고려 목종</td><td><b>개정 전시과</b></td><td>인품 기준을 없애고 관품만으로 지급</td></tr>
+      <tr><td>고려 문종</td><td><b>경정 전시과</b></td><td>현직 관리에게만 지급, 이후 관리 증가로 운영이 어려워짐</td></tr>
+      <tr><td>고려 말 공양왕</td><td><b>과전법</b></td><td>신진 사대부 우대, <b>경기 지방에 한하여</b> 지급</td></tr>
+      <tr><td>조선 세조</td><td><b>직전법</b></td><td>현직 관리에게만 지급(수신전·휼양전 폐지)</td></tr>
+      <tr><td>조선 성종</td><td><b>관수관급제</b></td><td>국가가 직접 조세를 거둬 관리에게 지급(수조권 행사 제한)</td></tr>
+      <tr><td>조선 명종</td><td><b>직전법 폐지</b></td><td>이후 관리는 녹봉만 받음</td></tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> 순서는 <b>관료전(신문왕) → 역분전(태조) → 전시과 3단계(경종·목종·문종) → 과전법(공양왕) → 직전법(세조) → 관수관급제(성종)</b>입니다. "경기 지방에 한하여 실시" → <b>과전법</b>, "현직 관리에게만 지급" → <b>직전법</b>이 정답을 가르는 핵심입니다.</div>
+  </div>
+</section>
+
+<!-- 신분제 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">신분제 변화 종합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>시기</th><th>사건</th><th>내용</th></tr>
+      <tr><td>고려 광종</td><td><b>노비안검법</b></td><td>불법으로 노비가 된 자를 양인으로 해방 — 호족 세력 약화가 목적</td></tr>
+      <tr><td>고려 무신정권</td><td><b>만적의 난</b></td><td>최충헌의 사노비 만적이 신분 해방을 도모하며 봉기(1198)</td></tr>
+      <tr><td>조선 건국 초</td><td><b>태조 즉위 교서</b></td><td>문벌·양반과 상인들의 등급을 없애고 귀천에 관계없이 인재 등용 표방</td></tr>
+      <tr><td>갑오개혁(1894)</td><td><b>신분제 폐지</b></td><td>공사 노비법 혁파, 공노비·사노비 문서를 모두 불태움</td></tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> 시기 순서는 <b>노비안검법(956) → 만적의 난(1198) → 조선 건국(1392) → 갑오개혁(1894)</b>입니다. 순서 배열 문제는 왕조 순서만 알아도 절반은 풀립니다.</div>
+  </div>
+</section>
+
+<!-- 사회 보장 제도 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">사회 보장 제도 종합</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>시대</th><th>제도</th><th>내용</th></tr>
+      <tr><td>고구려</td><td><b>진대법</b>(고국천왕)</td><td>봄에 곡식을 빌려주고 가을에 갚게 함</td></tr>
+      <tr><td>고려 태조</td><td><b>흑창</b></td><td>빈민 구제를 위한 곡식 대여 기관</td></tr>
+      <tr><td>고려 성종</td><td><b>의창</b></td><td>흑창을 확대 개편</td></tr>
+      <tr><td>고려</td><td><b>제위보</b></td><td>기금을 모아 그 이자로 빈민을 구휼</td></tr>
+      <tr><td>조선</td><td><b>환곡제 · 사창제</b></td><td>환곡은 관 주도, 사창은 민간(향촌) 주도로 운영</td></tr>
+      <tr><td>현대 김대중 정부</td><td><b>국민기초생활보장법</b>(1999)</td><td>저소득층에 대한 국가 책임을 강화한 현대적 사회 보장 제도로 전환</td></tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> "봄에 빌려주고 가을에 갚게 하였다" → <b>진대법·환곡제</b> 둘 다 해당되므로, 국가/시대 단서(고구려 vs 조선)로 구분하세요. "흑창을 확대 개편" → <b>의창(성종)</b>이 정답을 가르는 핵심입니다.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="master-timeline.html"><span class="dir">← 이전</span><span class="ttl">한국사 마스터 연표</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="prehistoric-early-states.html"><span class="dir">다음 →</span><span class="ttl">선사 시대·초기 국가</span></a>
+</nav>
+
+</div>
+</body>
+</html>
