@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개화기 사절단과 조약 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+  --blue:#3E5C86;
+  --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);margin-top:10px;font-weight:600;line-height:1.9}
+
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'Noto Sans KR',sans-serif;font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{flex:1 1 16%;min-width:76px;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2);font-family:'Noto Sans KR',sans-serif;font-size:10.5px;color:var(--ink-soft);font-weight:400;line-height:1.5}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:11.3px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.tl-node.p2{background:#E3DCC6}
+
+.section{margin-top:40px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.duality{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
+
+.card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:4px;font-size:12.6px}
+.cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
+.cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
+.cmp td b{color:var(--red)}
+.cmp-wrap{overflow-x:auto}
+
+.evt-list{margin-top:2px}
+.evt{display:grid;grid-template-columns:30px 78px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--rule)}
+.evt:first-child{border-top:none}
+.evt-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--paper);background:var(--red);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.evt.p2 .evt-num{background:var(--blue)}
+.evt-year{font-family:'IBM Plex Mono',monospace;font-size:11.2px;color:var(--ink-soft);padding-top:3px;line-height:1.5}
+.evt-body h4{margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700}
+.evt-body p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+.subnote{margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0}
+.subnote b{color:var(--red);font-weight:700}
+.redmark{color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--red-soft);text-underline-offset:3px}
+
+.bridge{margin-top:22px;padding:14px 16px;background:#E4DEC9;border:1px dashed var(--blue);border-radius:4px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.bridge b{color:var(--blue);font-family:'Gowun Batang',serif;font-weight:700;font-size:14px}
+
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);padding:0 1px}
+
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+
+@media print{
+  body{background:#fff;font-size:12px}
+  .wrap{max-width:100%}
+  .card,.section{break-inside:avoid}
+  .pagenav{display:none}
+}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">심화 필수 · 최다 출제</span>
+  <div class="eyebrow">한국사능력검정시험 · 근대 태동기 → 개항기</div>
+  <h1>개화기 사절단과 조약</h1>
+  <p class="sub">47회부터 65회까지 거의 매 회 출제된 최우선 보강 주제 — 4개 사절단의 목적지·시기·결과와, 강화도 조약부터 거문도 사건까지의 조약·사건을 함께 정리합니다</p>
+  <p class="period">1876 강화도 조약 → 1880 2차 수신사 → 1881 조사시찰단·영선사 → 1882 조미수호통상조약·임오군란 → 1883 보빙사 → 1884 갑신정변 → 1885 거문도 사건</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">전체 흐름 한눈에</div>
+    <div class="tl">
+      <div class="tl-node"><b>강화도조약</b>1876 개항</div>
+      <div class="tl-node p2"><b>수신사</b>일본行</div>
+      <div class="tl-node p2"><b>조사시찰단</b>일본行 비밀</div>
+      <div class="tl-node p2"><b>영선사</b>청行 무기</div>
+      <div class="tl-node"><b>임오군란</b>1882</div>
+      <div class="tl-node p2"><b>보빙사</b>미국行 최초</div>
+      <div class="tl-node"><b>갑신정변</b>1884</div>
+    </div>
+  </div>
+</header>
+
+<!-- 사절단 비교 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">4개 사절단 비교</div>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-note">시험에서는 <b>목적지(일본 vs 청 vs 미국)</b>와 <b>공개/비밀 여부</b>, <b>파견 결과로 생긴 기구</b>를 짝짓는 문제가 반복됩니다.</p>
+
+  <div class="card cmp-wrap">
+    <table class="cmp">
+      <tr><th>사절단</th><th>시기</th><th>목적지</th><th>대표 인물</th><th>성격 · 계기</th><th>결과 · 관련 기구</th></tr>
+      <tr>
+        <td><b>1차 수신사</b></td>
+        <td>1876</td>
+        <td>일본</td>
+        <td>김기수</td>
+        <td>강화도 조약 체결 직후 공식 파견</td>
+        <td>『일동기유』 저술</td>
+      </tr>
+      <tr>
+        <td><b>2차 수신사</b></td>
+        <td>1880</td>
+        <td>일본</td>
+        <td>김홍집</td>
+        <td>공식 파견</td>
+        <td><b>『조선책략』</b> 소개(황준헌) → 이후 <b>영남 만인소</b> 등 위정척사 운동 확산</td>
+      </tr>
+      <tr>
+        <td><b>조사시찰단</b><br><span style="color:var(--ink-soft)">(신사유람단)</span></td>
+        <td>1881</td>
+        <td>일본</td>
+        <td>박정양·어윤중 등</td>
+        <td>위정척사파 반발을 피해 <b>비밀리에</b> 파견 — 근대 시설·제도 시찰</td>
+        <td>귀국 후 개화 정책 자문</td>
+      </tr>
+      <tr>
+        <td><b>영선사</b></td>
+        <td>1881</td>
+        <td><b>청</b>(톈진)</td>
+        <td>김윤식</td>
+        <td>근대 <b>무기 제조 기술</b> 학습이 목적</td>
+        <td>귀국 후 <b>기기창</b> 설립(1883) — 근대식 무기 공장</td>
+      </tr>
+      <tr>
+        <td><b>보빙사</b></td>
+        <td>1883</td>
+        <td><b>미국</b></td>
+        <td>민영익·홍영식·유길준 등</td>
+        <td><b>조미수호통상조약</b> 체결(1882) 이후 <b>최초로 서양(구미)에 파견</b>된 사절단</td>
+        <td>유길준은 잔류해 유학 → 『서유견문』 저술</td>
+      </tr>
+    </table>
+    <div class="subnote"><b>정답 포인트</b> "청에 파견되어 근대 무기 제조 기술을 배우다" → <b>영선사</b>. "미국에 파견된 최초의 사절단" → <b>보빙사</b>. "위정척사파의 반발을 피해 비밀리에 파견" → <b>조사시찰단</b>. 목적지(일본/청/미국)로 먼저 좁힌 뒤 세부를 확인하면 빠릅니다.</div>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>사절단이 오간 사이, 조선 국내와 국외는 이렇게 움직였습니다</b><br>
+  강화도 조약으로 열린 문이 <b>임오군란 → 갑신정변</b>으로 이어지며 청·일 양국의 간섭이 본격화됩니다. 아래 연표에서 사절단 파견과 겹쳐서 익혀 두세요.
+</div>
+
+<!-- 조약·사건 연표 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality">조약 · 사건 연표(1876~1887)</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-num">1</div>
+        <div class="evt-year">1876</div>
+        <div class="evt-body">
+          <h4>강화도 조약(조일수호조규)</h4>
+          <p>운요호 사건을 계기로 체결된 <b>최초의 근대적 조약이자 불평등 조약</b> — <b>부산·원산·인천 개항</b>, 해안 측량권·<b>영사 재판권(치외법권)</b> 인정.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">2</div>
+        <div class="evt-year">1882.4</div>
+        <div class="evt-body">
+          <h4>조미수호통상조약</h4>
+          <p>서양 국가와 맺은 <b>최초의 조약</b> — 청의 알선으로 체결, <b>최혜국 대우</b> 최초 규정. 이듬해 <b>보빙사</b> 파견의 계기.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">3</div>
+        <div class="evt-year">1882.6</div>
+        <div class="evt-body">
+          <h4>임오군란</h4>
+          <p><b>구식 군인에 대한 차별 대우</b>가 발단 — 별기군과의 차별에 반발, 명성황후는 피신, <b>흥선대원군이 일시 재집권</b>. 청군 개입으로 진압되며 <b>청의 내정 간섭 심화</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">4</div>
+        <div class="evt-year">1882.7~8</div>
+        <div class="evt-body">
+          <h4>제물포 조약 · 조청상민수륙무역장정</h4>
+          <p>임오군란 결과 체결 — 제물포 조약(일본에 배상금·<b>일본 공사관 경비병 주둔</b> 허용), 조청상민수륙무역장정(청 상인의 <b>내지 통상권</b> 허용, 청의 종주권 강화).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">5</div>
+        <div class="evt-year">1884</div>
+        <div class="evt-body">
+          <h4>갑신정변</h4>
+          <p><b>우정총국 개국 축하연</b>을 계기로 <b>김옥균 등 급진 개화파</b>가 일으킨 정변 — <b>청군 개입</b>으로 <b>3일 만에 실패</b>. 14개조 개혁 정강에서 <b>문벌 폐지, 인민 평등권 확립</b> 등을 내세움(입헌 군주제 지향).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">6</div>
+        <div class="evt-year">1885</div>
+        <div class="evt-body">
+          <h4>한성 조약 · 톈진 조약</h4>
+          <p>갑신정변 결과 체결 — 한성 조약(조선-일본, 배상금 지불), <b>톈진 조약</b>(청-일, <b>양국 군대 동시 철수</b> + 이후 조선 파병 시 <b>상대국에 사전 통보</b> 약속 → 훗날 청일전쟁의 빌미).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-num">7</div>
+        <div class="evt-year">1885~87</div>
+        <div class="evt-body">
+          <h4>거문도 사건</h4>
+          <p><b>영국</b>이 러시아의 남하를 견제한다는 명분으로 <b>거문도를 불법 점령</b> — 조선의 항의와 국제 여론으로 2년 만에 철수. 이 무렵 유길준이 <b>조선 중립화론</b> 구상.</p>
+        </div>
+      </div>
+    </div>
+    <div class="subnote"><b>정답 포인트</b> "구식 군인에 대한 차별 대우가 발단이 되었다" → <b>임오군란</b>. "청군의 개입으로 3일 만에 실패로 끝났다" → <b>갑신정변</b>. "이후 청일전쟁의 빌미가 되었다"고 하면 <b>톈진 조약</b>을 떠올리세요.</div>
+  </div>
+</section>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 표가 화면보다 넓으면 좌우로 밀어서 보실 수 있습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="heungseon-daewongun.html"><span class="dir">← 이전</span><span class="ttl">흥선대원군</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="donghak-farmers-movement.html"><span class="dir">다음 →</span><span class="ttl">동학 농민 운동</span></a>
+</nav>
+
+</div>
+</body>
+</html>
