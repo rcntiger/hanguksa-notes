@@ -29,6 +29,10 @@ h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,4
 .section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
 .section-note{font-size:13px;color:var(--ink-soft);margin:0 0 12px}
 .card{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;margin-bottom:10px}
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink)}
+ul.chk li::before{content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px}
+ul.chk b{font-weight:700;color:var(--red)}
 .cmp{width:100%;border-collapse:collapse;margin-top:4px;font-size:12.6px}
 .cmp th,.cmp td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:top}
 .cmp th{background:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.04em;color:var(--ink-soft);font-weight:600}
@@ -112,8 +116,8 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 <section class="section">
   <div class="section-head"><div class="duality">안동 <span class="imp" title="출제 빈도">★★</span></div><div class="section-line"></div></div>
   <div class="card">
-    <ul class="chk" style="list-style:none;programs:none;margin:0;padding:0">
-      <li style="margin-bottom:6px">고려 초 <b>왕건이 견훤(고려)에게 승리한 고창 전투</b> — 이후 '안동'이라는 지명 유래</li>
+    <ul class="chk" style="list-style:none;margin:0;padding:0">
+      <li style="margin-bottom:6px">고려 초 <b>왕건이 후백제 견훤에게 승리한 고창 전투</b>(930) — 이후 '안동'이라는 지명 유래</li>
       <li style="margin-bottom:6px"><b>봉정사 극락전</b>(현존 최고 목조 건물), <b>병산서원</b>(류성룡)</li>
       <li style="margin-bottom:6px">일제강점기 임청각의 주인 <b>이상룡</b>이 대한민국 임시정부 국무령 역임 — 독립운동 성지</li>
     </ul>
@@ -162,7 +166,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 <nav class="pagenav">
   <a class="prev" href="institutional-timelines.html"><span class="dir">← 이전</span><span class="ttl">제도로 보는 한국사 종합</span></a>
   <a class="listlink" href="index.html" title="전체 목록">목록</a>
-  <a class="next" href="prehistoric-early-states.html"><span class="dir">다음 →</span><span class="ttl">선사 시대·초기 국가</span></a>
+  <a class="next" href="historical-turning-points.html"><span class="dir">다음 →</span><span class="ttl">주요 사건 흐름도</span></a>
 </nav>
 
 </div>

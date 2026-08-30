@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주요 사건 흐름도 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6; --paper2:#E6DFC9; --ink:#232A35; --ink-soft:#4B5563;
+  --rule:#C9BFA0; --red:#B4362C; --green:#3F6D4E; --hl:#EFC94C; --blue:#3E5C86; --purple:#6E5482;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:400;line-height:1.7;font-size:15px;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px 80px}
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.back{position:absolute;left:20px;top:-26px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);text-decoration:none}
+.tab{position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;padding:5px 10px;border-radius:2px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(28px,7.4vw,40px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.era{margin-top:38px}
+.era-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;position:sticky;top:0;background:var(--paper);padding:6px 0;z-index:2}
+.era-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--paper);background:var(--ink);padding:3px 9px;border-radius:2px;white-space:nowrap}
+.era-title{font-family:'Gowun Batang',serif;font-weight:700;font-size:19px}
+.era-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+.flow{background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 15px;margin-bottom:10px}
+.flow-title{font-weight:700;font-size:13.5px;color:var(--red);margin-bottom:6px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px;line-height:1.9}
+.chain .node{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:3px 8px}
+.chain .node.cause{color:var(--ink-soft)}
+.chain .node.core{font-weight:700;color:var(--ink)}
+.chain .node.result{color:var(--green);font-weight:600}
+.chain .arrow{color:var(--rule);font-weight:700}
+.note{margin-top:6px;font-size:12px;color:var(--ink-soft);line-height:1.6}
+.note b{color:var(--red)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.75}
+@media print{body{background:#fff;font-size:11px}.wrap{max-width:100%}.flow{break-inside:avoid}.pagenav{display:none}.era-head{position:static}}
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-weight:600;font-size:13px;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← 목록으로</a>
+  <span class="tab">★★★ 사이사실·이후사실·배경 대응</span>
+  <div class="eyebrow">한국사능력검정시험 · 전체 시대 통합</div>
+  <h1>주요 사건 흐름도</h1>
+  <p class="sub">"~ 이후에 전개된 사실은?", "~ 사이의 시기에 있었던 사실은?", "~의 배경으로 옳은 것은?" 이 세 가지 유형은 <b>개별 사실 암기가 아니라 사건의 인과관계</b>를 알아야 풀립니다. 37개 전환점 사건을 원인 → 사건 → 결과로 압축했습니다.</p>
+</header>
+
+<!-- 고대 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">고대</span><div class="era-title">삼국~남북국</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">1. 백제의 흥망 전환점</div>
+    <div class="chain">
+      <span class="node cause">근초고왕 전성기(371 평양성 공격)</span><span class="arrow">→</span>
+      <span class="node core">장수왕 남진, 한성 함락(475, 개로왕 전사)</span><span class="arrow">→</span>
+      <span class="node result">문주왕 웅진 천도</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">2. 나제동맹의 붕괴</div>
+    <div class="chain">
+      <span class="node cause">나제동맹(백제·신라)</span><span class="arrow">→</span>
+      <span class="node core">성왕, 관산성 전투에서 전사(554)</span><span class="arrow">→</span>
+      <span class="node result">신라 진흥왕, 한강 유역 독점 + 나제동맹 파기</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">3. 백제·고구려의 멸망</div>
+    <div class="chain">
+      <span class="node cause">대야성 함락(642, 김춘추 딸 사위 죽음)</span><span class="arrow">→</span>
+      <span class="node core">김춘추, 당과 군사 동맹(나당연합, 648)</span><span class="arrow">→</span>
+      <span class="node result">백제 멸망(660) → 백제부흥운동(복신·도침, 흑치상지) → 고구려 멸망(668)</span>
+    </div>
+    <div class="note">황산벌 전투(계백)는 백제 멸망 <b>직전</b>, 백강 전투(왜의 지원군 패배)는 백제부흥운동 <b>진압</b> 과정입니다.</div>
+  </div>
+
+  <div class="flow"><div class="flow-title">4. 삼국통일 완성</div>
+    <div class="chain">
+      <span class="node cause">고구려 멸망(668) 후 당의 한반도 지배 야욕</span><span class="arrow">→</span>
+      <span class="node core">나당전쟁(매소성·기벌포 전투)</span><span class="arrow">→</span>
+      <span class="node result">삼국통일 완성(676)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">5. 신문왕의 왕권 강화</div>
+    <div class="chain">
+      <span class="node cause">김흠돌의 난(681, 진골 귀족 반란)</span><span class="arrow">→</span>
+      <span class="node core">신문왕, 반란 진압 후 진골 귀족 세력 억제</span><span class="arrow">→</span>
+      <span class="node result">관료전 지급·녹읍 폐지, 9주 5소경, 국학 설치</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">6. 신라 하대의 혼란</div>
+    <div class="chain">
+      <span class="node cause">혜공왕 피살(780, 무열왕계 단절)</span><span class="arrow">→</span>
+      <span class="node core">진골 귀족의 왕위 다툼 심화(김헌창의 난 등)</span><span class="arrow">→</span>
+      <span class="node result">지방 호족·6두품 성장, 원종·애노의 난(889) 등 농민 봉기</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">7. 후삼국의 통일</div>
+    <div class="chain">
+      <span class="node cause">견훤(후백제)·궁예(후고구려) 건국</span><span class="arrow">→</span>
+      <span class="node core">견훤, 경애왕 죽임(포석정) → 공산전투 승리 → <b>고창전투 패배</b>(930)</span><span class="arrow">→</span>
+      <span class="node result">견훤 고려 귀부(935) → 신라 항복(경순왕) → 일리천 전투(936) → 고려의 통일</span>
+    </div>
+  </div>
+</div>
+
+<!-- 고려 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">고려</span><div class="era-title">건국~무신정권~대몽항쟁</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">8. 고려 초 왕권 강화</div>
+    <div class="chain">
+      <span class="node cause">호족 연합 정권(태조, 흑창)</span><span class="arrow">→</span>
+      <span class="node core">광종, 노비안검법·과거제(쌍기 건의)로 호족 견제</span><span class="arrow">→</span>
+      <span class="node result">성종, 12목 설치 + 최승로 시무28조 수용 → 통치체제 정비</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">9. 거란의 침입과 격퇴</div>
+    <div class="chain">
+      <span class="node cause">거란 1차 침입(서희의 외교 담판, 강동6주 획득)</span><span class="arrow">→</span>
+      <span class="node core">강조의 정변(2차 침입 명분) → 거란 3차 침입</span><span class="arrow">→</span>
+      <span class="node result">강감찬, 귀주대첩(1019) 대승</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">10. 문벌 사회의 동요</div>
+    <div class="chain">
+      <span class="node cause">이자겸(외척)의 권력 독점</span><span class="arrow">→</span>
+      <span class="node core">이자겸의 난(1126, 척준경과 결탁) 진압</span><span class="arrow">→</span>
+      <span class="node result">묘청의 서경천도운동(칭제건원·금국정벌 주장) → 묘청의 난(1135, 김부식이 진압)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">11. 무신정권의 성립</div>
+    <div class="chain">
+      <span class="node cause">문벌 사회 모순 + 무신에 대한 차별</span><span class="arrow">→</span>
+      <span class="node core">무신정변(1170, 정중부·이의방) → 경대승 → 이의민</span><span class="arrow">→</span>
+      <span class="node result">최충헌 집권(1196) → 교정도감·도방 설치, 4대 60여 년 최씨 정권</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">12. 몽골 항쟁</div>
+    <div class="chain">
+      <span class="node cause">몽골 1차 침입 → 살리타 사살(처인성, 김윤후)</span><span class="arrow">→</span>
+      <span class="node core">최우, 강화도 천도(1232) → 장기 항쟁</span><span class="arrow">→</span>
+      <span class="node result">개경 환도(1270) → 이에 반발한 삼별초 항쟁(강화도→진도→제주도)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">13. 원간섭기의 종식</div>
+    <div class="chain">
+      <span class="node cause">원간섭기(정동행성·응방·몽골풍)</span><span class="arrow">→</span>
+      <span class="node core">공민왕, 기철 등 친원 세력 제거 + 쌍성총관부 수복(1356)</span><span class="arrow">→</span>
+      <span class="node result">신진사대부 성장 → 이성계·정도전 등 여말선초 세력 형성</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">14. 고려에서 조선으로</div>
+    <div class="chain">
+      <span class="node cause">우왕, 요동정벌 추진</span><span class="arrow">→</span>
+      <span class="node core">이성계, 위화도회군(1388)</span><span class="arrow">→</span>
+      <span class="node result">과전법(1391) → 조선 건국(1392)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 조선 전기 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">조선 전기</span><div class="era-title">건국~사화~왜란</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">15. 왕자의 난과 왕권 강화</div>
+    <div class="chain">
+      <span class="node cause">정도전, 재상 중심 정치 지향(세자 이방석 지지)</span><span class="arrow">→</span>
+      <span class="node core">제1차 왕자의 난(1398, 이방원이 정도전·이방석 제거)</span><span class="arrow">→</span>
+      <span class="node result">태종 즉위 → 6조 직계제, 사병 폐지로 왕권 강화</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">16. 세조의 집권</div>
+    <div class="chain">
+      <span class="node cause">단종의 어린 즉위</span><span class="arrow">→</span>
+      <span class="node core">계유정난(1453, 수양대군이 정권 장악)</span><span class="arrow">→</span>
+      <span class="node result">세조 즉위 → 6조 직계제 부활, 집현전 폐지, 직전법</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">17. 훈구와 사림의 충돌</div>
+    <div class="chain">
+      <span class="node cause">김종직의 조의제문(세조의 왕위 계승 비판)</span><span class="arrow">→</span>
+      <span class="node core">무오사화(1498) → 갑자사화(1504, 폐비 윤씨 사건)</span><span class="arrow">→</span>
+      <span class="node result">중종반정(1506, 연산군 폐위) → 조광조의 개혁(현량과) → 기묘사화(1519)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">18. 임진왜란의 전개</div>
+    <div class="chain">
+      <span class="node cause">도요토미 히데요시의 조선 침입(1592)</span><span class="arrow">→</span>
+      <span class="node core">신립 탄금대 패배 → 선조 의주 피란 → 이순신 해전 승리·의병 활약</span><span class="arrow">→</span>
+      <span class="node result">훈련도감 설치, 명의 지원 → 정유재란(1597) → 왜군 철수(1598)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">19. 호란과 북벌론</div>
+    <div class="chain">
+      <span class="node cause">인조의 친명배금 정책</span><span class="arrow">→</span>
+      <span class="node core">정묘호란(1627) → 병자호란(1636, 삼전도 항복)</span><span class="arrow">→</span>
+      <span class="node result">청에 대한 복수심 → 효종의 북벌론(이완, 나선정벌 참여)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 조선 후기 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">조선 후기</span><div class="era-title">환국~세도정치</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">20. 예송에서 환국으로</div>
+    <div class="chain">
+      <span class="node cause">자의대비 복상 문제 — 기해예송·갑인예송</span><span class="arrow">→</span>
+      <span class="node core">경신환국·기사환국·갑술환국(붕당 간 정권 교체 반복)</span><span class="arrow">→</span>
+      <span class="node result">붕당 폐해에 대한 반성 → 영조·정조의 탕평책(탕평비, 초계문신제)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">21. 세도정치와 농민 봉기</div>
+    <div class="chain">
+      <span class="node cause">신유박해(1801) 이후 세도정치 시작(안동 김씨 등)</span><span class="arrow">→</span>
+      <span class="node core">삼정의 문란 → 홍경래의 난(1811) → 임술농민봉기(1862, 진주민란)</span><span class="arrow">→</span>
+      <span class="node result">삼정이정청 설치(박규수 건의)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 근대 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">근대</span><div class="era-title">흥선대원군~국권피탈</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">22. 통상수교거부와 양요</div>
+    <div class="chain">
+      <span class="node cause">병인박해(1866, 천주교 탄압)</span><span class="arrow">→</span>
+      <span class="node core">병인양요(1866, 프랑스·외규장각 약탈) → 오페르트 도굴사건(1868) → 제너럴셔먼호 사건</span><span class="arrow">→</span>
+      <span class="node result">신미양요(1871, 미국·어재연) → 척화비 건립</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">23. 개항과 임오군란</div>
+    <div class="chain">
+      <span class="node cause">운요호 사건(1875)</span><span class="arrow">→</span>
+      <span class="node core">강화도조약(1876) → 개화정책(통리기무아문, 별기군) → 구식 군인 차별</span><span class="arrow">→</span>
+      <span class="node result">임오군란(1882) → 제물포조약·청군 주둔 → 청의 내정간섭 심화</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">24. 갑신정변</div>
+    <div class="chain">
+      <span class="node cause">청의 내정간섭에 대한 급진개화파의 불만</span><span class="arrow">→</span>
+      <span class="node core">갑신정변(1884, 우정총국) → 청군 개입으로 3일 만에 실패</span><span class="arrow">→</span>
+      <span class="node result">한성조약(조선-일본) + 톈진조약(청-일, 양국 군대 철수) → 훗날 청일전쟁의 빌미</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">25. 동학농민운동과 갑오개혁</div>
+    <div class="chain">
+      <span class="node cause">고부 민란(조병갑의 탐학) → 안핵사 이용태의 탄압</span><span class="arrow">→</span>
+      <span class="node core">1차 봉기(황토현·황룡촌 승리) → 전주화약·집강소 → 일본군 경복궁 침범</span><span class="arrow">→</span>
+      <span class="node result">2차 봉기(우금치 패배) + 군국기무처의 갑오개혁(신분제 폐지 등)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">26. 을미사변에서 대한제국으로</div>
+    <div class="chain">
+      <span class="node cause">삼국간섭 이후 일본의 위기감</span><span class="arrow">→</span>
+      <span class="node core">을미사변(1895, 명성황후 시해) → 을미개혁(단발령) → 아관파천(1896)</span><span class="arrow">→</span>
+      <span class="node result">독립협회 활동(러시아 절영도 조차 저지) → 대한제국 수립(1897) → 광무개혁</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">27. 국권 피탈 5단계</div>
+    <div class="chain">
+      <span class="node cause">러일전쟁에서 일본 승리</span><span class="arrow">→</span>
+      <span class="node core">한일의정서(1904) → 을사늑약(1905, 외교권) → 헤이그특사 → 고종 강제 퇴위</span><span class="arrow">→</span>
+      <span class="node result">정미7조약(1907, 군대 해산 → 정미의병) → 기유각서(1909) → 한일병합(1910)</span>
+    </div>
+    <div class="note">이 5단계(한일의정서 → 을사늑약 → 정미7조약 → 기유각서 → 병합)의 <b>사이 시기</b>를 묻는 문제가 매 회 나옵니다 — 순서를 통째로 외우세요.</div>
+  </div>
+</div>
+
+<!-- 일제강점기 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">일제강점기</span><div class="era-title">무단통치~광복</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">28. 3·1운동과 통치 방식 전환</div>
+    <div class="chain">
+      <span class="node cause">무단통치(헌병경찰, 토지조사사업)에 대한 반발 + 고종의 인산일</span><span class="arrow">→</span>
+      <span class="node core">3·1운동(1919) → 일제의 무력 탄압(제암리 학살 등)</span><span class="arrow">→</span>
+      <span class="node result">대한민국임시정부 수립(상하이) + 일제의 문화통치로 전환(산미증식계획)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">29. 대중운동의 확산</div>
+    <div class="chain">
+      <span class="node cause">순종의 인산일(6·10만세운동, 1926)</span><span class="arrow">→</span>
+      <span class="node core">민족주의·사회주의 세력 연합 → 신간회 창립(1927)</span><span class="arrow">→</span>
+      <span class="node result">광주학생항일운동(1929) 발생 시 신간회가 진상조사단 파견</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">30. 무장독립전쟁의 전개</div>
+    <div class="chain">
+      <span class="node cause">봉오동전투·청산리대첩(1920) 대승</span><span class="arrow">→</span>
+      <span class="node core">일본의 보복 — 간도참변(1920) → 독립군 이동 중 자유시참변(1921)</span><span class="arrow">→</span>
+      <span class="node result">3부(참의부·정의부·신민부) 성립 → 만주사변 이후 한중연합작전(한국독립군·조선혁명군)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">31. 민족말살통치와 광복</div>
+    <div class="chain">
+      <span class="node cause">중일전쟁(1937) → 침략전쟁 확대</span><span class="arrow">→</span>
+      <span class="node core">국가총동원법(1938) → 민족말살통치(황국신민서사, 창씨개명, 공출)</span><span class="arrow">→</span>
+      <span class="node result">일본 패망(1945.8.15) → 조선건국준비위원회(여운형)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 현대 -->
+<div class="era">
+  <div class="era-head"><span class="era-tag">현대</span><div class="era-title">광복~오늘날</div><div class="era-line"></div></div>
+
+  <div class="flow"><div class="flow-title">32. 정부 수립까지의 갈등</div>
+    <div class="chain">
+      <span class="node cause">모스크바 3국 외상회의(신탁통치 결정) → 좌우 대립</span><span class="arrow">→</span>
+      <span class="node core">미소공동위원회 결렬 → 좌우합작운동(여운형·김규식) 실패</span><span class="arrow">→</span>
+      <span class="node result">유엔 총회의 남한 단독 선거 결정 → 5·10총선거(1948) → 대한민국 정부 수립</span>
+    </div>
+    <div class="note">김구·김규식의 <b>남북협상</b>(1948.4)은 5·10총선거 <b>직전</b>에 있었던 단독정부 반대 시도입니다.</div>
+  </div>
+
+  <div class="flow"><div class="flow-title">33. 6·25전쟁의 전개</div>
+    <div class="chain">
+      <span class="node cause">북한의 남침(1950.6.25)</span><span class="arrow">→</span>
+      <span class="node core">낙동강 방어선 → 인천상륙작전(9월, 서울 수복) → 중국군 개입 → 1·4후퇴</span><span class="arrow">→</span>
+      <span class="node result">전선 고착 → 정전협정(1953) → 한미상호방위조약</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">34. 이승만 정권의 몰락</div>
+    <div class="chain">
+      <span class="node cause">사사오입 개헌(1954)·독재 장기화</span><span class="arrow">→</span>
+      <span class="node core">3·15 부정선거(1960) → 김주열 사망 → 4·19혁명</span><span class="arrow">→</span>
+      <span class="node result">이승만 하야 → 허정 과도정부 → 장면 내각(내각책임제)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">35. 유신체제의 성립과 붕괴</div>
+    <div class="chain">
+      <span class="node cause">3선 개헌(1969) → 장기집권 시도</span><span class="arrow">→</span>
+      <span class="node core">유신헌법(1972, 통일주체국민회의) → YH무역 사건 → 부마민주항쟁(1979)</span><span class="arrow">→</span>
+      <span class="node result">10·26 사태(박정희 서거) → 신군부의 5·18 민주화운동 유혈 진압</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">36. 6월 민주항쟁</div>
+    <div class="chain">
+      <span class="node cause">전두환 정부의 4·13 호헌조치</span><span class="arrow">→</span>
+      <span class="node core">박종철 고문치사·이한열 사망 → 6월 민주항쟁(1987)</span><span class="arrow">→</span>
+      <span class="node result">6·29 선언 → 9차 개헌(대통령 직선제, 5년 단임 — 현행 헌법)</span>
+    </div>
+  </div>
+
+  <div class="flow"><div class="flow-title">37. 통일 정책의 흐름</div>
+    <div class="chain">
+      <span class="node cause">냉전 완화 분위기(1970년대)</span><span class="arrow">→</span>
+      <span class="node core">7·4남북공동성명(1972) → 남북기본합의서(1991, 노태우) → 남북 유엔 동시 가입</span><span class="arrow">→</span>
+      <span class="node result">6·15공동선언(2000, 김대중) → 개성공단 → 10·4선언(2007, 노무현)</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 인과관계만 압축했습니다. <b>굵게</b> 표시한 사건이 흐름의 중심축입니다. "~ 이후 사실"·"~ 사이 시기"·"~ 배경" 문제는 이 흐름 안에서 위치를 찾으면 풀립니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="regional-history-synthesis.html"><span class="dir">← 이전</span><span class="ttl">지역사 종합</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="prehistoric-early-states.html"><span class="dir">다음 →</span><span class="ttl">선사 시대·초기 국가</span></a>
+</nav>
+
+</div>
+</body>
+</html>
