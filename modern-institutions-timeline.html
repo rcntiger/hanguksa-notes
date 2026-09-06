@@ -115,6 +115,84 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
   </div>
 </header>
 
+<!-- 암기 전략 -->
+<style>
+.strategy{margin-top:30px;padding:18px 18px 20px;background:var(--paper2);border:1px solid var(--rule);border-radius:3px}
+.strategy h2{font-family:'Gowun Batang',serif;font-size:20px;margin:0 0 4px}
+.strategy .lead{font-size:13px;color:var(--ink-soft);margin:0 0 16px;line-height:1.65}
+.anchor{border-left:4px solid var(--red);background:var(--paper);padding:10px 12px;margin-bottom:10px;border-radius:0 3px 3px 0}
+.anchor .ah{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.anchor .aname{font-weight:700;font-size:14.5px;color:var(--red)}
+.anchor .ayr{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.anchor .aitems{font-size:13.5px;line-height:1.7}
+.anchor .aitems b{color:var(--ink)}
+.pairbox{margin-top:18px}
+.pairbox h3{font-family:'Gowun Batang',serif;font-size:16px;margin:16px 0 6px;color:var(--blue)}
+.mnem{display:inline-block;background:var(--hl);color:var(--ink);font-weight:700;padding:2px 8px;border-radius:2px;font-size:13.5px;margin-top:6px}
+.strategy table{width:100%;border-collapse:collapse;margin-top:6px;font-size:13px}
+.strategy th,.strategy td{border:1px solid var(--rule);padding:6px 8px;text-align:left;vertical-align:top}
+.strategy th{background:var(--paper);font-weight:600;font-size:13px;color:var(--ink-soft)}
+.strategy td b{color:var(--red)}
+</style>
+
+<div class="strategy">
+  <h2>연도가 안 외워질 때 — 덩어리로 묶는 법</h2>
+  <p class="lead">개항기 근대 문물은 <b>정치적 사건에 딸려서</b> 들어옵니다. 개별 숫자를 외우지 말고, 아래 <b>4개 앵커</b>에 붙여서 기억하세요. 실제 시험도 정확한 연도가 아니라 <b>"이 사건보다 앞이냐 뒤냐"</b>를 묻습니다.</p>
+
+  <div class="anchor">
+    <div class="ah"><span class="aname">① 임오군란·갑신정변 무렵</span><span class="ayr">1882~87</span></div>
+    <div class="aitems"><b>박문국</b>(한성순보)·<b>전환국</b>(화폐)·<b>기기창</b>(무기) / <b>우정총국</b>(갑신정변 무대) / <b>광혜원</b>(최초 병원) / <b>원산학사·육영공원</b> / 경복궁 전등</div>
+  </div>
+
+  <div class="anchor">
+    <div class="ah"><span class="aname">② 갑오·을미개혁 ~ 아관파천</span><span class="ayr">1894~96</span></div>
+    <div class="aitems"><b>교육입국 조서</b>(1895) → 한성사범학교 / <b>독립신문</b>(1896) / 태양력·단발령·종두법</div>
+  </div>
+
+  <div class="anchor">
+    <div class="ah"><span class="aname">③ 대한제국 (광무개혁)</span><span class="ayr">1897~99</span></div>
+    <div class="aitems"><b>황성신문·제국신문</b>(1898) / <b>전화</b>(궁궐, 1898) / <b>전차</b>(1899) / <b>경인선</b>(1899) / 명동성당</div>
+  </div>
+
+  <div class="anchor">
+    <div class="ah"><span class="aname">④ 러일전쟁·을사늑약 무렵</span><span class="ayr">1904~08</span></div>
+    <div class="aitems"><b>대한매일신보</b>(1904, 베델·양기탁) / <b>경부선</b>(1905) / 경의선(1906) / <b>원각사</b>(1908, 최초 서양식 극장)</div>
+  </div>
+
+  <div class="pairbox">
+    <h3>특히 헷갈리는 3쌍</h3>
+
+    <table>
+      <tr><th>신문</th><th>연도</th><th>결정적 특징 (이것만 보면 정답)</th></tr>
+      <tr><td><b>한성순보</b></td><td>1883</td><td><b>최초</b>의 신문, 순한문, 박문국, 관보 성격</td></tr>
+      <tr><td>한성주보</td><td>1886</td><td>국한문, <b>최초의 상업 광고</b></td></tr>
+      <tr><td><b>독립신문</b></td><td>1896</td><td><b>최초의 민간</b> 신문, 순한글+영문</td></tr>
+      <tr><td>황성신문</td><td>1898</td><td>국한문, <b>「시일야방성대곡」</b>(장지연)</td></tr>
+      <tr><td>제국신문</td><td>1898</td><td>순한글, 서민·부녀자 대상</td></tr>
+      <tr><td><b>대한매일신보</b></td><td>1904</td><td><b>베델·양기탁</b>, 국채보상운동 지원, 항일 논조</td></tr>
+    </table>
+    <div class="mnem">한성(순보·주보) → 독립 → 황성·제국 → 대한매일 &nbsp;=&nbsp; "한 · 독 · 황제 · 대"</div>
+
+    <table style="margin-top:16px">
+      <tr><th>철도</th><th>연도</th><th>포인트</th></tr>
+      <tr><td><b>경인선</b></td><td>1899</td><td><b>최초</b>의 철도(서울~인천)</td></tr>
+      <tr><td>경부선</td><td>1905</td><td>러일전쟁 중 <b>군사 수송</b> 목적으로 완공</td></tr>
+      <tr><td>경의선</td><td>1906</td><td>가장 늦음</td></tr>
+    </table>
+    <div class="mnem">인 → 부 → 의 &nbsp;(짧은 노선부터 순서대로)</div>
+
+    <table style="margin-top:16px">
+      <tr><th>최초 타이틀</th><th>이름</th><th>연도 · 특징</th></tr>
+      <tr><td>최초 근대 <b>사립</b> 학교</td><td>원산 학사</td><td>1883 · 지역 <b>주민</b>이 자발적으로 설립</td></tr>
+      <tr><td>최초 근대 <b>관립</b> 학교</td><td>육영 공원</td><td>1886 · 미국인 <b>헐버트</b>, 양반 자제 대상</td></tr>
+      <tr><td>최초 <b>여성</b> 교육 기관</td><td>이화 학당</td><td>1886 · 선교사 설립</td></tr>
+      <tr><td>최초 근대 <b>병원</b></td><td>광혜원(→제중원)</td><td>1885 · 선교사 <b>알렌</b>의 건의</td></tr>
+    </table>
+  </div>
+
+  <div class="subnote"><b>시험에서 진짜 필요한 것</b> 기출은 대부분 "(가) 시기에 볼 수 있는 모습"으로 묻기 때문에, <b>1880년대 / 1890년대 / 1900년대</b> 이 3단계 구분만 되면 풀립니다. 예를 들어 선지에 <b>"전차를 타는 사람"</b>이 있으면 1899년 이후이므로, 1880년대를 묻는 문제에서는 자동으로 오답입니다.</div>
+</div>
+
 <!-- 1883~1887 -->
 <div class="era-band"><span>개화 초기 — 시설·교육 도입기</span><div class="line"></div></div>
 
