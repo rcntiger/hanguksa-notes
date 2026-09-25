@@ -87,6 +87,16 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 .search-result mark{background:var(--hl);color:var(--ink);padding:0 1px;border-radius:2px}
 .search-empty{font-size:13px;color:var(--ink-soft);padding:10px 2px}
 .hidden{display:none !important}
+.mock-note{margin:0 0 12px;font-size:13px;color:var(--ink-soft);line-height:1.6}
+.mock-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.mock-cell{display:flex;flex-direction:column;gap:2px;padding:10px 10px 9px;background:var(--paper2);border:1px solid var(--rule);border-top:3px solid var(--red);border-radius:4px;text-decoration:none;color:var(--ink);min-width:0}
+.mock-cell:hover{border-color:var(--ink);border-top-color:var(--red)}
+.mock-cell b{font-family:'Gowun Batang',serif;font-size:16px}
+.mock-cell .theme{font-size:12px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-cell .state{font-size:11.5px;color:var(--ink-soft);min-height:1.5em}
+.mock-cell .state.done{color:var(--green);font-weight:700}
+.mock-cell .state.doing{color:var(--red)}
+@media (max-width:560px){.mock-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -182,6 +192,23 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
     <p>40개 전환점 사건을 원인 → 사건 → 결과로 압축 — "이후 사실"·"사이 시기"·"배경" 유형 대응</p>
     <span class="go">열기 →</span>
   </a>
+</section>
+
+<section class="section" id="mock">
+  <div class="section-head"><div class="duality">실전 모의고사</div><div class="section-line"></div></div>
+  <p class="mock-note">47~79회 출제 경향으로 만든 80회 대비 예상 문제 10회분(각 50문항, 100점)입니다. 풀고 채점하면 선지별 해설과 기출 단골 함정이 표시됩니다.</p>
+  <div class="mock-grid">
+    <a class="mock-cell" href="한능검_모의고사_01회.html" data-round="1"><b>제1회</b><span class="theme">50번 화폐사</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_02회.html" data-round="2"><b>제2회</b><span class="theme">50번 토지 제도</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_03회.html" data-round="3"><b>제3회</b><span class="theme">50번 역사서</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_04회.html" data-round="4"><b>제4회</b><span class="theme">50번 군사 조직</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_05회.html" data-round="5"><b>제5회</b><span class="theme">50번 신분 제도</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_06회.html" data-round="6"><b>제6회</b><span class="theme">50번 교육 기관</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_07회.html" data-round="7"><b>제7회</b><span class="theme">50번 법전</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_08회.html" data-round="8"><b>제8회</b><span class="theme">50번 빈민 구제</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_09회.html" data-round="9"><b>제9회</b><span class="theme">50번 인쇄 문화</span><span class="state"></span></a>
+    <a class="mock-cell" href="한능검_모의고사_10회.html" data-round="10"><b>제10회</b><span class="theme">50번 연호</span><span class="state"></span></a>
+  </div>
 </section>
 
 <section class="section">
@@ -657,5 +684,19 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-si
 })();
 </script>
 
+<script>
+(function(){
+  document.querySelectorAll('.mock-cell').forEach(function(a){
+    var el=a.querySelector('.state');
+    try{
+      var st=JSON.parse(localStorage.getItem('hgs-mock-r'+a.dataset.round)||'null');
+      if(!st) return;
+      var n=Object.keys(st.ans||{}).length;
+      if(st.graded){ el.textContent='채점 완료'; el.className='state done'; }
+      else if(n){ el.textContent=n+' / 50 풀이 중'; el.className='state doing'; }
+    }catch(e){}
+  });
+})();
+</script>
 </body>
 </html>

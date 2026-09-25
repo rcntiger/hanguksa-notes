@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>한능검 심화 예상 모의고사 제5회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF8; --ink:#1E2230; --muted:#5D6272; --rule:#DCD6C8;
+  --crimson:#9E1B32; --pen:#D42A3C; --omr:#E3A1AB; --omr-bg:#FBF0F2;
+  --box:#F4F1E8; --hover:#F3EFE6; --ok:#1F6B4F;
+  --serif:'Gowun Batang','Nanum Myeongjo','Noto Serif KR','Batang',serif;
+  --sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+  --pen-font:'Nanum Pen Script','Gowun Batang',cursive;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16181D; --ink:#E9E6DF; --muted:#A3A7B1; --rule:#343843;
+    --crimson:#E07385; --pen:#FF6B76; --omr:#8E4552; --omr-bg:#261C20;
+    --box:#1E2127; --hover:#22252C; --ok:#5FC49B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16181D; --ink:#E9E6DF; --muted:#A3A7B1; --rule:#343843;
+  --crimson:#E07385; --pen:#FF6B76; --omr:#8E4552; --omr-bg:#261C20;
+  --box:#1E2127; --hover:#22252C; --ok:#5FC49B; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 16px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 150px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--crimson);outline-offset:2px;border-radius:4px}
+
+/* 시험지 머리 */
+.paper-head{padding:36px 0 18px;border-bottom:6px solid var(--crimson);display:flex;align-items:center;gap:18px}
+.stamp{flex:0 0 auto;width:74px;height:74px;border:2px solid var(--crimson);border-radius:50%;display:grid;place-items:center;color:var(--crimson);font-family:var(--serif);font-weight:700;font-size:26px}
+.title .year{font-family:var(--serif);font-size:16px;color:var(--muted)}
+.title h1{margin:2px 0 0;font-family:var(--serif);font-weight:700;font-size:clamp(24px,6vw,36px);line-height:1.25;letter-spacing:-.01em}
+.intro{margin:18px 0 6px;font-size:14.5px;color:var(--muted);max-width:62ch}
+.intro strong{color:var(--ink);font-weight:500}
+
+/* 채점 결과 */
+.result{margin:28px 0 8px;padding:22px 20px 18px;border:1px solid var(--rule);border-radius:6px;background:var(--box)}
+.result[hidden]{display:none}
+.score-line{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.score{font-family:var(--pen-font);color:var(--pen);font-size:84px;line-height:.9;transform:rotate(-4deg);position:relative;padding:0 6px}
+.score::after{content:"";position:absolute;left:-2px;right:-10px;bottom:-4px;height:3px;background:var(--pen);border-radius:3px;transform:rotate(2deg)}
+.score-meta{font-size:15px;color:var(--muted);padding-bottom:6px}
+.score-meta b{color:var(--ink);font-weight:700}
+.grade{display:inline-block;margin-top:4px;font-weight:700;color:var(--crimson)}
+.era-table{margin:18px 0 6px;display:grid;grid-template-columns:auto 1fr auto;gap:6px 12px;align-items:center;font-size:14px}
+.era-table .bar{height:8px;background:var(--rule);border-radius:4px;overflow:hidden}
+.era-table .bar i{display:block;height:100%;background:var(--crimson)}
+.trap-note{margin:12px 0 0;font-size:14px;color:var(--muted)}
+.trap-note b{color:var(--pen)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--crimson);color:var(--crimson);font-weight:700}
+.chip.plain{margin-left:auto}
+
+/* 시대 구분 */
+.era{margin:40px 0 4px;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--crimson);display:flex;align-items:center;gap:12px}
+.era::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* 문항 */
+.q{padding:22px 0 18px;border-bottom:1px solid var(--rule);scroll-margin-top:20px}
+.q-head{display:flex;gap:10px;align-items:baseline}
+.q-num{position:relative;flex:0 0 auto;font-family:var(--serif);font-weight:700;font-size:21px;min-width:34px}
+.q-text{font-family:var(--serif);font-size:17px;line-height:1.7;flex:1}
+.q-pts{flex:0 0 auto;font-size:13px;color:var(--muted);white-space:nowrap}
+.src{margin:12px 0 12px 44px;padding:14px 16px;border:1px solid var(--rule);background:var(--box);font-family:var(--serif);font-size:15.5px;line-height:1.85;white-space:pre-line}
+.src u{text-underline-offset:4px}
+.opts{list-style:none;margin:0 0 0 36px;padding:0}
+.opt{position:relative;display:flex;gap:12px;align-items:flex-start;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:15.5px;line-height:1.6}
+.opt:hover{background:var(--hover)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.bub{position:relative;flex:0 0 auto;width:24px;height:24px;margin-top:1px;border:1.5px solid var(--omr);border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--crimson);background:var(--omr-bg)}
+.opt input:checked + .bub{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.opt input:focus-visible + .bub{outline:2px solid var(--crimson);outline-offset:2px}
+.q.done .opt{cursor:default}
+.q.done .opt:hover{background:none}
+
+/* 빨간 펜 채점 */
+.q.done .q-num::after{content:"";position:absolute;pointer-events:none}
+.q.ok .q-num::after{left:-10px;top:-9px;width:50px;height:46px;border:2.5px solid var(--pen);border-radius:50%;transform:rotate(-12deg)}
+.q.ng .q-num::after{left:-8px;top:13px;width:54px;height:3px;background:var(--pen);border-radius:2px;transform:rotate(-58deg)}
+.opt.is-a .bub::after{content:"";position:absolute;inset:-7px;border:2px solid var(--pen);border-radius:50%;transform:rotate(-8deg)}
+.opt.picked-wrong .t{text-decoration:line-through;text-decoration-color:var(--pen);text-decoration-thickness:2px}
+.q.done .mark{animation:pen .35s ease-out both}
+@keyframes pen{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+
+/* 해설 */
+.q-foot{margin:8px 0 0 44px}
+.peek{background:none;border:0;padding:4px 0;font-size:14px;color:var(--crimson);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.exp{margin:10px 0 0 44px;padding:14px 16px;border-left:3px solid var(--pen);background:var(--box);font-size:14.5px;line-height:1.75}
+.exp[hidden]{display:none}
+.exp-ans{margin:0 0 6px;font-weight:700;color:var(--pen)}
+.exp-why{margin:0 0 10px}
+.exp-opts{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.exp-opts li{display:flex;gap:8px}
+.exp-opts .n{flex:0 0 auto;font-weight:700;color:var(--muted)}
+.exp-opts li.is-a .n,.exp-opts li.is-a .note b{color:var(--pen)}
+.trap{display:inline-block;margin-left:6px;padding:0 7px;border:1px solid var(--pen);border-radius:3px;font-size:12px;line-height:1.6;color:var(--pen);white-space:nowrap}
+.you{color:var(--muted);font-size:13px}
+
+/* 답안 카드 */
+.card{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--paper);border-top:1px solid var(--rule);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px))}
+.card-in{max-width:760px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.cells{flex:1;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 4px;background:var(--omr-bg);border:1px solid var(--omr);border-radius:4px}
+.cells::-webkit-scrollbar{display:none}
+.cell{flex:0 0 auto;width:28px;border:0;background:none;padding:2px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--crimson)}
+.cell i{width:14px;height:14px;border:1.3px solid var(--omr);border-radius:50%;background:var(--paper)}
+.cell.on i{background:var(--ink);border-color:var(--ink)}
+.cell.ok i{background:none;border:2px solid var(--pen)}
+.cell.ng i{background:var(--pen);border-color:var(--pen)}
+.side{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.count{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.submit{border:0;background:var(--crimson);color:#fff;border-radius:6px;padding:9px 16px;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.hint{font-size:12px;color:var(--pen);text-align:right;max-width:160px;line-height:1.35}
+.hint:empty{display:none}
+
+.rounds{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 0}
+.rounds a{font-size:13.5px;padding:3px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);text-decoration:none}
+.rounds a[aria-current]{border-color:var(--crimson);color:var(--crimson);font-weight:700}
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a,.pagenav .empty{flex:1;min-width:0}
+.pagenav a{background:var(--box);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-weight:500;font-size:13px;color:var(--muted)}
+.pagenav .ttl{font-family:var(--serif);font-weight:700;font-size:15px}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav a.listlink{flex:0 0 auto;align-items:center;justify-content:center;font-weight:500;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:40px;font-size:12.5px;color:var(--muted);line-height:1.7}
+
+@media (max-width:520px){
+  .wrap{padding:0 16px 150px}
+  .src{margin-left:0}
+  .opts{margin-left:0}
+  .q-foot,.exp{margin-left:0}
+  .stamp{width:58px;height:58px;font-size:21px}
+  .score{font-size:68px}
+}
+@media (prefers-reduced-motion: reduce){.q.done .mark{animation:none}}
+@media print{.card,.filters,.peek,.pagenav{display:none}.wrap{padding-bottom:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="paper-head">
+    <div class="stamp" aria-hidden="true">심화</div>
+    <div class="title">
+      <div class="year">80회 대비, 47~79회 기출 경향으로 만든 예상 문제</div>
+      <h1>한능검 심화 예상 모의고사 제5회</h1>
+    </div>
+  </header>
+  <p class="intro">50문항, 100점 만점입니다. 문항 배치와 소재는 1,650개 기출 문항의 출제 빈도를 바탕으로 정했고, 오답 선지는 기출에서 반복해서 함정으로 쓰인 것들로 채웠습니다. <strong>실제 시험 문항과는 관계없는 직접 출제 문항</strong>입니다. 답을 고른 뒤 아래 답안 카드에서 채점하세요.</p>
+
+  <nav class="rounds" aria-label="다른 회차"><a href="한능검_모의고사_01회.html">제1회</a><a href="한능검_모의고사_02회.html">제2회</a><a href="한능검_모의고사_03회.html">제3회</a><a href="한능검_모의고사_04회.html">제4회</a><a href="한능검_모의고사_05회.html" aria-current="page">제5회</a><a href="한능검_모의고사_06회.html">제6회</a><a href="한능검_모의고사_07회.html">제7회</a><a href="한능검_모의고사_08회.html">제8회</a><a href="한능검_모의고사_09회.html">제9회</a><a href="한능검_모의고사_10회.html">제10회</a></nav>
+  <section class="result" id="result" hidden aria-live="polite"></section>
+  <main id="list"></main>
+
+  <p class="foot">해설의 '자주 나오는 오답' 표시는 47~79회 기출에서 같은 방식으로 반복된 함정 선지를 뜻합니다. 고른 답은 이 브라우저에 저장되어, 다시 열어도 이어서 풀 수 있습니다.</p>
+  <nav class="pagenav" aria-label="회차 이동"><a class="prev" href="한능검_모의고사_04회.html"><span class="dir">← 이전</span><span class="ttl">제4회</span></a><a class="listlink" href="index.html#mock">목록</a><a class="next" href="한능검_모의고사_06회.html"><span class="dir">다음 →</span><span class="ttl">제6회</span></a></nav>
+</div>
+
+<nav class="card" aria-label="답안 카드">
+  <div class="card-in">
+    <div class="cells" id="cells"></div>
+    <div class="side">
+      <span class="count" id="count"></span>
+      <button class="submit" id="submit" type="button">채점하기</button>
+      <span class="hint" id="hint"></span>
+    </div>
+  </div>
+</nav>
+
+<script>
+const DATA = [{"n": 1, "era": "선사·초기 국가", "pts": 1, "q": "(가) 시대의 생활 모습으로 옳은 것은?", "src": "공주 석장리 유적에서는 찍개와 슴베찌르개 등 여러 종류의 뗀석기가 출토되었다. 이 유적을 통해 한반도에 (가) 시대 사람들이 살았음이 처음으로 확인되었다.", "o": ["철제 농기구로 농사를 지었다.", "반달 돌칼로 벼를 수확하였다.", "지배층의 무덤으로 고인돌을 만들었다.", "뗀석기를 사용하여 사냥과 채집을 하였다.", "가락바퀴로 실을 뽑아 옷을 만들었다."], "a": 4, "why": "석장리·찍개·슴베찌르개 → 구석기 시대. 사냥과 채집으로 식량을 구하며 이동 생활을 했습니다.", "ex": ["철기 시대", "청동기 시대", "청동기 시대", "", "신석기 시대"], "trap": [5]}, {"n": 2, "era": "선사·초기 국가", "pts": 2, "q": "(가) 나라에 대한 설명으로 옳은 것은?", "src": "(가)에서는 같은 씨족끼리 혼인하지 않았다. 호랑이를 신으로 여겨 제사를 지냈으며, 병으로 사람이 죽으면 살던 집을 버리고 새 집을 지었다.", "o": ["여러 가(加)가 사출도를 다스렸다.", "서옥제가 있었다.", "단궁, 과하마, 반어피가 특산물이었다.", "민며느리제가 있었다.", "범금 8조가 있었다."], "a": 3, "why": "족외혼·호랑이 숭배 → 동예. 단궁·과하마·반어피가 유명했고, 10월에 무천을 열었으며 책화가 있었습니다.", "ex": ["부여", "고구려", "", "옥저", "고조선"], "trap": [4, 2]}, {"n": 3, "era": "선사·초기 국가", "pts": 1, "q": "(가) 나라에 대한 설명으로 옳은 것은?", "src": "(가)에서는 왕이 죽으면 많은 사람을 함께 묻는 순장의 풍습이 있었다. 또 가뭄이나 장마로 오곡이 익지 않으면 그 허물을 왕에게 돌리기도 하였다.", "o": ["10월에 동맹을 열었다.", "민며느리제가 있었다.", "천군이 소도를 다스렸다.", "12월에 영고라는 제천 행사를 열었다.", "10월에 무천을 열었다."], "a": 4, "why": "순장·흉년 시 왕에게 책임 → 부여. 12월에 영고를 열었습니다.", "ex": ["고구려", "옥저", "삼한", "", "동예"], "trap": [1, 5]}, {"n": 4, "era": "고대", "pts": 2, "q": "(가) 왕에 대한 설명으로 옳은 것은?", "src": "(가)은/는 을파소를 국상으로 등용하였다. 봄에 곡식을 빌려주었다가 가을에 갚게 하는 진대법을 실시하였다.", "o": ["영락이라는 연호를 사용하였다.", "도읍을 평양으로 옮겼다.", "부족적 성격의 5부를 행정적 5부로 개편하였다.", "태학을 설립하였다.", "낙랑군을 몰아냈다."], "a": 3, "why": "을파소·진대법 → 고국천왕. 부족적 5부를 행정 구역인 5부로 바꾸고 왕위의 부자 상속을 확립했습니다.", "ex": ["광개토 대왕", "장수왕", "", "소수림왕", "미천왕"], "trap": [4]}, {"n": 5, "era": "고대", "pts": 2, "q": "(가) 왕에 대한 설명으로 옳은 것은?", "src": "(가) 때 이차돈의 순교를 계기로 불교가 공인되었다. 또한 김해의 금관가야를 병합하여 영토를 넓혔다.", "o": ["화랑도를 국가 조직으로 개편하였다.", "대가야를 정복하였다.", "이사부를 보내 우산국을 복속하였다.", "건원이라는 연호를 사용하였다.", "국학을 설립하였다."], "a": 4, "why": "이차돈의 순교·금관가야 병합 → 법흥왕. 율령 반포, 병부 설치, 상대등 설치, 건원 연호 사용이 있었습니다.", "ex": ["진흥왕", "진흥왕", "지증왕", "", "신문왕"], "trap": [1, 2]}, {"n": 6, "era": "고대", "pts": 3, "q": "(가), (나) 사이의 시기에 있었던 사실로 옳은 것은?", "src": "(가) 고구려 장수왕이 도읍을 국내성에서 평양으로 옮겼다.\n(나) 백제 성왕이 도읍을 웅진에서 사비로 옮겼다.", "o": ["신라가 대가야를 정복하였다.", "을지문덕이 살수에서 승리하였다.", "근초고왕이 고국원왕을 전사시켰다.", "성왕이 관산성에서 전사하였다.", "백제가 한성을 빼앗기고 웅진으로 도읍을 옮겼다."], "a": 5, "why": "(가) 평양 천도 427년, (나) 사비 천도 538년. 그 사이인 475년 한성이 함락되어 문주왕이 웅진으로 천도했습니다.", "ex": ["562년 — (나) 이후", "612년 — (나) 이후", "371년 — (가) 이전", "554년 — (나) 이후", ""], "trap": [1]}, {"n": 7, "era": "고대", "pts": 2, "q": "(가) 왕의 재위 시기에 있었던 사실로 옳은 것은?", "src": "(가)은/는 신문왕 때 폐지된 녹읍을 다시 부활시켰다. 또한 지방의 군현 이름을 중국식으로 고치는 등 한화 정책을 펼쳤다.", "o": ["원종과 애노가 봉기하였다.", "김대성이 불국사 조성을 주도하였다.", "장보고가 청해진을 설치하였다.", "이차돈이 순교하였다.", "김흠돌이 반란을 도모하였다."], "a": 2, "why": "녹읍 부활·한화 정책 → 경덕왕. 김대성이 불국사와 석굴암 조성을 시작했고, 성덕 대왕 신종 제작이 시작되었습니다.", "ex": ["진성 여왕", "", "흥덕왕", "법흥왕", "신문왕"], "trap": [5]}, {"n": 8, "era": "고대", "pts": 2, "q": "(가)에 들어갈 탐구 주제로 가장 적절한 것은?", "src": "탐구 주제: (가)\n· 정혜 공주 무덤의 모줄임천장 구조\n· 온돌 장치가 있는 건물 터\n· 연꽃무늬 수막새와 이불병좌상", "o": ["가야 문화의 일본 전파", "신라와 서역의 교류", "발해 문화에 나타난 고구려 계승 의식", "백제 문화의 국제성", "고려에서 유행한 몽골풍"], "a": 3, "why": "정혜 공주 무덤의 모줄임천장·온돌·연꽃무늬 수막새 → 발해 문화의 고구려 계승. 발해는 고구려와 당의 문화를 함께 받아들였습니다.", "ex": ["가야", "신라", "", "백제", "고려 원 간섭기"], "trap": []}, {"n": 9, "era": "고대", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 6두품 출신으로 당의 빈공과에 합격하였다. 황소의 난 때 토황소격문을 지어 이름을 떨쳤으며, 만년에는 해인사에 은거하였다.", "o": ["삼대목을 편찬하였다.", "화왕계를 지었다.", "산둥반도에 법화원을 세웠다.", "진성 여왕에게 시무 10여 조를 올렸다.", "왕오천축국전을 남겼다."], "a": 4, "why": "6두품·빈공과·토황소격문 → 최치원. 진성 여왕에게 시무 10여 조를 올렸고 『계원필경』을 남겼습니다.", "ex": ["위홍·대구화상", "설총", "장보고", "", "혜초"], "trap": [2]}, {"n": 10, "era": "고려", "pts": 1, "q": "(가) 인물의 활동으로 옳은 것은?", "src": "고려 성종 때 거란의 소손녕이 80만 대군을 이끌고 침입하였다. 이때 (가)은/는 적진으로 가서 고려가 고구려를 계승하였음을 내세우며 담판을 벌였다.", "o": ["귀주에서 거란군을 크게 물리쳤다.", "강동 6주를 확보하였다.", "별무반을 이끌고 동북 9성을 쌓았다.", "처인성에서 살리타를 사살하였다.", "화통도감 설치를 건의하였다."], "a": 2, "why": "성종 때 거란 1차 침입·담판 → 서희. 외교 담판으로 강동 6주를 확보했습니다.", "ex": ["강감찬", "", "윤관", "김윤후", "최무선"], "trap": [1]}, {"n": 11, "era": "고려", "pts": 2, "q": "(가) 부대에 대한 설명으로 옳은 것은?", "src": "(가)은/는 배중손, 김통정 등의 지휘 아래 강화도에서 진도로, 다시 제주도로 옮겨 가며 몽골과 고려 정부에 맞서 싸웠다.", "o": ["거란의 침입에 대비하여 조직되었다.", "홍산 전투에서 왜구를 물리쳤다.", "신기군, 신보군, 항마군으로 편성되었다.", "개경 환도에 반발하여 항쟁하였다.", "쌍성총관부를 공격하였다."], "a": 4, "why": "배중손·김통정·강화→진도→제주 → 삼별초. 최씨 정권의 군사 기반이었으며 1270년 개경 환도에 반발해 항쟁했습니다.", "ex": ["광군", "최영의 부대", "별무반", "", "공민왕 때 고려군"], "trap": [3]}, {"n": 12, "era": "고려", "pts": 3, "q": "(가)~(라)를 일어난 순서대로 옳게 나열한 것은?", "src": "(가) 공양왕 때 과전법이 제정되었다.\n(나) 공민왕이 쌍성총관부를 공격하여 철령 이북의 땅을 되찾았다.\n(다) 이성계가 위화도에서 군대를 돌려 정권을 장악하였다.\n(라) 홍건적의 침입으로 공민왕이 복주(안동)로 피란하였다.", "o": ["(나) - (라) - (다) - (가)", "(라) - (다) - (나) - (가)", "(나) - (라) - (가) - (다)", "(나) - (다) - (라) - (가)", "(라) - (나) - (다) - (가)"], "a": 1, "why": "(나) 쌍성총관부 수복 1356 → (라) 홍건적 2차 침입 1361 → (다) 위화도 회군 1388 → (가) 과전법 1391. 위화도 회군 이후 신진 사대부가 과전법으로 경제 기반을 마련했습니다.", "ex": ["", "쌍성총관부 수복이 가장 먼저", "위화도 회군이 과전법보다 먼저", "홍건적 침입이 위화도 회군보다 먼저", "쌍성총관부 수복이 홍건적 침입보다 먼저"], "trap": [5]}, {"n": 13, "era": "고려", "pts": 2, "q": "다음 역사서에 대한 설명으로 옳은 것은?", "src": "인종의 명을 받아 김부식 등이 편찬하였다. 본기, 연표, 지, 열전으로 구성되었으며 신라 계승 의식이 반영되었다.", "o": ["승려들의 전기를 정리하였다.", "발해를 우리 역사로 포함하였다.", "단군의 고조선 건국 이야기를 처음 수록하였다.", "고구려 시조 동명왕의 일대기를 서사시로 표현하였다.", "현존하는 우리나라에서 가장 오래된 역사서이다."], "a": 5, "why": "인종·김부식·기전체 → 『삼국사기』. 현존하는 가장 오래된 역사서로, 유교적 합리주의 사관에 따라 서술했습니다.", "ex": ["『해동고승전』", "『발해고』 등", "『삼국유사』", "『동명왕편』", ""], "trap": [3]}, {"n": 14, "era": "고려", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 충렬왕 때 원에 다녀와 주자학을 처음 소개하였다. 조선 중종 때 그를 기리기 위해 풍기에 백운동 서원이 세워졌다.", "o": ["9재 학당을 세웠다.", "만권당에서 원의 학자들과 교류하였다.", "섬학전을 설치하여 국학 재정을 보충하였다.", "조선경국전을 저술하였다.", "선죽교에서 이방원 세력에게 죽임을 당하였다."], "a": 3, "why": "주자학 소개·백운동 서원 → 안향. 인재 양성을 위해 섬학전을 두어 국학의 재정을 도왔습니다.", "ex": ["최충", "이제현", "", "정도전", "정몽주"], "trap": [2]}, {"n": 15, "era": "고려", "pts": 2, "q": "(가) 국가의 사회 제도로 옳은 것은?", "src": "(가)의 성종은 개경과 서경, 12목에 상평창을 설치하여 물가를 조절하였다.", "o": ["향약이 전국에 보급되었다.", "흥선 대원군이 사창제를 실시하였다.", "동·서 대비원을 두어 환자를 치료하였다.", "양반에게도 군포를 징수하였다.", "고국천왕이 진대법을 시행하였다."], "a": 3, "why": "성종·12목·상평창 → 고려. 고려는 동·서 대비원(진료), 혜민국(의약), 제위보, 의창을 두었습니다.", "ex": ["조선", "조선 후기", "", "조선 후기(호포제)", "고구려"], "trap": [2, 5]}, {"n": 16, "era": "고려", "pts": 1, "q": "고려 시대의 목조 건축물로 옳은 것은?", "src": "우리 모둠은 고려 시대 목조 건축물을 찾아 답사할 계획입니다.", "o": ["김제 금산사 미륵전", "영주 부석사 무량수전", "구례 화엄사 각황전", "보은 법주사 팔상전", "서울 경복궁 근정전"], "a": 2, "why": "영주 부석사 무량수전은 배흘림기둥과 주심포 양식으로 유명한 고려 시대 건축물입니다. 법주사 팔상전·화엄사 각황전·금산사 미륵전은 조선 후기의 다층 건물입니다.", "ex": ["조선 후기", "", "조선 후기", "조선 후기", "조선(흥선 대원군 때 중건)"], "trap": [4, 3]}, {"n": 17, "era": "조선 전기", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 한양 도성과 궁궐의 이름을 정하는 등 도읍 건설을 주도하였고, 불씨잡변을 지어 불교를 비판하였다. 제1차 왕자의 난 때 이방원에게 죽임을 당하였다.", "o": ["재상 중심의 정치를 주장하였다.", "최초의 서원인 백운동 서원을 세웠다.", "해동제국기를 편찬하였다.", "현량과 실시를 건의하였다.", "성학십도를 지어 왕에게 바쳤다."], "a": 1, "why": "한양 건설·불씨잡변·1차 왕자의 난 → 정도전. 『조선경국전』을 지어 재상 중심의 정치를 주장했습니다.", "ex": ["", "주세붕", "신숙주", "조광조", "이황"], "trap": [5]}, {"n": 18, "era": "조선 전기", "pts": 2, "q": "(가) 기구에 대한 설명으로 옳은 것은?", "src": "조선의 (가)은/는 은대라고도 불렸으며, 도승지를 비롯한 6승지를 두었다.", "o": ["국방 문제를 논의하는 임시 기구로 출발하였다.", "사헌부, 사간원과 함께 3사로 불렸다.", "반역죄 등 중죄인을 다스렸다.", "왕명의 출납을 담당하였다.", "5품 이하 관리 임명에 서경권을 행사하였다."], "a": 4, "why": "은대·도승지·6승지 → 승정원. 왕명 출납을 담당한 왕의 비서 기관으로, 『승정원일기』를 남겼습니다.", "ex": ["비변사", "홍문관", "의금부", "", "사헌부·사간원"], "trap": [2, 5]}, {"n": 19, "era": "조선 전기", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 중종 때 현량과를 실시하여 사림을 등용하고, 소격서를 폐지하였다. 또한 향촌에 여씨 향약을 보급하려 하였다.", "o": ["반정 공신의 위훈 삭제를 주장하였다.", "조의제문을 지었다.", "최초의 서원인 백운동 서원을 세웠다.", "성학십도를 지어 왕에게 바쳤다.", "성학집요를 지어 왕에게 바쳤다."], "a": 1, "why": "현량과·소격서 폐지·향약 보급 → 조광조. 위훈 삭제를 주장하다 기묘사화로 제거되었습니다.", "ex": ["", "김종직", "주세붕", "이황", "이이"], "trap": [3, 4]}, {"n": 20, "era": "조선 전기", "pts": 3, "q": "(가)~(라)를 일어난 순서대로 옳게 나열한 것은?", "src": "(가) 조선의 기본 법전인 경국대전이 완성·반포되었다.\n(나) 이방원이 정도전 등을 제거하였다.\n(다) 태조가 도읍을 개경에서 한양으로 옮겼다.\n(라) 수양 대군이 김종서 등을 제거하고 권력을 잡았다.", "o": ["(나) - (다) - (라) - (가)", "(다) - (나) - (가) - (라)", "(다) - (나) - (라) - (가)", "(라) - (다) - (나) - (가)", "(다) - (라) - (나) - (가)"], "a": 3, "why": "(다) 한양 천도 1394 → (나) 제1차 왕자의 난 1398 → (라) 계유정난 1453 → (가) 『경국대전』 완성 1485(성종).", "ex": ["한양 천도가 왕자의 난보다 먼저", "계유정난이 경국대전 완성보다 먼저", "", "한양 천도가 가장 먼저", "왕자의 난이 계유정난보다 먼저"], "trap": [1]}, {"n": 21, "era": "조선 후기", "pts": 2, "q": "(가) 왕의 재위 시기에 있었던 사실로 옳은 것은?", "src": "(가) 때 경신년과 신해년에 걸쳐 전국적인 대기근이 들어 수많은 백성이 굶어 죽었다.", "o": ["자의 대비의 복상 기간을 두고 예송이 일어났다.", "영정법이 시행되었다.", "어영청을 중심으로 북벌이 추진되었다.", "기유약조가 체결되었다.", "금위영이 설치되었다."], "a": 1, "why": "경신 대기근(1670~1671) → 현종. 현종 때 기해예송(1659)과 갑인예송(1674)이 일어났습니다.", "ex": ["", "인조", "효종", "광해군", "숙종"], "trap": [3]}, {"n": 22, "era": "조선 후기", "pts": 1, "q": "(가) 왕이 추진한 정책으로 옳은 것은?", "src": "(가)은/는 아버지 사도 세자의 무덤을 수원으로 옮기고 자주 행차하였다. 한강을 건너기 위해 배다리를 놓았으며, 서얼 출신을 규장각 검서관으로 등용하였다.", "o": ["속대전을 편찬하였다.", "신해통공을 시행하여 금난전권을 폐지하였다.", "균역법을 시행하였다.", "탕평비를 세웠다.", "금위영을 설치하였다."], "a": 2, "why": "사도 세자 묘 이장·배다리·서얼 검서관 → 정조. 1791년 신해통공으로 육의전을 제외한 시전 상인의 금난전권을 폐지했습니다.", "ex": ["영조", "", "영조", "영조", "숙종"], "trap": [1, 4]}, {"n": 23, "era": "조선 후기", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 청에 다녀와 열하일기를 저술하였다. 또한 양반전, 허생전 등의 한문 소설을 지어 양반의 무능을 풍자하였다.", "o": ["거중기를 설계하였다.", "수레와 선박의 이용, 화폐 유통의 필요성을 강조하였다.", "의산문답에서 지전설을 주장하였다.", "동사강목을 저술하였다.", "성호사설을 저술하였다."], "a": 2, "why": "열하일기·양반전·허생전 → 박지원. 상공업 진흥과 수레·선박의 이용, 화폐 유통을 주장했습니다.", "ex": ["정약용", "", "홍대용", "안정복", "이익"], "trap": [3]}, {"n": 24, "era": "조선 후기", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 독창적인 추사체를 완성하였으며, 제주도 유배 시절 제자 이상적에게 세한도를 그려 주었다.", "o": ["금석과안록에서 북한산비가 진흥왕 순수비임을 고증하였다.", "발해고를 저술하였다.", "대동여지도를 제작하였다.", "택리지를 저술하였다.", "동사강목을 저술하였다."], "a": 1, "why": "추사체·세한도 → 김정희. 『금석과안록』에서 북한산비가 진흥왕 순수비임을 밝혔습니다.", "ex": ["", "유득공", "김정호", "이중환", "안정복"], "trap": [2]}, {"n": 25, "era": "조선 후기", "pts": 3, "q": "(가), (나) 사이의 시기에 있었던 사실로 옳은 것은?", "src": "(가) 광해군 때 이원익의 건의로 경기도에서 대동법이 처음 시행되었다.\n(나) 영조 때 군포를 1필로 줄이는 균역법이 시행되었다.", "o": ["상평통보가 법화로 채택되어 널리 유통되었다.", "관청에서 직접 수조권을 행사하는 관수 관급제가 시행되었다.", "현직 관리에게만 수조권을 지급하는 직전법이 시행되었다.", "신해통공이 시행되었다.", "과전법이 제정되었다."], "a": 1, "why": "(가) 1608년, (나) 1750년. 그 사이인 숙종 때(1678) 상평통보가 법화로 채택되었습니다.", "ex": ["", "1470년 — (가) 이전", "1466년 — (가) 이전", "1791년 — (나) 이후", "1391년 — (가) 이전"], "trap": [4]}, {"n": 26, "era": "근대", "pts": 2, "q": "다음 상황 이후에 있었던 사실로 옳은 것은?", "src": "최익현이 흥선 대원군의 실정을 비판하는 상소를 올리자, 흥선 대원군이 물러나고 고종이 직접 정치를 시작하였다.", "o": ["경복궁 중건이 시작되었다.", "프랑스군이 강화도를 침략하였다.", "오페르트가 남연군 묘 도굴을 시도하였다.", "운요호 사건이 일어났다.", "미군이 광성보를 공격하였다."], "a": 4, "why": "흥선 대원군 하야·고종 친정은 1873년입니다. 이후 1875년 운요호 사건, 1876년 강화도 조약이 이어졌습니다.", "ex": ["1865년 — 이전", "1866년 — 이전", "1868년 — 이전", "", "1871년 — 이전"], "trap": [5, 3]}, {"n": 27, "era": "근대", "pts": 2, "q": "밑줄 그은 '이 장정'에 대한 설명으로 옳은 것은?", "src": "1883년 개정된 <u>이 장정</u>에서는 일본 상품에 관세를 부과하고 일본에 최혜국 대우를 인정하였다.", "o": ["거중 조정 조항을 두었다.", "부산 외 2개 항구의 개항을 규정하였다.", "천주교 포교 허용의 근거가 되었다.", "이 규정에 근거하여 함경도에서 방곡령이 선포되었다.", "청 상인의 내지 통상을 허용하였다."], "a": 4, "why": "1883년 개정 조일 통상 장정. 곡물 수출을 막을 때 1개월 전에 통보하도록 하는 방곡령 규정이 들어가, 1889년 함경도 방곡령의 근거가 되었습니다.", "ex": ["조미 수호 통상 조약", "강화도 조약", "조프 수호 통상 조약", "", "조청 상민 수륙 무역 장정"], "trap": [5]}, {"n": 28, "era": "근대", "pts": 2, "q": "다음 정강을 발표한 사건에 대한 설명으로 옳은 것은?", "src": "· 혜상공국을 혁파한다.\n· 모든 재정은 호조에서 관할한다.\n· 문벌을 폐지하고 인민 평등의 권리를 세운다.", "o": ["흥선 대원군이 일시적으로 재집권하였다.", "일본과 제물포 조약을 체결하는 결과를 가져왔다.", "전주 화약 이후 집강소를 설치하였다.", "구식 군인에 대한 차별 대우가 발단이 되었다.", "청군의 개입으로 3일 만에 실패하였다."], "a": 5, "why": "혜상공국 혁파·호조의 재정 일원화·문벌 폐지 → 갑신정변의 14개조 정강. 청군 개입으로 3일 만에 실패했습니다.", "ex": ["임오군란", "임오군란", "동학 농민 운동", "임오군란", ""], "trap": [3, 1]}, {"n": 29, "era": "근대", "pts": 1, "q": "다음 사건 이후에 있었던 사실로 옳은 것은?", "src": "청일 전쟁 후 러시아, 프랑스, 독일은 일본이 차지한 랴오둥반도를 청에 돌려주라고 요구하였다.", "o": ["청과 일본이 톈진 조약을 맺었다.", "강화도 조약이 체결되었다.", "구식 군인들이 임오군란을 일으켰다.", "급진 개화파가 갑신정변을 일으켰다.", "일본이 경복궁에 침입하여 명성 황후를 시해하였다."], "a": 5, "why": "삼국 간섭(1895.4) 이후 조선에서 친러 세력이 커지자 일본은 을미사변(1895.10)을 일으켰습니다.", "ex": ["1885년 — 이전", "1876년 — 이전", "1882년 — 이전", "1884년 — 이전", ""], "trap": [1]}, {"n": 30, "era": "근대", "pts": 2, "q": "(가) 의병에 대한 설명으로 옳은 것은?", "src": "을미사변과 단발령에 분노한 유인석, 이소응 등 유생들이 중심이 되어 (가)을/를 일으켰다.", "o": ["13도 창의군을 결성하였다.", "최익현이 태인에서 거병하였다.", "평민 의병장 신돌석이 활약하였다.", "해산된 군인이 합류하여 전투력이 강화되었다.", "고종의 해산 권고 조칙에 따라 대부분 해산하였다."], "a": 5, "why": "을미사변·단발령·유인석 → 을미의병(1895). 아관파천 후 단발령이 철회되고 고종이 해산을 권고하자 대부분 해산했습니다.", "ex": ["정미의병", "을사의병", "을사의병", "정미의병", ""], "trap": [1, 2]}, {"n": 31, "era": "근대", "pts": 2, "q": "다음 법이 반포된 이후 추진된 정책으로 옳은 것은?", "src": "제1조 대한국은 세계 만국이 공인한 자주독립 제국이다.\n제2조 대한국의 정치는 만세 불변의 전제 정치이다.", "o": ["지방 행정 구역을 23부로 개편하였다.", "군국기무처를 설치하였다.", "홍범 14조를 반포하였다.", "단발령을 실시하였다.", "황제 직속의 원수부를 두어 군대를 통솔하였다."], "a": 5, "why": "대한국 국제(1899) → 광무개혁. 황제권 강화를 위해 원수부를 두어 군권을 장악했습니다.", "ex": ["제2차 갑오개혁", "제1차 갑오개혁", "제2차 갑오개혁", "을미개혁", ""], "trap": [2]}, {"n": 32, "era": "근대", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 헌정 연구회를 조직하여 입헌 정치를 주장하였다. 1907년 네덜란드에서 을사늑약의 부당함을 알리려다 뜻을 이루지 못하고 그곳에서 순국하였다.", "o": ["헤이그 만국 평화 회의에 특사로 파견되었다.", "동양 평화론을 집필하였다.", "명동 성당 앞에서 이완용을 습격하였다.", "샌프란시스코에서 스티븐스를 사살하였다.", "평양에 대성 학교를 세웠다."], "a": 1, "why": "헌정 연구회·1907년 네덜란드에서 순국 → 이준. 이상설, 이위종과 함께 헤이그 특사로 파견되었습니다.", "ex": ["", "안중근", "이재명", "장인환·전명운", "안창호"], "trap": [2]}, {"n": 33, "era": "근대", "pts": 3, "q": "(가), (나) 사이의 시기에 있었던 사실로 옳은 것은?", "src": "(가) 최익현이 전라도 태인에서 의병을 일으켰다가 체포되어 쓰시마섬에 유배되었다.\n(나) 13도 창의군이 서울 진공 작전을 펼쳤으나 동대문 밖에서 일본군에 패하였다.", "o": ["고종이 러시아 공사관으로 거처를 옮겼다.", "대한 제국의 군대가 해산되었다.", "한국 병합 조약이 체결되었다.", "임병찬이 독립 의군부를 조직하였다.", "단발령이 실시되었다."], "a": 2, "why": "(가) 1906년(을사의병), (나) 1908년. 그 사이인 1907년 8월 대한 제국 군대가 해산되어 정미의병이 일어났습니다.", "ex": ["1896년 — (가) 이전", "", "1910년 — (나) 이후", "1912년 — (나) 이후", "1895년 — (가) 이전"], "trap": [5, 4]}, {"n": 34, "era": "근대", "pts": 2, "q": "(가) 학교에 대한 설명으로 옳은 것은?", "src": "(가)은/는 1883년 함경도 덕원 지방의 관민이 힘을 모아 세운 학교이다. 외국어, 자연 과학 등 근대 학문과 함께 무술을 가르쳤다.", "o": ["헐버트, 길모어 등을 교사로 초빙하였다.", "아펜젤러가 세웠다.", "교원 양성을 위해 정부가 세웠다.", "스크랜턴이 세운 여성 교육 기관이었다.", "우리나라 최초의 근대적 사립 학교였다."], "a": 5, "why": "1883년·덕원 관민 → 원산 학사. 우리나라 최초의 근대적 사립 학교로 문예반과 무예반을 두었습니다.", "ex": ["육영 공원", "배재 학당", "한성 사범 학교", "이화 학당", ""], "trap": [1]}, {"n": 35, "era": "일제 강점기", "pts": 1, "q": "밑줄 그은 '이 법'이 제정된 시기에 볼 수 있는 모습으로 가장 적절한 것은?", "src": "일제는 1925년 사회주의 운동과 독립운동을 탄압하기 위해 <u>이 법</u>을 제정하였다.", "o": ["궁성 요배를 강요받는 학생", "토지 조사 사업으로 소유지를 신고하는 지주", "창씨개명을 강요받는 주민", "경성 제국 대학 설립을 준비하는 관리", "헌병 경찰에게 태형을 당하는 농민"], "a": 4, "why": "1925년 치안 유지법 → 문화 통치기(1920년대). 1924년 경성 제국 대학 예과가 설립되었습니다.", "ex": ["민족 말살 통치기", "무단 통치기", "민족 말살 통치기", "", "무단 통치기"], "trap": [5]}, {"n": 36, "era": "일제 강점기", "pts": 2, "q": "다음 선언 이후에 있었던 사실로 옳은 것은?", "src": "1919년 2월 도쿄의 조선 기독교 청년회관에서 한국인 유학생들이 조선 청년 독립단을 조직하고 독립 선언서를 발표하였다.", "o": ["105인 사건이 일어났다.", "3·1 운동이 일어났다.", "대동단결 선언이 발표되었다.", "대한 광복회가 조직되었다.", "토지 조사 사업이 시작되었다."], "a": 2, "why": "2·8 독립 선언(1919.2) 직후 3·1 운동이 일어났습니다.", "ex": ["1911년 — 이전", "", "1917년 — 이전", "1915년 — 이전", "1910년 — 이전"], "trap": [3]}, {"n": 37, "era": "일제 강점기", "pts": 2, "q": "(가) 단체에 대한 설명으로 옳은 것은?", "src": "(가)은/는 1915년 대구에서 박상진을 총사령으로 조직되었다. 군자금을 모으고 친일 부호를 처단하였다.", "o": ["조선 혁명 선언을 활동 지침으로 삼았다.", "105인 사건으로 해체되었다.", "대한 제국의 복원을 목표로 하는 복벽주의를 내세웠다.", "공화정체의 국민 국가 수립을 목표로 하였다.", "헌의 6조를 결의하였다."], "a": 4, "why": "1915년 대구·박상진 → 대한 광복회. 군대식 조직의 비밀 결사로 공화정체 국가 수립을 목표로 했습니다.", "ex": ["의열단", "신민회", "독립 의군부(임병찬)", "", "독립협회"], "trap": [3]}, {"n": 38, "era": "일제 강점기", "pts": 2, "q": "(가) 인물이 속한 단체에 대한 설명으로 옳은 것은?", "src": "1932년 4월 상하이 훙커우 공원에서 열린 일본군의 전승 기념식장에 (가)이/가 폭탄을 던져 일본군 장성 등을 처단하였다.", "o": ["김구가 상하이에서 조직하였다.", "김원봉 등이 만주 지린에서 조직하였다.", "105인 사건으로 해체되었다.", "신채호의 조선 혁명 선언을 지침으로 삼았다.", "연통제를 조직하였다."], "a": 1, "why": "1932년 훙커우 공원 의거 → 윤봉길, 한인 애국단. 한인 애국단은 1931년 김구가 상하이에서 조직했습니다. 이 의거로 중국 국민당 정부가 임시 정부를 지원하게 되었습니다.", "ex": ["", "의열단", "신민회", "의열단", "대한민국 임시 정부"], "trap": [2, 4]}, {"n": 39, "era": "일제 강점기", "pts": 3, "q": "(가) 부대에 대한 설명으로 옳은 것은?", "src": "(가)은/는 대종교 계열의 중광단을 모체로 하였으며, 김좌진이 총사령관을 맡았다.", "o": ["청산리 전투에서 일본군을 크게 물리쳤다.", "봉오동 전투를 승리로 이끌었다.", "쌍성보 전투에서 승리하였다.", "미국 전략 정보국(OSS)과 연합 작전을 준비하였다.", "영릉가 전투에서 승리하였다."], "a": 1, "why": "중광단·김좌진 → 북로 군정서. 1920년 홍범도 부대 등과 함께 청산리 전투에서 대승했습니다.", "ex": ["", "대한 독립군(홍범도)", "한국 독립군", "한국광복군", "조선 혁명군"], "trap": [2]}, {"n": 40, "era": "일제 강점기", "pts": 1, "q": "밑줄 그은 '이 법'이 시행된 이후에 있었던 사실로 옳은 것은?", "src": "일제는 1938년 <u>이 법</u>을 제정하여 전쟁에 필요한 인력과 물자를 마음대로 동원할 수 있게 하였다.", "o": ["산미 증식 계획이 시작되었다.", "토지 조사 사업이 실시되었다.", "여자 정신 근로령이 공포되었다.", "치안 유지법이 제정되었다.", "회사령이 공포되었다."], "a": 3, "why": "1938년 국가 총동원법 이후 국민 징용령(1939), 징병제(1943), 여자 정신 근로령(1944) 등이 시행되었습니다.", "ex": ["1920년", "1910년대", "", "1925년", "1910년"], "trap": [1]}, {"n": 41, "era": "일제 강점기", "pts": 2, "q": "(가) 인물에 대한 설명으로 옳은 것은?", "src": "(가)은/는 민족의 '얼'을 강조하였다. 1934년 정약용 서거 99주기를 맞아 안재홍 등과 여유당전서를 간행하였다.", "o": ["조선사회경제사를 저술하였다.", "진단 학회를 조직하였다.", "조선학 운동을 전개하였다.", "한국통사를 저술하였다.", "조선상고사를 저술하였다."], "a": 3, "why": "얼·여유당전서 간행 → 정인보. 안재홍 등과 조선학 운동을 전개했습니다.", "ex": ["백남운", "이병도 등", "", "박은식", "신채호"], "trap": [5]}, {"n": 42, "era": "현대", "pts": 3, "q": "(가), (나) 사이의 시기에 있었던 사실로 옳은 것은?", "src": "(가) 여운형, 안재홍 등이 조선 건국 준비 위원회를 조직하였다.\n(나) 모스크바에서 미국, 영국, 소련의 외무 장관들이 한국 문제를 논의하였다.", "o": ["남북 협상이 열렸다.", "미군이 서울에 들어와 군정을 실시하였다.", "제1차 미소 공동 위원회가 열렸다.", "좌우 합작 위원회가 조직되었다.", "5·10 총선거가 실시되었다."], "a": 2, "why": "(가) 1945년 8월, (나) 1945년 12월. 그 사이인 1945년 9월 미군이 서울에 들어와 군정을 실시했습니다.", "ex": ["1948년 — (나) 이후", "", "1946년 — (나) 이후", "1946년 — (나) 이후", "1948년 — (나) 이후"], "trap": [3]}, {"n": 43, "era": "현대", "pts": 2, "q": "밑줄 그은 '이 법'에 대한 설명으로 옳은 것은?", "src": "1949년 제정된 <u>이 법</u>은 농가가 아닌 자의 농지, 3정보를 넘는 농지를 국가가 사들여 농민에게 나누어 주도록 하였다.", "o": ["무상 몰수, 무상 분배의 원칙을 따랐다.", "지주에게 지가 증권을 발급하여 보상하였다.", "기한 안에 토지를 신고하게 하였다.", "토지 소유권을 증명하는 지계를 발급하였다.", "동양 척식 주식회사를 통해 시행되었다."], "a": 2, "why": "1949년·3정보 상한 → 농지 개혁법. 유상 매수·유상 분배 원칙으로 지주에게 지가 증권을 주었습니다.", "ex": ["북한의 토지 개혁(1946)", "", "일제의 토지 조사 사업", "대한 제국", "일제 강점기"], "trap": [1]}, {"n": 44, "era": "현대", "pts": 1, "q": "밑줄 그은 '개헌'의 내용으로 옳은 것은?", "src": "6·25 전쟁 중이던 1952년 이승만 정부는 임시 수도 부산에 비상계엄을 선포하고 국회 의원들을 강압하여 <u>개헌</u>안을 통과시켰다.", "o": ["대통령 선거인단에서 대통령을 선출하게 하였다.", "통일 주체 국민 회의에서 대통령을 선출하게 하였다.", "초대 대통령에 한하여 중임 제한을 없앴다.", "내각 책임제와 양원제를 채택하였다.", "대통령 직선제를 도입하였다."], "a": 5, "why": "1952년 부산 정치 파동 → 발췌 개헌. 대통령 직선제와 양원제를 골자로 했습니다.", "ex": ["8차 개헌", "유신 헌법", "사사오입 개헌(1954)", "3차 개헌(1960)", ""], "trap": [4]}, {"n": 45, "era": "현대", "pts": 3, "q": "다음 정부 시기에 있었던 사실로 옳은 것은?", "src": "이 정부는 평화 통일론을 주장한 진보당의 조봉암을 간첩 혐의로 처형하였으며, 정부를 비판한 경향신문을 폐간하였다.", "o": ["반민족 행위 특별 조사 위원회가 활동하였다.", "한일 기본 조약이 체결되었다.", "7·4 남북 공동 성명이 발표되었다.", "새마을 운동이 시작되었다.", "금융 실명제가 실시되었다."], "a": 1, "why": "진보당 사건·경향신문 폐간 → 이승만 정부. 반민특위 활동(1948~1949), 농지 개혁, 6·25 전쟁이 있었습니다.", "ex": ["", "박정희 정부", "박정희 정부", "박정희 정부", "김영삼 정부"], "trap": [5]}, {"n": 46, "era": "현대", "pts": 1, "q": "다음 선언 이후에 있었던 사실로 옳은 것은?", "src": "여야 합의로 대통령 직선제 개헌을 실시하고, 김대중 씨를 사면 복권하며, 언론 자유를 보장하겠다는 내용을 담은 선언이 발표되었다.", "o": ["4·13 호헌 조치가 발표되었다.", "유신 헌법이 제정되었다.", "박종철 고문치사 사건이 일어났다.", "5·18 민주화 운동이 일어났다.", "5년 단임의 대통령 직선제로 헌법이 개정되었다."], "a": 5, "why": "6·29 민주화 선언(1987) 이후 9차 개헌으로 5년 단임 대통령 직선제가 도입되었습니다.", "ex": ["1987년 4월 — 이전", "1972년 — 이전", "1987년 1월 — 이전", "1980년 — 이전", ""], "trap": [1, 3]}, {"n": 47, "era": "현대", "pts": 2, "q": "다음 정부 시기에 있었던 사실로 옳은 것은?", "src": "2010년 서울에서 주요 20개국(G20) 정상 회의가 열렸다. 우리나라가 처음으로 G20 정상 회의를 개최한 것이었다.", "o": ["경제 협력 개발 기구(OECD)에 가입하였다.", "경부 고속 도로가 개통되었다.", "한·미 자유 무역 협정(FTA)이 발효되었다.", "금융 실명제가 실시되었다.", "국제 통화 기금(IMF)의 구제 금융을 조기 상환하였다."], "a": 3, "why": "2010년 서울 G20 정상 회의 → 이명박 정부. 2012년 한·미 FTA가 발효되었습니다.", "ex": ["김영삼 정부", "박정희 정부", "", "김영삼 정부", "김대중 정부"], "trap": [2]}, {"n": 48, "era": "현대", "pts": 2, "q": "다음 정부 시기에 있었던 사실로 옳은 것은?", "src": "1985년 분단 이후 처음으로 남북 이산가족 고향 방문단과 예술 공연단이 서울과 평양을 오갔다.", "o": ["7·4 남북 공동 성명이 발표되었다.", "남북 기본 합의서가 채택되었다.", "6·15 남북 공동 선언이 발표되었다.", "금강산 해로 관광이 시작되었다.", "3저 호황으로 경제가 성장하였다."], "a": 5, "why": "1985년 이산가족 고향 방문단 → 전두환 정부. 저유가·저금리·저달러의 3저 호황이 있었습니다.", "ex": ["박정희 정부", "노태우 정부", "김대중 정부", "김대중 정부", ""], "trap": [2]}, {"n": 49, "era": "통합형", "pts": 3, "q": "(가) 지역에서 있었던 사실로 옳은 것은?", "src": "(가) 역사 탐방 — 태조 이성계의 어진을 모신 경기전, 옛 성문인 풍남문, 후백제의 도읍이었던 곳을 둘러봅니다.", "o": ["만적이 봉기를 도모하였다.", "동학 농민군이 정부와 화약을 맺었다.", "망이·망소이가 봉기하였다.", "김윤후가 충주성에서 몽골군을 막았다.", "정제두가 강화학파를 형성하였다."], "a": 2, "why": "경기전·풍남문·후백제 도읍 → 전주. 1894년 동학 농민군이 전주성을 점령한 뒤 정부와 전주 화약을 맺었습니다.", "ex": ["개경", "", "공주", "충주", "강화도"], "trap": [3]}, {"n": 50, "era": "통합형", "pts": 3, "q": "(가)~(마)에 대한 설명으로 옳지 않은 것은?", "src": "역사 돋보기 — 신분 제도의 변화\n(가) 골품제   (나) 향·부곡·소   (다) 노비안검법   (라) 공명첩   (마) 공노비 해방", "o": ["(가) – 신라에서 관등 승진과 일상생활을 제한하였다.", "(나) – 고려의 특수 행정 구역으로 주민은 일반 군현민보다 차별받았다.", "(다) – 고려 성종 때 시행되어 호족 세력을 약화시켰다.", "(라) – 조선 후기에 재정 보충을 위해 발행되어 신분 상승에 이용되었다.", "(마) – 순조 때 내수사와 중앙 관서의 공노비가 해방되었다."], "a": 3, "why": "노비안검법은 고려 광종(956) 때 시행되었습니다. 성종은 최승로의 시무 28조를 받아들이고 12목을 설치한 왕입니다.", "ex": ["옳은 설명", "옳은 설명", "옳지 않음 — 광종 때 시행", "옳은 설명", "옳은 설명(1801)"], "trap": []}];
+const KEY = 'hgs-mock-r5';
+const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+let state = { ans:{}, graded:false };
+let view = 'all';
+let open = new Set();
+let pending = false;
+try{
+  const s = JSON.parse(localStorage.getItem(KEY) || 'null');
+  if (s && typeof s === 'object'){ state.ans = s.ans || {}; state.graded = !!s.graded; }
+}catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+const byN = n => DATA[n-1];
+const isRight = d => state.ans[d.n] === d.a;
+const hitTrap = d => state.ans[d.n] && !isRight(d) && d.trap.includes(state.ans[d.n]);
+const ranges = {};
+DATA.forEach(d => { const r = ranges[d.era] || (ranges[d.era] = [d.n, d.n]); r[1] = d.n; });
+
+function expHTML(d){
+  const rows = d.o.map((t,i) => {
+    const k = i+1, isA = k === d.a, note = d.ex[i];
+    const body = isA ? `<b>정답</b>${note ? ' — ' + note : ''}` : note;
+    const tag = d.trap.includes(k) ? '<span class="trap">자주 나오는 오답</span>' : '';
+    const you = state.graded && state.ans[d.n] === k && !isA ? ' <span class="you">(고른 답)</span>' : '';
+    return `<li class="${isA ? 'is-a' : ''}"><span class="n">${k}</span><span class="note">${body}${tag}${you}</span></li>`;
+  }).join('');
+  return `<p class="exp-ans">정답 ${'①②③④⑤'[d.a-1]}</p><p class="exp-why">${d.why}</p><ul class="exp-opts">${rows}</ul>`;
+}
+
+function qHTML(d){
+  const u = state.ans[d.n], g = state.graded;
+  const cls = g ? (isRight(d) ? 'done ok' : 'done ng') : '';
+  const opts = d.o.map((t,i) => {
+    const k = i+1;
+    let oc = 'opt';
+    if (g && k === d.a) oc += ' is-a';
+    if (g && u === k && k !== d.a) oc += ' picked-wrong';
+    return `<li><label class="${oc}"><input type="radio" name="q${d.n}" value="${k}" ${u===k?'checked':''} ${g?'disabled':''}><span class="bub">${k}</span><span class="t">${t}</span></label></li>`;
+  }).join('');
+  const isOpen = open.has(d.n);
+  return `<article class="q ${cls}" id="q${d.n}">
+    <div class="q-head"><span class="q-num${g?' mark':''}">${d.n}.</span><span class="q-text">${d.q}</span><span class="q-pts">[${d.pts}점]</span></div>
+    <div class="src">${d.src}</div>
+    <ol class="opts">${opts}</ol>
+    <div class="q-foot"><button class="peek" type="button" data-n="${d.n}" aria-expanded="${isOpen}">${isOpen ? '해설 닫기' : '해설 보기'}</button></div>
+    <div class="exp" ${isOpen ? '' : 'hidden'}>${expHTML(d)}</div>
+  </article>`;
+}
+
+function visible(d){
+  if (!state.graded || view === 'all') return true;
+  if (view === 'wrong') return !isRight(d);
+  if (view === 'trap') return hitTrap(d);
+  return true;
+}
+
+function renderList(){
+  const list = document.getElementById('list');
+  let html = '', last = null, shown = 0;
+  DATA.forEach(d => {
+    if (!visible(d)) return;
+    if (d.era !== last){ const r = ranges[d.era]; html += `<h2 class="era">${d.era} (${r[0]}~${r[1]}번)</h2>`; last = d.era; }
+    html += qHTML(d); shown++;
+  });
+  if (!shown) html = '<p class="intro">이 조건에 맞는 문항이 없습니다. 전체 보기로 돌아가 다른 문항을 확인하세요.</p>';
+  list.innerHTML = html;
+}
+
+function renderCard(){
+  const cells = document.getElementById('cells');
+  cells.innerHTML = DATA.map(d => {
+    let c = 'cell';
+    if (state.ans[d.n]) c += ' on';
+    if (state.graded) c += isRight(d) ? ' ok' : ' ng';
+    return `<button type="button" class="${c}" data-go="${d.n}" aria-label="${d.n}번으로 이동"><span>${d.n}</span><i></i></button>`;
+  }).join('');
+  const done = Object.keys(state.ans).length;
+  document.getElementById('count').textContent = state.graded ? '채점 완료' : `${done} / 50 풀이`;
+  document.getElementById('submit').textContent = state.graded ? '다시 풀기' : '채점하기';
+  document.getElementById('hint').textContent = pending ? `안 푼 문항 ${50-done}개가 있습니다. 한 번 더 누르면 채점합니다.` : '';
+}
+
+function renderResult(){
+  const box = document.getElementById('result');
+  if (!state.graded){ box.hidden = true; box.innerHTML = ''; return; }
+  let score = 0, ok = 0, trap = 0;
+  const era = {};
+  DATA.forEach(d => {
+    const e = era[d.era] || (era[d.era] = {t:0, c:0});
+    e.t++;
+    if (isRight(d)){ score += d.pts; ok++; e.c++; }
+    if (hitTrap(d)) trap++;
+  });
+  const grade = score >= 80 ? '1급 기준(80점) 통과' : score >= 70 ? '2급 기준(70점) 통과' : score >= 60 ? '3급 기준(60점) 통과' : '인증 기준(60점) 미달';
+  const rows = Object.entries(era).map(([k,v]) =>
+    `<span>${k}</span><span class="bar"><i style="width:${Math.round(v.c/v.t*100)}%"></i></span><span>${v.c}/${v.t}</span>`).join('');
+  box.innerHTML = `
+    <div class="score-line"><span class="score">${score}점</span>
+      <div class="score-meta">맞힌 문항 <b>${ok}</b> / 50<br><span class="grade">${grade}</span></div></div>
+    <div class="era-table">${rows}</div>
+    <p class="trap-note">틀린 문항 가운데 <b>${trap}문항</b>은 기출에서 반복되는 함정 선지를 골랐습니다. 이 문항들부터 해설을 확인하세요.</p>
+    <div class="filters" role="group" aria-label="문항 보기">
+      <button class="chip" type="button" data-view="all" aria-pressed="${view==='all'}">전체 문항</button>
+      <button class="chip" type="button" data-view="wrong" aria-pressed="${view==='wrong'}">틀린 문항 ${50-ok}</button>
+      <button class="chip" type="button" data-view="trap" aria-pressed="${view==='trap'}">함정에 걸린 문항 ${trap}</button>
+    </div>`;
+  box.hidden = false;
+}
+
+function renderAll(){ renderResult(); renderList(); renderCard(); }
+
+document.addEventListener('change', e => {
+  const r = e.target;
+  if (r.type !== 'radio' || state.graded) return;
+  state.ans[+r.name.slice(1)] = +r.value;
+  pending = false; save(); renderCard();
+});
+
+document.addEventListener('click', e => {
+  const peek = e.target.closest('.peek');
+  if (peek){
+    const n = +peek.dataset.n, art = document.getElementById('q'+n), exp = art.querySelector('.exp');
+    if (open.has(n)){ open.delete(n); exp.hidden = true; peek.textContent = '해설 보기'; peek.setAttribute('aria-expanded','false'); }
+    else { open.add(n); exp.hidden = false; peek.textContent = '해설 닫기'; peek.setAttribute('aria-expanded','true'); }
+    return;
+  }
+  const go = e.target.closest('[data-go]');
+  if (go){
+    const n = +go.dataset.go;
+    if (state.graded && !visible(byN(n))){ view = 'all'; renderAll(); }
+    const el = document.getElementById('q'+n);
+    if (el) el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    return;
+  }
+  const chip = e.target.closest('[data-view]');
+  if (chip){ view = chip.dataset.view; renderAll(); return; }
+  if (e.target.id === 'submit'){
+    if (state.graded){
+      state = { ans:{}, graded:false }; view = 'all'; open = new Set(); pending = false;
+      save(); renderAll(); window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+      return;
+    }
+    const left = 50 - Object.keys(state.ans).length;
+    if (left > 0 && !pending){ pending = true; renderCard(); return; }
+    pending = false; state.graded = true;
+    open = new Set(DATA.filter(d => !isRight(d)).map(d => d.n));
+    save(); renderAll();
+    document.getElementById('result').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+  }
+});
+
+if (state.graded) open = new Set(DATA.filter(d => !isRight(d)).map(d => d.n));
+renderAll();
+</script>
+</body>
+</html>
