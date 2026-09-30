@@ -190,6 +190,17 @@ footer{
   font-size:15px;display:none;align-items:center;justify-content:center
 }
 .top-btn.show{display:flex}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--ink2);border:1px solid var(--line);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--paper);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--muted)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--muted)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--muted);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--paper)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
 </style>
 </head>
 <body>
@@ -224,6 +235,12 @@ footer{
   주제 선정과 정리 내용은 기출 경향을 바탕으로 한 학습용 요약입니다. 연도·인명은 교과서 표기를 따랐으며, 시험 직전에는 반드시 최근 회차 원문으로 한 번 더 확인하세요.<br>
   도장을 눌러 표시한 학습 기록은 이 페이지 안에만 저장됩니다.
 </footer>
+
+<nav class="pagenav">
+  <a class="prev" href="sentence-notes.html"><span class="dir">← 이전</span><span class="ttl">기출 문장, 그대로 외우기</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="master-timeline.html"><span class="dir">다음 →</span><span class="ttl">한국사 마스터 연표</span></a>
+</nav>
 
 </div>
 <button class="top-btn" id="top" aria-label="맨 위로">↑</button>
