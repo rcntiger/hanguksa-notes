@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조선의 궁궐 · 학습 노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D6;
+  --paper2:#E6DFC9;
+  --ink:#232A35;
+  --ink-soft:#4B5563;
+  --rule:#C9BFA0;
+  --red:#B4362C;
+  --red-soft:#C0392B;
+  --green:#3F6D4E;
+  --hl:#EFC94C;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans KR',sans-serif;
+  font-weight:400;
+  line-height:1.7;
+  font-size:15px;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 34px);
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+/* ---------- header ---------- */
+header{padding:40px 0 18px;border-bottom:3px double var(--ink);position:relative}
+.tab{
+  position:absolute;top:0;right:20px;background:var(--red);color:var(--paper);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+  padding:5px 10px;border-radius:2px;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px;
+}
+h1{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:clamp(32px,8vw,44px);
+  margin:0 0 8px;letter-spacing:-.01em;
+}
+.sub{font-size:13.5px;color:var(--ink-soft)}
+.period{
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);
+  margin-top:10px;font-weight:600;
+}
+
+/* ---------- timeline strip ---------- */
+.tl-wrap{margin:26px 0 6px}
+.tl-label{font-family:'Noto Sans KR',sans-serif;font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}
+.tl{display:flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tl-node{
+  flex:1;padding:8px 4px 7px;text-align:center;border-right:1px solid var(--ink);
+  background:var(--paper2);font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft)
+}
+.tl-node:last-child{border-right:0}
+.tl-node b{display:block;font-size:13px;color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:700;margin-bottom:2px}
+.mnemonic-strip{
+  margin-top:8px;text-align:center;font-family:'Gowun Batang',serif;font-size:15px;
+  letter-spacing:.06em;color:var(--red);font-weight:700;
+}
+
+/* ---------- section (대립구도) ---------- */
+.section{margin-top:40px}
+.section-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.duality{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:19px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.pos{color:var(--green)}
+.neg{color:var(--red)}
+.vs{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);
+  border:1px solid var(--rule);border-radius:50%;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.section-line{flex:1;height:1px;background:repeating-linear-gradient(90deg, var(--rule) 0 4px, transparent 4px 8px)}
+
+/* ---------- checklist card ---------- */
+.card{
+  background:var(--paper2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px 12px;margin-bottom:10px;position:relative;
+}
+.card-title{
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;margin:0 0 8px;
+  display:flex;align-items:baseline;gap:8px;
+}
+.card-title .box{
+  font-size:15px;color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;flex:0 0 auto;
+}
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{
+  position:relative;padding-left:22px;margin-bottom:6px;font-size:14px;color:var(--ink);
+}
+ul.chk li::before{
+  content:"☐";position:absolute;left:0;top:0;color:var(--ink-soft);font-size:13px;
+}
+ul.chk b{
+  font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%, var(--hl) 62%);
+  padding:0 1px;
+}
+ul.chk .redmark{
+  color:var(--red);font-weight:700;text-decoration:underline;text-decoration-style:wavy;
+  text-decoration-color:var(--red-soft);text-underline-offset:3px;
+}
+.subnote{
+  margin-top:8px;padding:8px 10px;background:var(--paper);border-left:3px solid var(--red);
+  font-size:12.5px;color:var(--ink-soft);line-height:1.6;border-radius:0 2px 2px 0;
+}
+.subnote b{color:var(--red);font-weight:700}
+
+/* 계보표 */
+.lineage{
+  display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:10px 0 6px;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+}
+.lineage span{
+  background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:4px 8px;
+  color:var(--ink);white-space:nowrap;
+}
+.lineage span.now{border-color:var(--red);color:var(--red);font-weight:700}
+.lineage .arrow{color:var(--ink-soft)}
+
+/* 사건 타임라인 카드형 */
+.evt-list{margin-top:6px}
+.evt{
+  display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;
+  border-top:1px solid var(--rule);
+}
+.evt:first-child{border-top:none}
+.evt-year{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);font-weight:700;
+  padding-top:2px;
+}
+.evt-body h4{
+  margin:0 0 4px;font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;
+}
+.evt-body p{margin:0;font-size:13.3px;color:var(--ink-soft);line-height:1.65}
+.evt-body p b{color:var(--ink);font-weight:700}
+
+/* stamp 도장 느낌 */
+.stamp{
+  display:inline-block;transform:rotate(-4deg);border:2px solid var(--red);color:var(--red);
+  font-family:'Gowun Batang',serif;font-weight:700;font-size:11px;padding:2px 7px;border-radius:3px;
+  margin-left:6px;opacity:.85;
+}
+
+.bridge{
+  margin-top:40px;padding:16px 18px;background:var(--paper2);border:1px dashed var(--ink-soft);
+  border-radius:4px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;
+}
+.bridge b{color:var(--ink);font-family:'Gowun Batang',serif;font-weight:700;font-size:14.5px}
+
+footer{
+  margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:11.5px;color:var(--ink-soft);line-height:1.75;
+}
+
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .wrap{max-width:100%}
+  .card{break-inside:avoid}
+  .section{break-inside:avoid-page}
+}
+
+.pagenav{display:flex;gap:10px;margin-top:28px}
+.pagenav a{flex:1;background:var(--paper2);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:3px;transition:border-color .15s;min-width:0}
+.pagenav a:hover{border-color:var(--ink)}
+.pagenav .dir{font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--ink-soft)}
+.pagenav .ttl{font-family:'Gowun Batang',serif;font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pagenav a.next{text-align:right;align-items:flex-end}
+.pagenav .listlink{flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:12px 12px}
+.pagenav .listlink:hover{color:var(--ink)}
+@media (max-width:480px){.pagenav .ttl{font-size:12.5px}}
+@media print{.pagenav{display:none}}
+
+/* 사건 → 궁궐 매칭표 */
+table.match{width:100%;border-collapse:collapse;font-size:13.3px}
+table.match th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--ink-soft);font-weight:600;padding:0 6px 6px;border-bottom:1px solid var(--ink)}
+table.match td{padding:7px 6px;border-top:1px solid var(--rule);vertical-align:top;line-height:1.55}
+table.match td:last-child{white-space:nowrap;color:var(--ink-soft)}
+table.match td b{color:var(--red);font-family:'Gowun Batang',serif;font-size:14px}
+@media (max-width:480px){table.match td:last-child{white-space:normal}}
+@media print{table.match tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tab">★★ 문화유산 · 사건 장소</span>
+  <div class="eyebrow">한국사능력검정시험 · 조선 ~ 대한제국</div>
+  <h1>조선의 궁궐</h1>
+  <p class="sub">5대 궁궐 — 경복궁 · 창덕궁 · 창경궁 · 덕수궁(경운궁) · 경희궁 — "이 궁궐에서 있었던 일"을 묻는 문제 대비</p>
+  <p class="period">북궐 경복궁 &nbsp;|&nbsp; 동궐 창덕궁·창경궁 &nbsp;|&nbsp; 서궐 경희궁 &nbsp;|&nbsp; 서궁 경운궁</p>
+
+  <div class="tl-wrap">
+    <div class="tl-label">세워진 순서</div>
+    <div class="tl">
+      <div class="tl-node"><b>경복궁</b>1395<br>태조</div>
+      <div class="tl-node"><b>창덕궁</b>1405<br>태종</div>
+      <div class="tl-node"><b>창경궁</b>1484<br>성종</div>
+      <div class="tl-node"><b>경운궁</b>1593<br>선조</div>
+      <div class="tl-node"><b>경희궁</b>1620<br>광해군</div>
+    </div>
+    <div class="mnemonic-strip">복 · 덕 · 경 · 운 · 희</div>
+    <p style="text-align:center;font-size:11.5px;color:var(--ink-soft);margin:2px 0 0">태조 → 태종 → 성종 → 선조(임진왜란 행궁) → 광해군</p>
+  </div>
+</header>
+
+<!-- 사건으로 궁궐 찾기 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">사건</span><span class="vs">→</span><span class="pos">궁궐</span></div>
+    <div class="section-line"></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink-soft);margin:0 0 10px">시험은 사진·안내문을 주고 "이 궁궐에서 있었던 사실"을 고르게 합니다. 사건을 보면 궁궐이 바로 떠오르도록.</p>
+
+  <div class="card">
+    <table class="match">
+      <tr><th>사건</th><th>궁궐 · 장소</th></tr>
+      <tr><td>세종 집현전, 자격루(보루각)·흠경각</td><td><b>경복궁</b></td></tr>
+      <tr><td>흥선대원군 중건(원납전·당백전)</td><td><b>경복궁</b></td></tr>
+      <tr><td>최초의 전등 점등(1887)</td><td><b>경복궁</b> 건청궁</td></tr>
+      <tr><td>일본군 궁궐 점령(1894) → 갑오개혁</td><td><b>경복궁</b></td></tr>
+      <tr><td>을미사변, 명성황후 시해(1895)</td><td><b>경복궁</b> 건청궁</td></tr>
+      <tr><td>조선물산공진회(1915), 조선총독부 청사(1926)</td><td><b>경복궁</b></td></tr>
+      <tr><td>임진왜란 후 가장 먼저 중건, 오랜 법궁</td><td><b>창덕궁</b></td></tr>
+      <tr><td>정조 규장각 설치(후원 주합루)</td><td><b>창덕궁</b></td></tr>
+      <tr><td>갑신정변 때 청군과 교전(1884)</td><td><b>창덕궁</b></td></tr>
+      <tr><td>순종 거처, 순종 승하(1926) → 6·10 만세 운동</td><td><b>창덕궁</b></td></tr>
+      <tr><td>유네스코 세계유산(1997)</td><td><b>창덕궁</b> (궁궐 중 유일)</td></tr>
+      <tr><td>사도세자 뒤주 사건, 임오화변(1762)</td><td><b>창경궁</b> 문정전 앞</td></tr>
+      <tr><td>동물원·식물원 설치, '창경원' 격하</td><td><b>창경궁</b></td></tr>
+      <tr><td>인목대비 유폐(서궁), 인조 즉위</td><td><b>경운궁</b></td></tr>
+      <tr><td>아관파천 후 환궁(1897), 대한제국 정궁</td><td><b>경운궁</b></td></tr>
+      <tr><td>을사늑약 체결(1905)</td><td><b>경운궁</b> 중명전</td></tr>
+      <tr><td>미·소 공동 위원회 개최(1946·1947)</td><td><b>덕수궁</b> 석조전</td></tr>
+      <tr><td>고종 승하(1919) → 3·1 운동</td><td><b>덕수궁</b> 함녕전</td></tr>
+      <tr><td>'경덕궁'에서 이름 바뀜, 영조가 오래 머묾</td><td><b>경희궁</b></td></tr>
+      <tr><td>일제가 헐고 경성중학교 세움</td><td><b>경희궁</b></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 경복궁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">경복궁</span><span class="vs">北</span><span class="neg">법궁 · 북궐</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 창건과 구조</h3>
+    <ul class="chk">
+      <li><b>1395년 태조</b> 창건 — 궁궐과 전각 이름을 <span class="redmark">정도전</span>이 지음('경복'은 『시경』에서)</li>
+      <li>정문 <b>광화문</b> → 정전 <b>근정전</b>(즉위식·조회) → 편전 <b>사정전</b> → 침전 <b>강녕전</b>·왕비 침전 <b>교태전</b></li>
+      <li><b>경회루</b> — 연못 위 누각, 외국 사신 연회 장소(태종 때 크게 고쳐 지음)</li>
+      <li>종묘(왼쪽)·사직(오른쪽)과 함께 배치 — <b>좌묘우사</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-year">세종</div>
+        <div class="evt-body">
+          <h4>과학과 학문의 무대</h4>
+          <p><b>집현전</b>, 물시계 <b>자격루</b>(보루각), 천문 시계 <b>흠경각</b>, 천문대 <b>간의대</b>가 모두 경복궁 안에 있었음.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1592</div>
+        <div class="evt-body">
+          <h4>임진왜란으로 소실</h4>
+          <p>이후 약 270년간 폐허로 남고 <b>창덕궁</b>이 법궁 역할을 대신함.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1865~68</div>
+        <div class="evt-body">
+          <h4>흥선대원군 중건 <span class="stamp">빈출</span></h4>
+          <p>왕실 권위 회복 목적. <b>원납전</b> 강제 징수, <b>당백전</b> 발행(물가 폭등), 도성 문 통행세, 양반 묘지림 벌목 → 백성·양반 모두 반발.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1887</div>
+        <div class="evt-body">
+          <h4>건청궁에 전등 점등</h4>
+          <p>미국 에디슨 전기 회사 설비로 <b>우리나라 최초 전등</b>. 건청궁은 고종이 1873년에 지은 궁 안의 궁.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1894</div>
+        <div class="evt-body">
+          <h4>일본군의 경복궁 점령</h4>
+          <p>동학 농민 운동 전주 화약 뒤 일본군이 궁을 점령 → <b>청일 전쟁</b> 시작, <b>군국기무처</b> 설치(제1차 갑오개혁), 농민군 2차 봉기의 계기.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1895</div>
+        <div class="evt-body">
+          <h4>을미사변</h4>
+          <p>일본 공사 <b>미우라</b>가 주도해 건청궁(옥호루)에서 <b>명성황후 시해</b> → 을미개혁(단발령) → 을미의병 → 이듬해 <b>아관파천</b>(1896)으로 고종이 경복궁을 떠남.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1915<br>1926</div>
+        <div class="evt-body">
+          <h4>일제의 훼손</h4>
+          <p>시정 5년 기념 <b>조선물산공진회</b>(1915)를 열며 전각 대거 철거 → 근정전 앞에 <b>조선총독부 청사</b> 완공(1926), 광화문은 옆으로 옮겨짐.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1995</div>
+        <div class="evt-body">
+          <h4>총독부 건물 철거</h4>
+          <p>광복 50주년, <b>김영삼 정부</b>의 '역사 바로 세우기'. 이후 복원 사업 진행.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 창덕궁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">창덕궁</span><span class="vs">東</span><span class="neg">이궁 → 사실상 법궁</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 핵심 포인트</h3>
+    <ul class="chk">
+      <li><b>1405년 태종</b>이 이궁(별궁)으로 창건 — 한양으로 다시 천도하며 지음</li>
+      <li>정문 <b>돈화문</b>, 정전 <b>인정전</b>, 편전 <b>선정전</b>(청기와), 침전 <b>대조전</b>, <b>희정당</b></li>
+      <li>임진왜란 뒤 <span class="redmark">광해군 때 가장 먼저 중건</span> → 경복궁 중건 전까지 약 270년간 <b>법궁</b></li>
+      <li>자연 지형을 살린 배치 — <b>1997년 유네스코 세계 문화유산</b>(조선 궁궐 중 유일)</li>
+      <li><b>후원</b>(비원) — 정조가 <span class="redmark">규장각</span>을 설치(주합루 1층), 부용지·영화당</li>
+      <li><b>낙선재</b> — 헌종 때 건립, 훗날 영친왕 부부·덕혜옹주가 말년을 보냄</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-year">1884</div>
+        <div class="evt-body">
+          <h4>갑신정변</h4>
+          <p>우정총국 개국 축하연에서 정변 → 고종을 경우궁으로 옮겼다가 창덕궁으로 돌아옴 → <b>청군이 창덕궁 공격</b>, 3일 만에 실패.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1907</div>
+        <div class="evt-body">
+          <h4>순종이 옮겨 옴</h4>
+          <p>고종 강제 퇴위 뒤 즉위한 순종이 경운궁에서 창덕궁으로 거처를 옮김. 1910년 국권 피탈 직전 마지막 어전 회의도 이곳(대조전 흥복헌).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1926</div>
+        <div class="evt-body">
+          <h4>순종 승하 <span class="stamp">빈출</span></h4>
+          <p>순종의 장례일(인산일)에 맞춰 <b>6·10 만세 운동</b>. 고종 승하 → 3·1 운동과 짝지어 출제.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="subnote" style="margin-top:0"><b>동궐도</b> 창덕궁과 창경궁을 함께 그린 그림(순조 무렵, 국보). 두 궁을 묶어 '동궐'이라 부릅니다.</div>
+</section>
+
+<!-- 창경궁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">창경궁</span><span class="vs">東</span><span class="neg">왕실 어른을 위한 궁</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 핵심 포인트</h3>
+    <ul class="chk">
+      <li><b>1484년 성종</b>이 세 대비(할머니 정희왕후, 어머니 소혜왕후 등)를 모시려고 건립 — 세종이 상왕 태종을 위해 지은 <b>수강궁</b> 터</li>
+      <li>정전 <b>명정전</b> — 현존 조선 궁궐 정전 중 <span class="redmark">가장 오래됨</span>, 드물게 <b>동향</b></li>
+      <li><b>문정전</b> 앞마당 — 1762년 영조가 <span class="redmark">사도세자를 뒤주에 가둠</span>(임오화변)</li>
+      <li><b>경춘전</b> — 정조가 태어난 곳, 혜경궁 홍씨(『한중록』)가 머묾</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-year">1909</div>
+        <div class="evt-body">
+          <h4>동물원·식물원 설치</h4>
+          <p>일제가 순종을 위로한다는 명목으로 전각을 헐고 동물원·식물원(대온실)을 만들어 일반에 공개 → <b>창경원</b>으로 격하(1911).</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1983</div>
+        <div class="evt-body">
+          <h4>창경궁 이름 회복</h4>
+          <p>동물원을 서울대공원으로 옮기고 궁궐로 복원.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 덕수궁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">덕수궁(경운궁)</span><span class="vs">西</span><span class="neg">대한제국의 정궁</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 이름이 세 번 바뀐 궁</h3>
+    <div class="lineage">
+      <span>정릉동 행궁 (선조)</span><span class="arrow">→</span>
+      <span>경운궁 (광해군)</span><span class="arrow">→</span>
+      <span class="now">덕수궁 (1907)</span>
+    </div>
+    <ul class="chk">
+      <li>원래 성종의 형 <b>월산대군</b>의 집 → 임진왜란으로 궁궐이 모두 불타자 <b>선조</b>가 의주에서 돌아와 임시 거처(행궁)로 사용(1593)</li>
+      <li><b>광해군</b>이 '경운궁'으로 이름 붙임 → 계모 <span class="redmark">인목대비를 유폐</span>, '서궁'이라 낮춰 부름</li>
+      <li>1623 <b>인조반정</b> — 인조가 경운궁 즉조당에서 즉위</li>
+      <li>1907 고종이 강제 퇴위된 뒤 '태상황이 오래 사시라'는 뜻으로 <b>덕수궁</b>으로 바뀜</li>
+    </ul>
+    <div class="subnote"><b>시험 표기</b> 대한제국 시기 사건은 문제에서 대부분 '<b>경운궁</b>', 1907년 이후·해방 후 사건은 '<b>덕수궁</b>'으로 나옵니다. 같은 궁입니다.</div>
+  </div>
+
+  <div class="card">
+    <div class="evt-list">
+      <div class="evt">
+        <div class="evt-year">1897</div>
+        <div class="evt-body">
+          <h4>환궁과 대한제국 선포 <span class="stamp">빈출</span></h4>
+          <p>아관파천 1년 만에 고종이 러시아 공사관에서 <b>경운궁으로 환궁</b> → 근처 <b>환구단</b>에서 황제 즉위, 국호 대한제국·연호 광무.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1900<br>~1910</div>
+        <div class="evt-body">
+          <h4>서양식 건물이 들어선 궁</h4>
+          <p><b>석조전</b>(서양 신고전주의 양식, 1910 완공), <b>정관헌</b>(고종이 커피를 즐긴 곳), <b>중명전</b>, <b>돈덕전</b>. 정전은 <b>중화전</b>, 정문은 <b>대한문</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1905</div>
+        <div class="evt-body">
+          <h4>을사늑약 체결</h4>
+          <p><b>중명전</b>에서 강제 체결 — 외교권 박탈, 통감부 설치. 고종은 서명하지 않음 → 1907 <b>헤이그 특사</b> → 고종 강제 퇴위.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1919</div>
+        <div class="evt-body">
+          <h4>고종 승하</h4>
+          <p><b>함녕전</b>에서 승하, 독살설 확산 → 인산일에 맞춰 <b>3·1 운동</b>.</p>
+        </div>
+      </div>
+      <div class="evt">
+        <div class="evt-year">1946<br>1947</div>
+        <div class="evt-body">
+          <h4>미·소 공동 위원회</h4>
+          <p>모스크바 3국 외상 회의 결정에 따라 <b>석조전</b>에서 개최 → 두 차례 모두 결렬.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 경희궁 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="pos">경희궁</span><span class="vs">西</span><span class="neg">서궐</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title"><span class="box">☐</span> 핵심 포인트</h3>
+    <ul class="chk">
+      <li><b>광해군</b>이 건립(1617~1620), 원래 이름 <span class="redmark">경덕궁</span> — 인조의 아버지 정원군 집터에 왕기가 서렸다는 말 때문</li>
+      <li><b>영조</b> 때 '경희궁'으로 개칭(1760) — 인조의 아버지 원종의 시호와 소리가 같아서</li>
+      <li>정전 <b>숭정전</b>, 정문 <b>흥화문</b> — 영조가 가장 오래 머문 궁, 정조가 숭정문에서 즉위</li>
+      <li>일제 강점기 <b>경성중학교</b>를 세우며 대부분 철거, 흥화문은 이토 히로부미 사당(박문사) 정문으로 옮겨졌다가 되돌아옴 — 5대 궁궐 중 <b>가장 많이 훼손</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 헷갈리는 짝 -->
+<section class="section">
+  <div class="section-head">
+    <div class="duality"><span class="neg">헷갈리는 짝</span></div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="chk">
+      <li><b>을미사변</b>(1895)은 <span class="redmark">경복궁</span>, <b>을사늑약</b>(1905)은 <span class="redmark">경운궁 중명전</span> — '을미=경복, 을사=경운'</li>
+      <li><b>고종</b> 승하(1919)는 <b>덕수궁</b> → 3·1 운동 / <b>순종</b> 승하(1926)는 <b>창덕궁</b> → 6·10 만세 운동</li>
+      <li><b>규장각</b>은 창덕궁 후원 / <b>집현전</b>은 경복궁 — 둘 다 학문 기관이지만 왕과 궁이 다름</li>
+      <li><b>창덕궁</b>(태종, 세계유산, 순종) / <b>창경궁</b>(성종, 사도세자, 창경원) — '창'자 하나 차이</li>
+      <li><b>경희궁</b>의 옛 이름은 경덕궁, <b>경운궁</b>의 새 이름은 덕수궁 — '덕'자가 들어간 이름이 서로 다름</li>
+      <li>궁궐 안 <b>전등</b>(1887, 경복궁 건청궁) / <b>전차</b>(1899, 서대문~청량리, 한성 전기 회사)</li>
+    </ul>
+  </div>
+</section>
+
+<div class="bridge">
+  <b>함께 나오는 곳</b><br>
+  <b>운현궁</b> — 흥선대원군의 집이자 고종이 즉위 전 살던 곳, 고종과 명성황후의 가례 장소.
+  <b>종묘</b> — 역대 왕과 왕비의 신주를 모신 사당, 1995년 세계 문화유산, 종묘 제례악은 인류 무형 문화유산.
+  <b>환구단</b> — 1897년 고종이 황제 즉위식을 올린 제단(현재 황궁우만 남음).
+</div>
+
+<footer>
+  실제 기출 지문은 저작권상 옮기지 않았으며, 반복 출제되는 핵심 사실만 정리했습니다. 굵게 표시하고 밑줄·형광펜으로 강조한 단어가 선지에서 정답을 가르는 핵심 키워드입니다. 인쇄해서 책상에 두고 보셔도 레이아웃이 깨지지 않도록 만들었습니다.
+</footer>
+
+<nav class="pagenav">
+  <a class="prev" href="historical-turning-points.html"><span class="dir">← 이전</span><span class="ttl">주요 사건 흐름도</span></a>
+  <a class="listlink" href="index.html" title="전체 목록">목록</a>
+  <a class="next" href="prehistoric-early-states.html"><span class="dir">다음 →</span><span class="ttl">선사 시대·초기 국가</span></a>
+</nav>
+
+</div>
+</body>
+</html>
